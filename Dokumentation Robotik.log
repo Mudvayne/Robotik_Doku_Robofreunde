@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.7.10)  17 JUL 2015 19:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.7.10)  18 JUL 2015 14:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -415,11 +415,7 @@ Package graphics Info: Driver file: pdftex.def on input line 94.
 \Gin@req@height=\dimen108
 \Gin@req@width=\dimen109
 )
-(./Dokumentation Robotik.aux
-
-LaTeX Warning: Label `Torwart Entscheidungsbaum' multiply defined.
-
-)
+(./Dokumentation Robotik.aux)
 \openout1 = `"Dokumentation Robotik.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
@@ -435,7 +431,8 @@ LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
 \c@lstlisting=\count99
- (c:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+
+(c:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count100
 \scratchdimen=\dimen110
@@ -595,15 +592,60 @@ File: Grafiken/KI/Keeper.png Graphic file (type png)
 Package pdftex.def Info: Grafiken/KI/Keeper.png used on input line 214.
 (pdftex.def)             Requested size: 448.13095pt x 214.07133pt.
  [11]
-<Grafiken/KI/attackerCenter_v2.png, id=54, 827.09pt x 568.1225pt>
+Underfull \hbox (badness 10000) in paragraph at lines 219--221
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--224
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--227
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--230
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--233
+
+ []
+
+[12 <./Grafiken/KI/Keeper.png>]
+<Grafiken/KI/guard_goal.png, id=58, 841.64438pt x 521.69907pt>
+File: Grafiken/KI/guard_goal.png Graphic file (type png)
+
+<use Grafiken/KI/guard_goal.png>
+Package pdftex.def Info: Grafiken/KI/guard_goal.png used on input line 236.
+(pdftex.def)             Requested size: 448.13095pt x 277.78082pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 241--243
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 255--257
+
+ []
+
+[13 <./Grafiken/KI/guard_goal.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 258--262
+
+ []
+
+<Grafiken/KI/attackerCenter_v2.png, id=63, 827.09pt x 568.1225pt>
 File: Grafiken/KI/attackerCenter_v2.png Graphic file (type png)
 
 <use Grafiken/KI/attackerCenter_v2.png>
 Package pdftex.def Info: Grafiken/KI/attackerCenter_v2.png used on input line 2
-23.
+75.
 (pdftex.def)             Requested size: 448.13095pt x 307.82182pt.
- [12 <./Grafiken/KI/Keeper.png>]
-[13 <./Grafiken/KI/attackerCenter_v2.png>] (./Dokumentation Robotik.lof)
+ [14] [15 <./Grafiken/KI/attackerCenter_v2.png>] (./Dokumentation Robotik.lof)
 \tf@lof=\write4
 \openout4 = `"Dokumentation Robotik.lof"'.
 
@@ -619,39 +661,36 @@ Class scrartcl Warning: \float@listhead detected!
 (scrartcl)              Loading of package `scrhack' may help to
 (scrartcl)              avoid this warning, if you are using a
 (scrartcl)              a package that still implements the
-(scrartcl)              deprecated \float@listhead interface  on input line 249
+(scrartcl)              deprecated \float@listhead interface  on input line 301
 .
 
 (./Dokumentation Robotik.lol)
 \tf@lol=\write5
 \openout5 = `"Dokumentation Robotik.lol"'.
 
- [14] (./Dokumentation Robotik.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+ [16] (./Dokumentation Robotik.aux) ) 
 Here is how much of TeX's memory you used:
- 5851 strings out of 493093
- 85321 string characters out of 6138556
+ 5878 strings out of 493093
+ 85853 string characters out of 6138556
  293211 words of memory out of 5000000
- 9240 multiletter control sequences out of 15000+600000
+ 9266 multiletter control sequences out of 15000+600000
  14129 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,8n,50p,1022b,1692s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texl
-ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2015/
-texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2015/texmf-dist
-/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2015/texmf-dist/fonts/typ
-e1/public/cm-super/sfrm1728.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/
-cm-super/sfsx1200.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/s
-fsx1440.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pf
-b><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfsx2488.pfb><c:/texl
-ive/2015/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on "Dokumentation Robotik.pdf" (14 pages, 314481 bytes).
+ 46i,10n,50p,1018b,1692s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2015/texmf-dist/fonts/enc/dvip
+s/cm-super/cm-super-t1.enc}<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1
+200.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c
+:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c:/texlive/
+2015/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb><c:/texlive/2015/texmf
+-dist/fonts/type1/public/cm-super/sfsx1440.pfb><c:/texlive/2015/texmf-dist/font
+s/type1/public/cm-super/sfsx1728.pfb><c:/texlive/2015/texmf-dist/fonts/type1/pu
+blic/cm-super/sfsx2488.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-su
+per/sfti1200.pfb>
+Output written on "Dokumentation Robotik.pdf" (16 pages, 400243 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 105 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

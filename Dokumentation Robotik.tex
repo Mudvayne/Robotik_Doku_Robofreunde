@@ -205,7 +205,7 @@ public class GoToBallState extends BaseAttackerCenter {
 }
 \end{lstlisting}
 
-Listing \ref{Beispiel eines konkreten States: GoToBallState} zeigt Beispielhaft den State, der für das Laufen zum Ball verantwortlich ist. Er hält eine sogenannte \lstinline$IBehavior$ vor, die am Ende für das Ausführen der Bewegung benötigt wird. Innerhalb des States findet also nicht die Ausführung der Bewegung statt, sondern nur deren Parametrisierung. In der \lstinline$update()$-Methode findet in Zeile 12 zuerst die Abfrage des für die aktuelle Situation besten States statt. Dazu wird die geerbte Methode \lstinline$decideNextState()$ aufgerufen. Nur wenn der zurückgegebene State er selbst ist, soll er seinen Code Ausführen und die \lstinline$IBehavior$ bearbeiten (Zeilen 14 - 18). Wurde ein anderer State zurückgegeben, wird kein eigener Code ausgeführt und die neue State zurückgegeben (Zeile 20). Damit die \lstinline$IBehavior$ von außen abgerufen werden kann, wurde hierfür ein Getter erzeugt (Zeilen 23 - 26).
+Listing \ref{Beispiel eines konkreten States: GoToBallState} zeigt Beispielhaft den State, der für das Laufen zum Ball verantwortlich ist. Er hält eine sogenannte \lstinline$IBehavior$ vor, die am Ende für das Ausführen der Bewegung benötigt wird. Innerhalb des States findet also nicht die Ausführung der Bewegung statt, sondern nur deren Parametrisierung. In der \lstinline$update()$-Methode passiert in Zeile 12 zuerst die Abfrage des für die aktuelle Situation besten States. Dazu wird die geerbte Methode \lstinline$decideNextState()$ aufgerufen. Nur wenn der zurückgegebene State er selbst ist, soll er seinen Code ausführen und die \lstinline$IBehavior$ bearbeiten (Zeilen 14 - 18). Wurde ein anderer State zurückgegeben, wird kein eigener Code ausgeführt und der neue State zurückgegeben (Zeile 20). Damit die \lstinline$IBehavior$ von außen abgerufen werden kann, wurde hierfür ein Getter erzeugt (Zeilen 23 - 26).
 
 \subsubsection{Standardrolle: Torwart}
 
@@ -216,6 +216,58 @@ Listing \ref{Beispiel eines konkreten States: GoToBallState} zeigt Beispielhaft 
 	\label{Torwart Entscheidungsbaum}
 \end{figure}
 
+Abbildung \ref{Torwart Entscheidungsbaum} zeigt den Entscheidungsbaum des Torwarts. Die Entscheidungsbäume von Torwart und Stürmer finden ihre direkte Umsetzung in der \lstinline$decideNextState()$ des Basis-States. Es war also sehr sinnvoll vor der Implementierung derartige Entscheidungsbäume zu entwerfen.
+\\
+
+Die Statemachine des Torwarts besteht aus insgesamt 4 States. Die erste Überprüfung ist, ob der Spieler den Ball besitzt. Besitzt er den Ball, will er ihn schnell wieder loswerden, schließlich ist er ein Torwart. Dazu Sucht er im eigenen Team passende Passpartner. Ein passender Passpartner steht in einer passenden Entfernung und wird nicht von einem gegnerischen Spieler geblockt. Ist ein passender Spieler gefunden wird der Pass ausgeführt. Findet sich kein Spieler, soll der Ball in Richtung der Mittellinie geschossen werden, also möglichst weit weg von eigenen Tor.
+\\
+
+Besitzt der Torwart den Ball nicht, kommt es darauf an wie weit der Ball weg ist. Ist der Ball ein gutes Stück entfernt, soll in den State \lstinline$GuardGoalState$ gewechselt werden. Was dieser State genau macht wird später beschrieben. Kommt der Ball dem eigenen Tor zu Nahe, soll der Torwart reagieren und auf den Ball zulaufen um ihn zu erobern.
+\\
+
+\textbf{Der \lstinline$GuardGoalState$}
+\\
+
+Hat der Ball eine relativ große Entfernung zum Tor, soll sich der Torwart natürlich nicht vom eigenen Tor wegbewegen. Vielmehr sollte er eine geeignete Position vor dem Tor einnehmen. Ziel ist es, eine möglichst große Fläche des Tors zu \glqq verdecken\grqq, um Distanzschüsse zu verhindern oder zumindest zu erschweren. Dafür ist der \lstinline$GuardGoalState$ zuständig.
+\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\ScaleIfNeeded]{Grafiken/KI/guard_goal}
+	\caption{Veranschaulichung des \lstinline$GuardGoalState$s}
+	\label{Veranschaulichung des GuardGoalState}
+\end{figure}
+
+Abbildung \ref{Veranschaulichung des GuardGoalState} veranschaulicht die Berechnung der optimalen Position vor dem Tor anhand einer Grafik. Der gelbe Halbkreis definiert alle möglichen Positionen vor dem Tor, die der Torwart im \lstinline$GuardGoalState$ einnehmen kann. Die genaue Position hängt von der aktuellen Position des Balls ab. Dazu wird eine Gerade vom Ball in das Eigene Tor gelegt, der Schnittpunkt mit dem gelben Halbkreis entspricht der optimalen Position.
+\\
+
+\begin{lstlisting}[caption=Umsetzung des \lstinline$GuardGoalState$s, captionpos=b, label=Umsetzung des GuardGoalState]
+public Vector3D getGoodGoalieDefendPosition() {  
+	Vector3D ballPosition = thoughtModel.getWorldModel().getBall().getPosition();  
+	Vector3D goalPosition = thoughtModel.getWorldModel().getOwnGoalPosition();    
+	Vector3D direction = ballPosition.subtract(goalPosition);  
+	direction = direction.normalize().scalarMultiply(2.0f);  
+	return goalPosition.add(direction);  
+}  
+
+\end{lstlisting}
+
+Listing \ref{Umsetzung des GuardGoalState} zeigt die Berechnung der korrekten Position im Code. Notwendig sind jeweils die Position des Ball und des eigenen Tors (Zeilen 2 und 3). Dann wird ein Richtungsvektor berechnet, der vom Tor Richtung Ball zeigt (Zeile 4). Dieser wird zuerst normiert und dann auf die Länge 2 skaliert. Der Abstand 2 vom Tor hat sich als guter Wert herausgestellt (Zeile 5). Die gesuchte Position errechnet sich durch die Addition des Richtungsvektors auf die Torkoordinate (Zeile 6).
+\\
+
+\textbf{Energiesparmaßnahme}
+\\
+Der Torwart wird die meiste Zeit innerhalb des \lstinline$GuardGoalState$ bleiben. Bei jedem Poll wird eine neue Position anhand der Ball und Torposition berechnet, zu der er dann hinläuft. Bei Ball und Torkoordinate handelt es sich aber um circa Angaben, schließlich wird das Worldmodel anhand der Sensoren des Roboters kontinuierlich korrigiert. Dabei kommt es zu minimalen Schwankungen, die zu einer neu berechneten Laufposition führen. Somit kommt der Roboter quasi nie zum Stillstand, auch wenn er seiner berechneten Laufposition extrem nahe ist. Damit der Roboter stehen bleibt, wenn er hinreichend nahe an seiner Zielposition steht, wurde eine Energiesparmaßnahme etabliert.
+\\
+
+\begin{lstlisting}[caption=Energiesparmaßnahme Torwart, captionpos=b, label= ESM Torwart]
+if (nextState == this && (targetDistance > 0.2 || !angleCloseEnough(angleToBall))) {
+	...
+} 
+
+\end{lstlisting}
+
+Listing \ref{ESM Torwart} zeigt die Bedingungen für eine erneute Bewegnung. Nur, wenn die Zieldistanz einen hinreichend kleinen Wert überschreitet, oder der Winkel des Roboters zum Ball nicht gut genug ist, soll zur neuen Position gelaufen werden. Ursprünglich wurde nur die Distanz zum Ziel herangezogen, mit der Folge, dass der Roboter teilweise quer zum Ball stehen blieb. Damit verdeckt er aber weniger Fläche vom Tor, also wurde noch ein optimaler Winkel zum Ball miteinbezogen.
 \subsubsection{Standardrolle: Stürmer}
 
 \begin{figure}[H]
