@@ -1,36 +1,47 @@
 \select@language {ngerman}
-\contentsline {section}{\numberline {1}Einleitung}{3}
-\contentsline {section}{\numberline {2}Anforderungen}{4}
-\contentsline {section}{\numberline {3}Zeitplan}{4}
-\contentsline {section}{\numberline {4}RoboCup - Installation}{4}
-\contentsline {section}{\numberline {5}Framework}{4}
-\contentsline {subsection}{\numberline {5.1}Entscheidung f\IeC {\"u}r Magma}{4}
-\contentsline {subsection}{\numberline {5.2}\IeC {\"U}berblick Magma}{4}
-\contentsline {section}{\numberline {6}KI-Konzept}{4}
-\contentsline {subsection}{\numberline {6.1}Anforderungen}{5}
-\contentsline {subsection}{\numberline {6.2}Komponenten}{5}
-\contentsline {subsubsection}{\numberline {6.2.1}Elementare Bewegungen}{5}
-\contentsline {subsubsection}{\numberline {6.2.2}Rollen}{6}
-\contentsline {subsubsection}{\numberline {6.2.3}Strategien}{6}
-\contentsline {subsubsection}{\numberline {6.2.4}Strategie-Entscheider}{7}
-\contentsline {subsection}{\numberline {6.3}Gesamt\IeC {\"u}bersicht}{9}
-\contentsline {section}{\numberline {7}Elementare Bewegungen}{9}
-\contentsline {subsection}{\numberline {7.1}Anforderungen}{9}
-\contentsline {subsection}{\numberline {7.2}Laufen}{9}
-\contentsline {subsection}{\numberline {7.3}Dribbeln}{9}
-\contentsline {subsection}{\numberline {7.4}Schie{\ss }en}{9}
-\contentsline {subsubsection}{\numberline {7.4.1}Behaviors}{10}
-\contentsline {subsubsection}{\numberline {7.4.2}Evaluierung, Metrik Bots}{10}
-\contentsline {section}{\numberline {8}Rollen}{10}
-\contentsline {subsection}{\numberline {8.1}Standardrollen: Torwart und St\IeC {\"u}rmer}{10}
-\contentsline {subsubsection}{\numberline {8.1.1}Konzept}{10}
-\contentsline {subsubsection}{\numberline {8.1.2}Standardrolle: Torwart}{13}
-\contentsline {subsubsection}{\numberline {8.1.3}Standardrolle: St\IeC {\"u}rmer}{16}
-\contentsline {subsection}{\numberline {8.2}Standardrolle: Verteidiger}{16}
-\contentsline {subsection}{\numberline {8.3}Standardrolle: Mittelfeld}{16}
-\contentsline {subsection}{\numberline {8.4}Spezialrollen: Standardsituationen}{16}
-\contentsline {section}{\numberline {9}Grafisches Debugging}{16}
-\contentsline {section}{\numberline {10}Strategien}{17}
-\contentsline {section}{\numberline {11}Strategie-Entscheider}{17}
-\contentsline {section}{\numberline {12}Zusammenfassung und Ausblick}{17}
-\contentsline {section}{\numberline {13}Verzeichnisse}{17}
+\contentsline {section}{\numberline {1}Einleitung}{3}{section.1}
+\contentsline {section}{\numberline {2}Anforderungen}{4}{section.2}
+\contentsline {section}{\numberline {3}Zeitplan}{4}{section.3}
+\contentsline {section}{\numberline {4}RoboCup Soccer Simulation League}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}Installation auf Windows Systemen}{5}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Installation Linux Systemen}{5}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Installation Windows + VM}{5}{subsection.4.3}
+\contentsline {section}{\numberline {5}Framework}{6}{section.5}
+\contentsline {subsection}{\numberline {5.1}Entscheidung f\IeC {\"u}r Magma}{6}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Magma Offenburg}{7}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Agent Startup Routine}{10}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Server Konfiguration}{12}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Verschiedene NAO-Models}{12}{subsubsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.4}DecisionMaker}{12}{subsubsection.5.2.4}
+\contentsline {subsubsection}{\numberline {5.2.5}Believes}{12}{subsubsection.5.2.5}
+\contentsline {subsubsection}{\numberline {5.2.6}Behaviors}{12}{subsubsection.5.2.6}
+\contentsline {subsubsection}{\numberline {5.2.7}Thought- und Worldmodel}{12}{subsubsection.5.2.7}
+\contentsline {subsubsection}{\numberline {5.2.8}Server Kommunikation}{12}{subsubsection.5.2.8}
+\contentsline {section}{\numberline {6}KI-Konzept}{12}{section.6}
+\contentsline {subsection}{\numberline {6.1}Anforderungen}{12}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Komponenten}{13}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Elementare Bewegungen}{13}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Rollen}{13}{subsubsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.3}Strategien}{14}{subsubsection.6.2.3}
+\contentsline {subsubsection}{\numberline {6.2.4}Strategie-Entscheider}{15}{subsubsection.6.2.4}
+\contentsline {subsection}{\numberline {6.3}Gesamt\IeC {\"u}bersicht}{16}{subsection.6.3}
+\contentsline {section}{\numberline {7}Elementare Bewegungen}{16}{section.7}
+\contentsline {subsection}{\numberline {7.1}Anforderungen}{16}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Laufen}{16}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Dribbeln}{16}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Schie{\ss }en}{16}{subsection.7.4}
+\contentsline {subsubsection}{\numberline {7.4.1}Behaviors}{17}{subsubsection.7.4.1}
+\contentsline {subsubsection}{\numberline {7.4.2}Evaluierung, Metrik Bots}{17}{subsubsection.7.4.2}
+\contentsline {section}{\numberline {8}Rollen}{17}{section.8}
+\contentsline {subsection}{\numberline {8.1}Standardrollen: Torwart und St\IeC {\"u}rmer}{17}{subsection.8.1}
+\contentsline {subsubsection}{\numberline {8.1.1}Konzept}{17}{subsubsection.8.1.1}
+\contentsline {subsubsection}{\numberline {8.1.2}Standardrolle: Torwart}{20}{subsubsection.8.1.2}
+\contentsline {subsubsection}{\numberline {8.1.3}Standardrolle: St\IeC {\"u}rmer}{23}{subsubsection.8.1.3}
+\contentsline {subsection}{\numberline {8.2}Standardrolle: Verteidiger}{23}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Standardrolle: Mittelfeld}{23}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Spezialrollen: Standardsituationen}{23}{subsection.8.4}
+\contentsline {section}{\numberline {9}Grafisches Debugging}{23}{section.9}
+\contentsline {section}{\numberline {10}Strategien}{24}{section.10}
+\contentsline {section}{\numberline {11}Strategie-Entscheider}{24}{section.11}
+\contentsline {section}{\numberline {12}Zusammenfassung und Ausblick}{24}{section.12}
+\contentsline {section}{\numberline {13}Verzeichnisse}{24}{section.13}

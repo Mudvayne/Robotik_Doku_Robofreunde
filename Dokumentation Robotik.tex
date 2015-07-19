@@ -5,6 +5,8 @@
 \usepackage{float}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{hyperref}
+\usepackage{tabularx}
 \setlength{\parindent}{0pt}
                            
 \lstset{ 
@@ -39,7 +41,7 @@ Es handelt sich hier nur um einen Vorschlag für die Struktur des Dokuments. Das
 \maketitle
 \tableofcontents
 
-\section{Einleitung}
+\section{Einleitung}\label{se:Einleitung}
 \textit{Verfasser: Stumpf}\\
 \\
 Die Lehrveranstaltung Robotik im SS-2015 hatte die Programmierung des NAO -- eines humanoiden Roboters von Aldebaran -- als übergreifendes Thema. Diesem sollten für Fussball notwendige Bewegungsabläufe und Taktiken beigebracht werden. Aufgrund des großen Andrangs könnten sich nicht alle Teilnehmer mit dem einzigen zur Verfügung stehenden NAO Modell beschäftigen. Die Gruppe wurde also in ein Hardware und 2 Simulationsteams aufgeteilt.\\
@@ -61,16 +63,197 @@ Da die Schnittstellen zum Server auf sehr niedriger Ebene definiert sind - Beweg
 \section{Zeitplan}
 \textbf{-> TODO: Stumpfi}
 \textit{Was wurde wann gemacht?}
-\section{RoboCup - Installation}
+\section{RoboCup Soccer Simulation League}
+\textit{Verfasser: Stumpf}\\
+\\
+Simspark ist die Engine, auf der der die RoboCup Soccer Simulation League aufgebaut ist. Es wird beschrieben als generisches Simulationssystem für mehrere Agents und ist bei Sourceforge als OpenSource Projekt registriert.\\
+\\
+In der RoboCup Simulation können sich die Agents -- NAO-Agents in 3D - - mit dem Server verbinden und über ein Textprotokoll mit diesem kommunizieren. In jedem Zyklus werden vom NAO-Agent Daten über die gewünschten Bewegungen der Effektoren (Gelenke) an den Server gesendet, der den virtuellen NAO entsprechend reagieren lässt. Als Antwort erhält der Agent Informationen über die Position seiner Effektoren und Daten seiner Sensoren (z.B. visuelle Sensoren, Lagesensoren).\\
+\\
+Die erste Herausforderung war es, die Simulationsumgebung lokal auf jedem der Rechner zu installieren, um Entwicklung und Tests zu ermöglichen. Unsere Erfahrungen werden in diesem Abschnitt kurz zusammengefasst. Für das Endspiel wurde uns ein Rechner für die Installation des Servers zur Verfügung gestellt. Diese Aufgabe hat das andere Simulations-Team übernommen.\\
+\\
+Installationsanleitungen für verschiedene Systeme findet man im Wiki von Simspark auf \href{http://simspark.sourceforge.net/wiki/index.php/Main_Page}{http://simspark.sourceforge.net/wiki/index.php/Main\_Page}\\
+\\
+Die benötigten Komponenten sind der Simulationsserver - rcssserver3d sowie der Monitor - rcssmonitor3d, der das Spielgeschehen grafisch darstellt. Die von uns verwendete Server Version ist v6.8.1.
+
+\subsection{Installation auf Windows Systemen}
+\textit{Verfasser: Stumpf}\\
+\\
+Trotz wiederholter Versuche von Teammitgliedern beider Teams haben wir die zu unserem Zeitpunkt zur Verfügung stehende Windows Version 6.7 nicht nicht zum Laufen gebracht. 
+\subsection{Installation Linux Systemen}
+\textit{Verfasser: Stumpf}\\
+\\
+Sowohl auf ArchLinux und Debian ist die Simulationsumgebung lauffähig. Die Installation muss auf diesen Systemen allerdings manuell über das zur Verfügung stehende tar.gz erfolgen.\\
+\\
+Auf Fedora hingegen funktioniert die Installation sehr komfortabel, da die Pakete im Paketmanager hinterlegt sind. \texttt{'yum install rcssserver3d'}
+\subsection{Installation Windows + VM}
+\textit{Verfasser: Stumpf}\\
+\\
+Um auf Windows Systemen dennoch entwickeln und testen zu können, haben wir eine VM mit Fedora aufgesetzt (z.B. Virtual Box) und auf dieser die Simulationsumgebung installiert. Es ist darauf zu achten, einen Netzwerkadapter als Host-Only Adapter einzurichten, um auf den Server zugreifen zu können.\\
+\\
+In Kombination mit RoboViz (siehe \autoref{se:Grafisches Debugging}) ist es möglich, nur noch den rcssserver3d in der VM zu starten, da der RoboViz Monitor problemlos auf Windows läuft.
+
 \section{Framework}
-\textbf{-> TODO: Stumpfi}
-\textit{Ein paar einleitende Sätze.}
+\textit{Verfasser: Stumpf}\\
+\\
+Für die Entwicklung von Agents für die RoboCup Soccer Simulation League wird auf der Wiki Seite von Simspark eine Vielzahl von Frameworks vorgestellt. Nach Evaluation dieser stellt sich jedoch heraus, dass viele davon nicht mehr als ein grobes Gerüst für die Kommunikation mit dem Server, schlecht bis gar nicht dokumentiert oder seit Jahren nicht mehr gepflegt und damit inkompatibel zur aktuellen Server Version sind.\\
+\\
+Die Frameworks, die nach näherer Untersuchung noch in Betracht kamen waren:
+\begin{itemize}
+\item Magma Offenburg (Java)
+\item libbats (c++)
+\item tinman (c\#)
+\item Zigorat (c++)
+\end{itemize}
+
 \subsection{Entscheidung für Magma}
-\textbf{-> TODO: Stumpfi}
-\textit{Warum Magma?}
-\subsection{Überblick Magma}
-\textbf{-> TODO: Stumpfi}
-\textit{Alles, was wir so über das Framework rausgefunden haben und erwähnenswert ist.}
+\textit{Verfasser: Stumpf}\\
+\\
+Folgende Punkte haben wir in einer Diskussionsrunde als Grundlage für die Entscheidung des Frameworks festgelegt:
+\begin{itemize}
+\item Umsetzung der Grundbewegungen soll vorhanden sein. Dazu zählen:
+	\begin{itemize}
+	\item Gehen/Laufen
+	\item Aufstehen
+	\item Schie{\ss}en
+	\end{itemize}
+\item Gute Dokumentation, vorzugsweise in Englisch.
+\item Programmiersprache sollte allen Gruppenmitgliedern bekannt sein. 
+\item Das Framework sollte aktuell sein und noch gepflegt werden.
+\item Ein Worldmodel, welches Informationen über Spielzustand, Spieler auf dem Feld u.a. enthält, ist erwünscht.
+\item Beispielimplementierung eines Agents vorhanden.
+\end{itemize}
+
+Nach dem Ausscheiden der offensichtlich ungeeigneten Kandidaten haben wir uns letztendlich für Magma Offenburg entschieden. Grundlage für die Entscheidung war, dass Magma unsere obigen Anforderungen nahezu gänzlich erfüllt hat. Das einzige Manko, welches aber erst später in der Entwicklung deutlicher wurde, ist die Dokumentation. Essenzielle Methoden sind zum Teil gar nicht, falsch oder unzureichend mit JavaDoc versehen.
+
+Im Vergleich zu den anderen Kandidaten ausschlaggebend war unter anderem:
+\begin{itemize}
+\item Die Programmiersprache Java kam den meisten unserer Gruppenmitglieder sehr gelegen. In Absprache mit der anderen Simulationsgruppe wurde au{\ss}erdem dafür gestimmt, unterschiedliche Sprachen zu verwenden. Ein weiterer Grund.
+\item Magma Offenburg bietet mehrere Schussimplementierungen, was zumindest tinman und libbats nicht vorweisen können.
+\item Die Trennung der Agents in logische Abstraktionsebenen, DecisionMaker (Trifft Entscheidung was zu tun ist), Believe (Gibt zurück ob ein Zustand zutrifft, z.B. "Liege ich am Boden?"), Behavior (Führt aus was zu tun ist) war uns sympathisch.
+\end{itemize}
+
+Hier noch einmal ein Überblick über Vorteile und Nachteile von Magma Offenburg:
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+ \textbf{Vorteile}&\textbf{Nachteile}\\
+\hline
+\hline
+ Großer Funktionsumfang&Großer Umfang, komplex\\
+\hline 
+ Java&Gewachsene Struktur, unübersichtlich, viele nicht verwendete Klassen und Methoden\\
+\hline
+ Abstraktionsebenen&viele Abhängigkeiten, Änderung an A -> Änderung an B notwendig\\
+\hline
+ Worldmodel vorhanden&zum Teil fehlerhafter oder nicht implementierter Code\\
+\hline
+ Agents implementiert&viele undokumentierte Erfahrungswerte,  Optimierung erfordert zum Teil stupides Herumprobieren\\
+\hline
+ Grundbewegungsabläufe implementiert&\\
+\hline
+ Englische JavaDoc&\\
+\hline
+\end{tabularx}
+
+\subsection{Magma Offenburg}
+\textit{Verfasser: Stumpf}\\
+\\
+Im Folgenden wird das von uns verwendete Framework Magma Offenburg näher erklärt. Dazu bietet sich an, einen kurzen Überblick über die Struktur und Abläufe eines Agents zu geben.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Grafiken/Magma/AgentRuntime_Structure}
+	\caption{Magma Offenburg - Agent Runtime Architecture}
+	\label{fig:Magma - Agent Runtime Struktur}
+\end{figure}
+
+In obiger Grafik kann man den groben Aufbau eines Magma Offenburg Agents erkennen. Die AgentRuntime ist der Java Prozess, welcher sich beim Server anmeldet und mit diesem kommuniziert. \\
+\\
+Für die Kommunikation ist der ChannelManager zuständig,  der die Verbindung zum Server vorhält, eingehende Daten verarbeitet (Parsen + update des Thoughtmodels) und ausgehende Daten serialisiert und an den Server weiterleitet.\\
+\\
+Das AgentMetaModel liefert Metainformationen über den simulierten Agent, wie verfügbare Gelenke und verfügbare Sensoren.\\
+\\
+Das ServerMetaModel enthält Informationen über den Server, wie aktuelle Versionsnummer, Dimensionen des Spielfelds und Namen der Landmarks.\\
+\\
+Hinter dem DecisionMaker verbirgt sich die komplette Logik des Agents. Der DecisionMaker entscheidet über die nächste auszuführende Behavior (Aktion). Grundlage für die Entscheidung ist das Thoughtmodel, in dem sowohl für den Spieler spezifische als auch alle Daten des Worldmodels enthalten sind.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Grafiken/Magma/AgentRuntime_Loop}
+	\caption{Magma Offenburg - Agent Runtime Loop}
+	\label{fig:Magma - Agent Runtime Loop}
+\end{figure}
+
+Der Agent Runtime Loop beschreibt, was für jeden Zyklus im Agent passiert.\\
+\\
+Beim Eintreffen eines Pakets vom Server wird dessen information geparsed und die erhaltenen Werte vom ChannelManager in die Liste der Perceptors (Daten über Gelenkwinkel und Sensoren) geschrieben.
+Diese werden dann in jedem Zyklus in das Thoughtmodel übernommen.\\
+\\
+Im Anschluss fragt der Agent seinen DecisionMaker, welche Aktion er denn ausführen soll. Dieser überprüft anhand einer Reihe von Believes, welche Behavior denn ausgehend vom aktuellen Zustand des Thoughtmodels am sinnvollsten wäre und gibt diese zurück.\\
+\\
+Die für den nächsten Zyklus ausführbare Behavior wird nun wieder serialisiert und vom ChannelManager an der Server gesendet.\\
+\\
+Mit der Antwort des Servers beginnt ein neuer Zyklus.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Grafiken/Magma/Observer_Structure}
+	\caption{Magma Offenburg - Observer Structure}
+	\label{fig:Magma - Observer Structure}
+\end{figure}
+
+Da der ChannelManager auf dem Observer Pattern basiert, möchte ich dieses noch kurz darlegen. Der ConnectionChannel meldet sich bei der SocketConnection als Observer an. Die SocketConnection hält die eigentliche Verbindung zum Server. Ist nun bei der Socket Connection ein Paket angekommen, informiert es alle seine Observer, also die ConnectionChannel, welche dann das Paket abholen, parsen und die enthaltene Information in den Perceptors abspeichern. Aus diesen werden sie dann vom Agent ausgelesen und in das Thoughtmodel übertragen. (siehe \autoref{fig:Magma - Agent Runtime Loop})
+
+\subsubsection{Agent Startup Routine}
+\textit{Verfasser: Stumpf}\\
+\\
+Welcher Agent mit welchen Eigenschaften gestartet werden soll ist über Kommandozeilenparameter konfigurierbar. Auf diese möchte ich im folgenden kurz eingehen:\\
+\\
+\texttt{--teamname="Robo1" --playerid=2 --server=192.168.56.101 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=31 --homePosition=-15.0:0.0}\\
+\\
+\begin{itemize}
+\item \textbf{--teamname:} Der Name des Teams. Der rcssserver3d weist Agents vom gleichen Team der gleichen Seite zu.
+\item \textbf{--playerid:} Die Spielernummer. Sollte unique sein.
+\item \textbf{--server:} IP-Adresse des Servers.
+\item \textbf{--port:} Port auf dem der rcssserver läuft. Standard ist 3100.
+\item \textbf{--loglevel:} Das Loglevel des Agents. Nur console logging, nicht grafisch.
+\item \textbf{--serverversion:} Version des Servers, entscheidet welche Serverkonfigurationsdatei verwendet wird.
+\item \textbf{--factory:} Die Factory entscheidet, welches Agent-Modell verwendet wird. NaoRF ist ein von unserer Grupper erstelltes Modell, welches den Nao um einiege zusätzliche Bahaviors erweitert und Fehler in den maximalen Winkeln der Gelenke behebt.
+\item \textbf{--decisionmaker:} Definiert den Decisionmaker für diesen Spieler. Zuweisung erfolgt nicht besonders elegant über einen Switch-Case in der Klasse ComponentFactory.java. Fall neue DecisionMaker angelegt und verwendet werden sollen müssen diese in der ComponentFactory hinzugefügt werden. Die 31 ist der von uns entwickelte Decisionmaker, der auf dem Strategy-Role-Modell (siehe \autoref{sse:KI-Gesamtübersicht}) basiert.
+\item \textbf{--homePosition:} Dieser Parameter wurde von unserer Gruppe hinzugefügt. Damit lässt sich unabhängig von der Spielernummer eine HomePosition für den zu erstellenden Agent festlegen, von welcher aus dieser agiert.
+\end{itemize}
+
+Die Kommandozeilenparameter werden über die Klasse CommandlineParser.java eingelesen. Diese wurde wohl irgendwann einmal erweitert um obige Eingabemöglichkeit. Sollte der Commandline Parser irgendeinen der obigen --<param> Parameternamen nicht kennen, so wird er auf die alte Parser Version zurückfallen, die noch keine Namen für die Parameter kennt, sondern diese in einer bestimmten Reihenfolge erwartet. Das führt zu 100\% zu einem Fehler, sollte also beachtet werden.\\
+\\
+Unser KI-Konzept enthält einen Strategy Decider, der seine Entscheidungen anhand von Java-VM Parametern trifft. Sollte auf dem Strategy-Role-Konzept aufgebaut werden, bzw. dieses verwendet werden (z.B. DecisionMaker ID: 31), so müssen diese für eine korrekte Funktionalität gesetzt werden.\\
+\\
+Beispiel eines defensiven Spielers, der ebenso Freistoß, Einwurf und Ecke spielen darf(comma-separated values):\\
+\\
+\texttt{-DplayableRoles=Defense,CornerKick,FreeKick,ThrowIn}\\
+\\
+Verfügbare Primär-Rollen:
+\begin{itemize}
+\item Keeper
+\item Defense
+\item Middle
+\item Attack
+\end{itemize}
+
+Verfügbare sekundäre Rollen:
+\begin{itemize}
+\item CornerKick
+\item FreeKick
+\item GoalKick
+\item ThrowIn
+\item KickOff
+\end{itemize}
+
+\subsubsection{Verschiedene NAO-Models}
+\subsubsection{DecisionMaker}
+\subsubsection{Believes}
+\subsubsection{Behaviors}
+\subsubsection{Thought- und Worldmodel}
+\subsubsection{Server Kommunikation}
 
 \section{KI-Konzept}
 Für die KI wurde ein Konzept entwickelt, dass sich einfach in die bereits existierende Architektur des verwendeten Frameworks integrieren ließ. Ziel war es, eine möglichst flexible und gleichzeitig einfache Architektur zu entwerfen. Das Ergebnis ist eine Schichten-Architektur, deren Teilkomponenten einfach verändert oder ausgetauscht werden können. Nebeneffekte auf andere Module sind durch die Architektur weitgehend ausgeschlossen. So war es beispielsweise Problemlos möglich, verschiedene Herangehensweisen für die Implementierung von Rollen in das Gesamtsystem zu integrieren. Verschiedene Teammitglieder konnten also ihre selbst entwickelten Rollen schnell und einfach in das Gesamtsystem integrieren, ohne andere Komponenten anpassen zu müssen.
@@ -123,7 +306,7 @@ In der Strategieebene können verschiedene Strategien für verschiedene Gesamtau
 
 Abbildung \ref{Einfacher Strategie Entscheider} zeigt den Enscheidungsbaum eines sehr einfachen Entscheidungsmeachanismus für Strategien.
 
-\subsection{Gesamtübersicht}
+\subsection{Gesamtübersicht}\label{sse:KI-Gesamtübersicht}
 
 \begin{figure}[H]
 	\centering
@@ -312,7 +495,7 @@ Listing \ref{ESM Torwart} zeigt die Bedingungen für eine erneute Bewegnung. Nur
 
 \subsection{Spezialrollen: Standardsituationen}
 \textbf{-> TODO: Stumpfi}
-\section{Grafisches Debugging}
+\section{Grafisches Debugging}\label{se:Grafisches Debugging}
 \textbf{-> TODO: Felix}
 
 \section{Strategien}

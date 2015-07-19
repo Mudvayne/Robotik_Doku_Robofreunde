@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.9.28)  19 JUL 2015 13:10
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.9.28)  19 JUL 2015 18:59
 entering extended mode
 **Dokumentation*Robotik.tex
 
@@ -407,6 +407,143 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count98
 ))
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
+
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2011/06/24 v1.1 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen108
+\Hy@linkcounter=\count99
+\Hy@pagecounter=\count100
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count101
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `final' set `true' on input line 4319.
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count102
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen109
+\Fld@menulength=\count103
+\Field@Width=\dimen110
+\Fld@charsize=\dimen111
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count104
+\c@Item=\count105
+\c@Hfootnote=\count106
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count107
+\c@bookmark@seq@number=\count108
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip47
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
+Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen112
+\extrarowheight=\dimen113
+\NC@list=\toks20
+\extratabsurround=\skip48
+\backup@length=\skip49
+)
+\TX@col@width=\dimen114
+\TX@old@table=\dimen115
+\TX@old@col=\dimen116
+\TX@target=\dimen117
+\TX@delta=\dimen118
+\TX@cols=\count109
+\TX@ftn=\toks21
+)
 (C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
 File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
@@ -424,234 +561,455 @@ File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 )
-\Gin@req@height=\dimen108
-\Gin@req@width=\dimen109
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
 )
 ("C:\Users\Basti\Documents\Git\Robotik_Doku_Robofreunde\Dokumentation Robotik.a
 ux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-\c@lstlisting=\count99
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+\c@lstlisting=\count110
  (C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count100
-\scratchdimen=\dimen110
+\scratchcounter=\count111
+\scratchdimen=\dimen121
 \scratchbox=\box31
-\nofMPsegments=\count101
-\nofMParguments=\count102
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count103
-\MPscratchDim=\dimen111
-\MPnumerator=\count104
-\makeMPintoPDFobject=\count105
-\everyMPtoPDFconversion=\toks21
-) [1
+\nofMPsegments=\count112
+\nofMParguments=\count113
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen122
+\MPnumerator=\count115
+\makeMPintoPDFobject=\count116
+\everyMPtoPDFconversion=\toks23
+)
+\AtBeginShipoutBox=\box32
+Package hyperref Info: Link coloring OFF on input line 37.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count117
+)
+LaTeX Info: Redefining \ref on input line 37.
+LaTeX Info: Redefining \pageref on input line 37.
+LaTeX Info: Redefining \nameref on input line 37.
+
+("C:\Users\Basti\Documents\Git\Robotik_Doku_Robofreunde\Dokumentation Robotik.o
+ut")
+("C:\Users\Basti\Documents\Git\Robotik_Doku_Robofreunde\Dokumentation Robotik.o
+ut")
+\@outlinefile=\write3
+ [1
 
 {C:/Users/Basti/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 40.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 42.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmss.fd"
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 40.
+(Font)              <17.28> on input line 42.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 40.
+(Font)              <12> on input line 42.
 
 ("C:\Users\Basti\Documents\Git\Robotik_Doku_Robofreunde\Dokumentation Robotik.t
 oc"
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 7.
+(Font)              <8> on input line 6.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 7.
+(Font)              <6> on input line 6.
  [2
 
 ])
-\tf@toc=\write3
+\tf@toc=\write4
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--57
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--57
+Underfull \hbox (badness 10000) in paragraph at lines 45--59
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--57
+Underfull \hbox (badness 10000) in paragraph at lines 45--59
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--57
+Underfull \hbox (badness 10000) in paragraph at lines 45--59
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--57
+Underfull \hbox (badness 10000) in paragraph at lines 45--59
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--57
+Underfull \hbox (badness 10000) in paragraph at lines 45--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--59
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 79--86
+Underfull \hbox (badness 10000) in paragraph at lines 67--78
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--86
+Underfull \hbox (badness 10000) in paragraph at lines 67--78
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--86
+Underfull \hbox (badness 10000) in paragraph at lines 67--78
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--78
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--78
 
  []
 
 [4]
+Underfull \hbox (badness 10000) in paragraph at lines 80--83
 
-LaTeX Warning: Reference `Elementare Bewegungen' on page 5 undefined on input l
-ine 91.
+ []
 
-[5] <Grafiken/KI/simple_Player.png, id=25, 446.66875pt x 380.42125pt>
-File: Grafiken/KI/simple_Player.png Graphic file (type png)
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 88.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+Underfull \hbox (badness 10000) in paragraph at lines 84--89
 
-<use Grafiken/KI/simple_Player.png>
-Package pdftex.def Info: Grafiken/KI/simple_Player.png used on input line 98.
-(pdftex.def)             Requested size: 313.69029pt x 267.16956pt.
- [6 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/simple_P
-layer.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 111.
+ []
 
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+Underfull \hbox (badness 10000) in paragraph at lines 84--89
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--95
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--95
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--102
+
+ []
+
+[5]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 103.
+
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 111.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 103.
 
-<Grafiken/KI/SimpleStrategyDecider.png, id=31, 426.59375pt x 416.55624pt>
+Underfull \hbox (badness 10000) in paragraph at lines 110--113
+
+ []
+
+[6]
+Underfull \hbox (badness 4726) in paragraph at lines 156--156
+[]|\T1/cmr/m/n/12 Gewachsene Struk-tur, un-über-sicht-lich,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--162
+
+ []
+
+<Grafiken/Magma/AgentRuntime_Structure.jpg, id=271, 1702.36pt x 608.2725pt>
+File: Grafiken/Magma/AgentRuntime_Structure.jpg Graphic file (type jpg)
+
+<use Grafiken/Magma/AgentRuntime_Structure.jpg>
+Package pdftex.def Info: Grafiken/Magma/AgentRuntime_Structure.jpg used on inpu
+t line 165.
+(pdftex.def)             Requested size: 448.13095pt x 160.11479pt.
+ [7]
+Underfull \hbox (badness 10000) in paragraph at lines 170--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--179
+
+ []
+
+<Grafiken/Magma/AgentRuntime_Loop.jpg, id=277, 1816.7875pt x 973.6375pt>
+File: Grafiken/Magma/AgentRuntime_Loop.jpg Graphic file (type jpg)
+
+<use Grafiken/Magma/AgentRuntime_Loop.jpg>
+Package pdftex.def Info: Grafiken/Magma/AgentRuntime_Loop.jpg used on input lin
+e 182.
+(pdftex.def)             Requested size: 448.13095pt x 240.1552pt.
+ [8 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/Magma/Agent
+Runtime_Structure.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 187--197
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--197
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--197
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--197
+
+ []
+
+<Grafiken/Magma/Observer_Structure.jpg, id=283, 985.6825pt x 630.355pt>
+File: Grafiken/Magma/Observer_Structure.jpg Graphic file (type jpg)
+
+<use Grafiken/Magma/Observer_Structure.jpg>
+Package pdftex.def Info: Grafiken/Magma/Observer_Structure.jpg used on input li
+ne 200.
+(pdftex.def)             Requested size: 448.13095pt x 286.59074pt.
+ [9 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/Magma/Agent
+Runtime_Loop.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 208--214
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--214
+
+ []
+
+
+Overfull \hbox (33.40146pt too wide) in paragraph at lines 208--214
+\T1/cmtt/m/n/12 --teamname="Robo1--playerid=2 --server=192.168.56.101 --port=31
+00 --loglevel=severe
+ []
+
+
+Overfull \hbox (8.70749pt too wide) in paragraph at lines 208--214
+\T1/cmtt/m/n/12 --serverversion=68 --factory=NaoRF --decisionmaker=31 --homePos
+ition=-15.0:0.0 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--214
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--214
+
+ []
+
+[10 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/Magma/Obser
+ver_Structure.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 226--235
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--235
+
+ []
+
+
+Overfull \hbox (19.26604pt too wide) in paragraph at lines 226--235
+\T1/cmr/m/n/12 Beispiel ei-nes de-fen-si-ven Spie-lers, der eben-so Frei-stoÿ, 
+Ein-wurf und Ecke spie-len darf(comma-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--235
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--235
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 263--270
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--270
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--270
+
+ []
+
+[12]
+
+LaTeX Warning: Reference `Elementare Bewegungen' on page 13 undefined on input 
+line 275.
+
+[13] <Grafiken/KI/simple_Player.png, id=309, 446.66875pt x 380.42125pt>
+File: Grafiken/KI/simple_Player.png Graphic file (type png)
+
+<use Grafiken/KI/simple_Player.png>
+Package pdftex.def Info: Grafiken/KI/simple_Player.png used on input line 282.
+(pdftex.def)             Requested size: 313.69029pt x 267.16956pt.
+ [14 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/simple_
+Player.png>]
+<Grafiken/KI/SimpleStrategyDecider.png, id=318, 426.59375pt x 416.55624pt>
 File: Grafiken/KI/SimpleStrategyDecider.png Graphic file (type png)
 
 <use Grafiken/KI/SimpleStrategyDecider.png>
 Package pdftex.def Info: Grafiken/KI/SimpleStrategyDecider.png used on input li
-ne 119.
+ne 303.
 (pdftex.def)             Requested size: 313.69029pt x 306.32724pt.
- [7]
-<Grafiken/KI/Ki-Concept.png, id=37, 615.29875pt x 288.07625pt>
+
+<Grafiken/KI/Ki-Concept.png, id=320, 615.29875pt x 288.07625pt>
 File: Grafiken/KI/Ki-Concept.png Graphic file (type png)
 
 <use Grafiken/KI/Ki-Concept.png>
-Package pdftex.def Info: Grafiken/KI/Ki-Concept.png used on input line 130.
+Package pdftex.def Info: Grafiken/KI/Ki-Concept.png used on input line 314.
 (pdftex.def)             Requested size: 448.13095pt x 209.81477pt.
- [8 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/SimpleSt
-rategyDecider.png>] [9 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/G
-rafiken/KI/Ki-Concept.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 154--158
+ [15 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/SimpleS
+trategyDecider.png>] [16 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde
+/Grafiken/KI/Ki-Concept.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 338--342
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
+Underfull \hbox (badness 10000) in paragraph at lines 351--353
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--172
+Underfull \hbox (badness 10000) in paragraph at lines 354--356
 
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 357--359
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--207
+Underfull \hbox (badness 10000) in paragraph at lines 389--391
 
  []
 
-[11] [12] <Grafiken/KI/Keeper.png, id=55, 787.94376pt x 376.40625pt>
+[18] [19] <Grafiken/KI/Keeper.png, id=403, 787.94376pt x 376.40625pt>
 File: Grafiken/KI/Keeper.png Graphic file (type png)
 
 <use Grafiken/KI/Keeper.png>
-Package pdftex.def Info: Grafiken/KI/Keeper.png used on input line 244.
+Package pdftex.def Info: Grafiken/KI/Keeper.png used on input line 428.
 (pdftex.def)             Requested size: 448.13095pt x 214.07133pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--251
+Underfull \hbox (badness 10000) in paragraph at lines 433--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--254
+Underfull \hbox (badness 10000) in paragraph at lines 436--438
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 255--257
+Underfull \hbox (badness 10000) in paragraph at lines 439--441
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--260
+Underfull \hbox (badness 10000) in paragraph at lines 442--444
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--263
+Underfull \hbox (badness 10000) in paragraph at lines 445--447
 
  []
 
-[13 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/Keeper.p
-ng>] <Grafiken/KI/guard_goal.png, id=61, 841.64438pt x 521.69907pt>
+[20 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/Keeper.p
+ng>] <Grafiken/KI/guard_goal.png, id=411, 841.64438pt x 521.69907pt>
 File: Grafiken/KI/guard_goal.png Graphic file (type png)
 
 <use Grafiken/KI/guard_goal.png>
-Package pdftex.def Info: Grafiken/KI/guard_goal.png used on input line 266.
+Package pdftex.def Info: Grafiken/KI/guard_goal.png used on input line 450.
 (pdftex.def)             Requested size: 448.13095pt x 277.78082pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--273
+Underfull \hbox (badness 10000) in paragraph at lines 455--457
 
  []
 
-[14 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/guard_go
+[21 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/guard_go
 al.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 285--287
+Underfull \hbox (badness 10000) in paragraph at lines 469--471
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--292
+Underfull \hbox (badness 10000) in paragraph at lines 472--476
 
  []
 
-<Grafiken/KI/attackerCenter_v2.png, id=65, 827.09pt x 568.1225pt>
+<Grafiken/KI/attackerCenter_v2.png, id=428, 827.09pt x 568.1225pt>
 File: Grafiken/KI/attackerCenter_v2.png Graphic file (type png)
 
 <use Grafiken/KI/attackerCenter_v2.png>
-Package pdftex.def Info: Grafiken/KI/attackerCenter_v2.png used on input line 3
-05.
+Package pdftex.def Info: Grafiken/KI/attackerCenter_v2.png used on input line 4
+89.
 (pdftex.def)             Requested size: 448.13095pt x 307.82182pt.
- [15] [16 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/at
+ [22] [23 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/at
 tackerCenter_v2.png>]
 ("C:\Users\Basti\Documents\Git\Robotik_Doku_Robofreunde\Dokumentation Robotik.l
 of")
-\tf@lof=\write4
+\tf@lof=\write5
 
 
 Class scrartcl Warning: Usage of deprecated \float@listhead!
@@ -659,40 +1017,51 @@ Class scrartcl Warning: Usage of deprecated \float@listhead!
 (scrartcl)              instead of \float@listhead.
 (scrartcl)              Definition of \float@listhead my be removed from
 (scrartcl)              `scrartcl' soon, so it should not be used  on input lin
-e 328.
+e 512.
 
 
 ("C:\Users\Basti\Documents\Git\Robotik_Doku_Robofreunde\Dokumentation Robotik.l
 ol")
-\tf@lol=\write5
- [17]
+\tf@lol=\write6
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 513.
+ [24]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 513.
+
 ("C:\Users\Basti\Documents\Git\Robotik_Doku_Robofreunde\Dokumentation Robotik.a
 ux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 513.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 513.
+Package rerunfilecheck Info: File `Dokumentation*Robotik.out' has not changed.
+(rerunfilecheck)             Checksum: <no file>.
+
 
 LaTeX Warning: There were undefined references.
 
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 513.
  ) 
 Here is how much of TeX's memory you used:
- 4949 strings out of 493921
- 69052 string characters out of 3147282
- 223065 words of memory out of 3000000
- 8182 multiletter control sequences out of 15000+200000
- 14129 words of font info for 35 fonts, out of 3000000 for 9000
+ 9144 strings out of 493921
+ 134764 string characters out of 3147282
+ 309323 words of memory out of 3000000
+ 12168 multiletter control sequences out of 15000+200000
+ 14442 words of font info for 36 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 37i,10n,47p,1014b,1289s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,10n,47p,1024b,1301s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Basti\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-ecsx1440.pk> <C:\Users\Basti\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
-ec\dpi600\ecti1200.pk> <C:\Users\Basti\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
-\jknappen\ec\dpi600\ecsx1200.pk> <C:\Users\Basti\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecsx1728.pk> <C:\Users\Basti\AppData\Local\MiKTeX
-\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk> <C:\Users\Basti\AppData\Lo
-cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx2488.pk> <C:\Users\Basti\
-AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Us
-ers\Basti\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.
-pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on "Dokumentation Robotik.pdf" (17 pages, 366683 bytes).
+ectt1200.pk> <C:\Users\Basti\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\ecsx1440.pk> <C:\Users\Basti\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\Basti\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\jknappen\ec\dpi600\ecsx1200.pk> <C:\Users\Basti\AppData\Local\MiKTeX
+\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1728.pk> <C:\Users\Basti\AppData\Lo
+cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk> <C:\Users\Basti\
+AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx2488.pk> <C:\Us
+ers\Basti\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.
+pk> <C:\Users\Basti\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
+\ecrm1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb>
+Output written on "Dokumentation Robotik.pdf" (24 pages, 1136345 bytes).
 PDF statistics:
- 449 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 934 PDF objects out of 1000 (max. 8388607)
+ 148 named destinations out of 1000 (max. 500000)
+ 414 words of extra memory for PDF output out of 10000 (max. 10000000)
 

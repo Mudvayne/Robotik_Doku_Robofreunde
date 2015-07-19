@@ -1,7 +1,10 @@
 \select@language {ngerman}
-\contentsline {figure}{\numberline {1}{\ignorespaces Beispiel Rolle: Einfacher Torwart}}{6}
-\contentsline {figure}{\numberline {2}{\ignorespaces Einfacher Strategie Entscheider}}{8}
-\contentsline {figure}{\numberline {3}{\ignorespaces Gesamtkonzept KI}}{9}
-\contentsline {figure}{\numberline {4}{\ignorespaces Torwart Entscheidungsbaum}}{13}
-\contentsline {figure}{\numberline {5}{\ignorespaces Veranschaulichung des \lstinline $GuardGoalState$s}}{14}
-\contentsline {figure}{\numberline {6}{\ignorespaces St\IeC {\"u}rmer Entscheidungsbaum}}{16}
+\contentsline {figure}{\numberline {1}{\ignorespaces Magma Offenburg - Agent Runtime Architecture}}{8}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Magma Offenburg - Agent Runtime Loop}}{9}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Magma Offenburg - Observer Structure}}{10}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Beispiel Rolle: Einfacher Torwart}}{14}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Einfacher Strategie Entscheider}}{15}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Gesamtkonzept KI}}{16}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Torwart Entscheidungsbaum}}{20}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Veranschaulichung des \lstinline $GuardGoalState$s}}{21}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces St\IeC {\"u}rmer Entscheidungsbaum}}{23}{figure.9}
