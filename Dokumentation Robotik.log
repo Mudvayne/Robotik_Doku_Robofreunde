@@ -1,43 +1,54 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.7.10)  18 JUL 2015 14:03
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.9.28)  19 JUL 2015 13:10
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
-**"./Dokumentation Robotik.tex"
-(./Dokumentation Robotik.tex
-LaTeX2e <2015/01/01> patch level 2
-Babel <3.9l> and hyphenation patterns for 79 languages loaded.
-(c:/texlive/2015/texmf-dist/tex/latex/koma-script/scrartcl.cls
-Document Class: scrartcl 2015/07/02 v3.18 KOMA-Script document class (article)
-(c:/texlive/2015/texmf-dist/tex/latex/koma-script/scrkbase.sty
-Package: scrkbase 2015/07/02 v3.18 KOMA-Script package (KOMA-Script-dependent b
-asics and keyval usage)
+**Dokumentation*Robotik.tex
 
-(c:/texlive/2015/texmf-dist/tex/latex/koma-script/scrbase.sty
-Package: scrbase 2015/07/02 v3.18 KOMA-Script package (KOMA-Script-independent 
+("C:\Users\Basti\Documents\Git\Robotik_Doku_Robofreunde\Dokumentation Robotik.t
+ex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+(C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrartcl.cls
+Document Class: scrartcl 2012/07/29 v3.11b KOMA-Script document class (article)
+
+(C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrkbase.sty
+Package: scrkbase 2012/07/29 v3.11b KOMA-Script package (KOMA-Script-dependent 
 basics and keyval usage)
 
-(c:/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+(C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrbase.sty
+Package: scrbase 2012/07/29 v3.11b KOMA-Script package (KOMA-Script-independent
+ basics and keyval usage)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(c:/texlive/2015/texmf-dist/tex/latex/koma-script/scrlfile.sty
-Package: scrlfile 2015/07/02 v3.18 KOMA-Script package (loading files)
+(C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrlfile.sty
+Package: scrlfile 2012/06/15 v3.12 KOMA-Script package (loading files)
 
-Package scrlfile, 2015/07/02 v3.18 KOMA-Script package (loading files)
+Package scrlfile, 2012/06/15 v3.12 KOMA-Script package (loading files)
                   Copyright (C) Markus Kohm
 
-))) (c:/texlive/2015/texmf-dist/tex/latex/koma-script/tocbasic.sty
-Package: tocbasic 2015/07/02 v3.18 KOMA-Script package (handling toc-files)
+)))
+(C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\tocbasic.sty
+Package: tocbasic 2012/04/04 v3.10b KOMA-Script package (handling toc-files)
 )
 Package tocbasic Info: omitting babel extension for `toc'
 (tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `toc' on input line 123.
+(tocbasic)             for `toc' on input line 115.
 Package tocbasic Info: omitting babel extension for `lof'
 (tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lof' on input line 124.
+(tocbasic)             for `lof' on input line 116.
 Package tocbasic Info: omitting babel extension for `lot'
 (tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lot' on input line 125.
+(tocbasic)             for `lot' on input line 117.
 Class scrartcl Info: You've used standard option `final'.
 (scrartcl)           This is correct!
 (scrartcl)           Internally I'm using `draft=false'.
@@ -45,16 +56,17 @@ Class scrartcl Info: You've used standard option `final'.
 (scrartcl)           you'd have to use `draft=false' there
 (scrartcl)           instead of `final', too.
 Class scrartcl Info: File `scrsize12pt.clo' used to setup font sizes on input l
-ine 2027.
+ine 1267.
 
-(c:/texlive/2015/texmf-dist/tex/latex/koma-script/scrsize12pt.clo
-File: scrsize12pt.clo 2015/07/02 v3.18 KOMA-Script font size class option (12pt
+(C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrsize12pt.cl
+o
+File: scrsize12pt.clo 2012/07/29 v3.11b KOMA-Script font size class option (12p
+t)
 )
-)
-(c:/texlive/2015/texmf-dist/tex/latex/koma-script/typearea.sty
-Package: typearea 2015/07/02 v3.18 KOMA-Script package (type area)
+(C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\typearea.sty
+Package: typearea 2012/07/29 v3.11b KOMA-Script package (type area)
 
-Package typearea, 2015/07/02 v3.18 KOMA-Script package (type area)
+Package typearea, 2012/07/29 v3.11b KOMA-Script package (type area)
                   Copyright (C) Frank Neukam, 1992-1994
                   Copyright (C) Markus Kohm, 1994-
 
@@ -69,7 +81,6 @@ Package typearea Info: You've used standard option `a4paper'.
 \ta@hblk=\skip42
 \ta@vblk=\skip43
 \ta@temp=\skip44
-\footheight=\skip45
 Package typearea Info: These are the values describing the layout:
 (typearea)             DIV  = 12
 (typearea)             BCOR = 0.0pt
@@ -86,7 +97,7 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 12.0pt
 (typearea)              \footskip       = 50.75pt
 (typearea)              \baselineskip   = 14.5pt
-(typearea)              on input line 1506.
+(typearea)              on input line 1213.
 )
 \c@part=\count80
 \c@section=\count81
@@ -94,52 +105,53 @@ Package typearea Info: These are the values describing the layout:
 \c@subsubsection=\count83
 \c@paragraph=\count84
 \c@subparagraph=\count85
-LaTeX Info: Redefining \textsubscript on input line 3836.
-\abovecaptionskip=\skip46
-\belowcaptionskip=\skip47
+\abovecaptionskip=\skip45
+\belowcaptionskip=\skip46
 \c@pti@nb@sid@b@x=\box26
 \c@figure=\count86
 \c@table=\count87
 \bibindent=\dimen102
-) (c:/texlive/2015/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2014/09/25 3.9l The Babel package
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2008/07/08 v3.8m The Babel package
 
-(c:/texlive/2015/texmf-dist/tex/generic/babel-german/ngerman.ldf
-Language: ngerman 2013/12/13 v2.7 German support for babel (new orthography)
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\ngermanb.ldf"
+Language: ngermanb 2008/07/06 v2.6n new German support from the babel system
 
-(c:/texlive/2015/texmf-dist/tex/generic/babel-german/ngermanb.ldf
-Language: ngermanb 2013/12/13 v2.7 German support for babel (new orthography)
-
-(c:/texlive/2015/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2014/09/25 3.9l Babel common definitions
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2008/07/08 v3.8m Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen103
 )
 \l@naustrian = a dialect from \language\l@ngerman 
-\l@nswissgerman = a dialect from \language\l@ngerman 
-Package babel Info: Making " an active character on input line 88.
-)))
-(c:/texlive/2015/texmf-dist/tex/latex/base/fontenc.sty
+Package babel Info: Making " an active character on input line 92.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-(c:/texlive/2015/texmf-dist/tex/latex/base/t1enc.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
-(c:/texlive/2015/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2015/03/17 v1.2c Input encoding file
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
 
-(c:/texlive/2015/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-(c:/texlive/2015/texmf-dist/tex/latex/base/t1enc.dfu
-File: t1enc.dfu 2015/06/27 v1.1n UTF-8 support for inputenc
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00AB (decimal 171)
@@ -288,8 +300,8 @@ File: t1enc.dfu 2015/06/27 v1.1n UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-(c:/texlive/2015/texmf-dist/tex/latex/base/ot1enc.dfu
-File: ot1enc.dfu 2015/06/27 v1.1n UTF-8 support for inputenc
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00B8 (decimal 184)
@@ -319,8 +331,8 @@ File: ot1enc.dfu 2015/06/27 v1.1n UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-(c:/texlive/2015/texmf-dist/tex/latex/base/omsenc.dfu
-File: omsenc.dfu 2015/06/27 v1.1n UTF-8 support for inputenc
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -343,7 +355,7 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(c:/texlive/2015/texmf-dist/tex/latex/float/float.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count89
 \float@exts=\toks17
@@ -351,7 +363,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks18
 \@floatcapt=\box28
 )
-(c:/texlive/2015/texmf-dist/tex/latex/listings/listings.sty
+(C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
 \lst@mode=\count90
 \lst@gtempboxa=\box29
 \lst@token=\toks19
@@ -365,59 +377,58 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \lst@lineno=\count95
 \lst@maxwidth=\dimen107
 
-(c:/texlive/2015/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+(C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 \c@lstnumber=\count96
 \lst@skipnumbers=\count97
 \lst@framebox=\box30
 )
-(c:/texlive/2015/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2015/06/04 1.6 listings configuration
+(C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
+File: listings.cfg 2013/08/26 1.5b listings configuration
 ))
-Package: listings 2015/06/04 1.6 (Carsten Heinz)
+Package: listings 2013/08/26 1.5b (Carsten Heinz)
 
-(c:/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
-(c:/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: pdftex.def on input line 142.
+Package color Info: Driver file: pdftex.def on input line 130.
 
-(c:/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count98
 ))
-(c:/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
+(C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
+File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
-(c:/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(c:/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(c:/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(c:/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: pdftex.def on input line 94.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 )
 \Gin@req@height=\dimen108
 \Gin@req@width=\dimen109
 )
-(./Dokumentation Robotik.aux)
-\openout1 = `"Dokumentation Robotik.aux"'.
-
+("C:\Users\Basti\Documents\Git\Robotik_Doku_Robofreunde\Dokumentation Robotik.a
+ux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
@@ -431,8 +442,7 @@ LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
 \c@lstlisting=\count99
-
-(c:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+ (C:\Users\Basti\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count100
 \scratchdimen=\dimen110
@@ -445,186 +455,150 @@ LaTeX Font Info:    ... okay on input line 35.
 \MPnumerator=\count104
 \makeMPintoPDFobject=\count105
 \everyMPtoPDFconversion=\toks21
-) (c:/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
-)
+) [1
 
-(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-(c:/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-
-(c:/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
-
-(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-))
-(c:/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
-
-(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-
-(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
-
-(c:/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-)) [1
-
-{c:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{C:/Users/Basti/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Try loading font information for T1+cmss on input line 40.
 
-(c:/texlive/2015/texmf-dist/tex/latex/base/t1cmss.fd
-File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmss.fd"
+File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <17.28> on input line 40.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 40.
 
-(./Dokumentation Robotik.toc
+("C:\Users\Basti\Documents\Git\Robotik_Doku_Robofreunde\Dokumentation Robotik.t
+oc"
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 6.
+(Font)              <8> on input line 7.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 6.
+(Font)              <6> on input line 7.
  [2
 
 ])
 \tf@toc=\write3
-\openout3 = `"Dokumentation Robotik.toc"'.
 
- [3]
-Underfull \hbox (badness 10000) in paragraph at lines 59--66
+Underfull \hbox (badness 10000) in paragraph at lines 43--57
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--66
+Underfull \hbox (badness 10000) in paragraph at lines 43--57
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--66
+Underfull \hbox (badness 10000) in paragraph at lines 43--57
 
  []
 
-[4] <Grafiken/KI/simple_Player.png, id=23, 446.66875pt x 380.42125pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--57
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 79--86
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--86
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--86
+
+ []
+
+[4]
+
+LaTeX Warning: Reference `Elementare Bewegungen' on page 5 undefined on input l
+ine 91.
+
+[5] <Grafiken/KI/simple_Player.png, id=25, 446.66875pt x 380.42125pt>
 File: Grafiken/KI/simple_Player.png Graphic file (type png)
 
 <use Grafiken/KI/simple_Player.png>
-Package pdftex.def Info: Grafiken/KI/simple_Player.png used on input line 78.
+Package pdftex.def Info: Grafiken/KI/simple_Player.png used on input line 98.
 (pdftex.def)             Requested size: 313.69029pt x 267.16956pt.
- [5 <./Grafiken/KI/simple_Player.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 91.
+ [6 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/simple_P
+layer.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 111.
 
-(c:/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 91.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 111.
 
-<Grafiken/KI/SimpleStrategyDecider.png, id=29, 426.59375pt x 416.55624pt>
+<Grafiken/KI/SimpleStrategyDecider.png, id=31, 426.59375pt x 416.55624pt>
 File: Grafiken/KI/SimpleStrategyDecider.png Graphic file (type png)
 
 <use Grafiken/KI/SimpleStrategyDecider.png>
 Package pdftex.def Info: Grafiken/KI/SimpleStrategyDecider.png used on input li
-ne 99.
+ne 119.
 (pdftex.def)             Requested size: 313.69029pt x 306.32724pt.
- [6]
-<Grafiken/KI/Ki-Concept.png, id=34, 615.29875pt x 288.07625pt>
+ [7]
+<Grafiken/KI/Ki-Concept.png, id=37, 615.29875pt x 288.07625pt>
 File: Grafiken/KI/Ki-Concept.png Graphic file (type png)
 
 <use Grafiken/KI/Ki-Concept.png>
-Package pdftex.def Info: Grafiken/KI/Ki-Concept.png used on input line 110.
+Package pdftex.def Info: Grafiken/KI/Ki-Concept.png used on input line 130.
 (pdftex.def)             Requested size: 448.13095pt x 209.81477pt.
- [7 <./Grafiken/KI/SimpleStrategyDecider.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 124--128
-
- []
-
-[8 <./Grafiken/KI/Ki-Concept.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 137--139
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 140--142
+ [8 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/SimpleSt
+rategyDecider.png>] [9 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/G
+rafiken/KI/Ki-Concept.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 154--158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--145
+Underfull \hbox (badness 10000) in paragraph at lines 167--169
 
  []
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 175--177
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--172
 
  []
 
-[10] <Grafiken/KI/Keeper.png, id=50, 787.94376pt x 376.40625pt>
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 173--175
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--207
+
+ []
+
+[11] [12] <Grafiken/KI/Keeper.png, id=55, 787.94376pt x 376.40625pt>
 File: Grafiken/KI/Keeper.png Graphic file (type png)
 
 <use Grafiken/KI/Keeper.png>
-Package pdftex.def Info: Grafiken/KI/Keeper.png used on input line 214.
+Package pdftex.def Info: Grafiken/KI/Keeper.png used on input line 244.
 (pdftex.def)             Requested size: 448.13095pt x 214.07133pt.
- [11]
-Underfull \hbox (badness 10000) in paragraph at lines 219--221
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--251
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--224
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 225--227
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 228--230
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--233
-
- []
-
-[12 <./Grafiken/KI/Keeper.png>]
-<Grafiken/KI/guard_goal.png, id=58, 841.64438pt x 521.69907pt>
-File: Grafiken/KI/guard_goal.png Graphic file (type png)
-
-<use Grafiken/KI/guard_goal.png>
-Package pdftex.def Info: Grafiken/KI/guard_goal.png used on input line 236.
-(pdftex.def)             Requested size: 448.13095pt x 277.78082pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 241--243
+Underfull \hbox (badness 10000) in paragraph at lines 252--254
 
  []
 
@@ -633,64 +607,92 @@ Underfull \hbox (badness 10000) in paragraph at lines 255--257
 
  []
 
-[13 <./Grafiken/KI/guard_goal.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 258--262
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--260
 
  []
 
-<Grafiken/KI/attackerCenter_v2.png, id=63, 827.09pt x 568.1225pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 261--263
+
+ []
+
+[13 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/Keeper.p
+ng>] <Grafiken/KI/guard_goal.png, id=61, 841.64438pt x 521.69907pt>
+File: Grafiken/KI/guard_goal.png Graphic file (type png)
+
+<use Grafiken/KI/guard_goal.png>
+Package pdftex.def Info: Grafiken/KI/guard_goal.png used on input line 266.
+(pdftex.def)             Requested size: 448.13095pt x 277.78082pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 271--273
+
+ []
+
+[14 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/guard_go
+al.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 285--287
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--292
+
+ []
+
+<Grafiken/KI/attackerCenter_v2.png, id=65, 827.09pt x 568.1225pt>
 File: Grafiken/KI/attackerCenter_v2.png Graphic file (type png)
 
 <use Grafiken/KI/attackerCenter_v2.png>
-Package pdftex.def Info: Grafiken/KI/attackerCenter_v2.png used on input line 2
-75.
+Package pdftex.def Info: Grafiken/KI/attackerCenter_v2.png used on input line 3
+05.
 (pdftex.def)             Requested size: 448.13095pt x 307.82182pt.
- [14] [15 <./Grafiken/KI/attackerCenter_v2.png>] (./Dokumentation Robotik.lof)
+ [15] [16 <C:/Users/Basti/Documents/Git/Robotik_Doku_Robofreunde/Grafiken/KI/at
+tackerCenter_v2.png>]
+("C:\Users\Basti\Documents\Git\Robotik_Doku_Robofreunde\Dokumentation Robotik.l
+of")
 \tf@lof=\write4
-\openout4 = `"Dokumentation Robotik.lof"'.
 
 
+Class scrartcl Warning: Usage of deprecated \float@listhead!
+(scrartcl)              You should use the features of package `tocbasic'
+(scrartcl)              instead of \float@listhead.
+(scrartcl)              Definition of \float@listhead my be removed from
+(scrartcl)              `scrartcl' soon, so it should not be used  on input lin
+e 328.
 
-Class scrartcl Warning: \float@listhead detected!
-(scrartcl)              Implementation of \float@listhead became
-(scrartcl)              deprecated in KOMA-Script v3.01 2008/11/14 and
-(scrartcl)              has been replaced by several more flexible
-(scrartcl)              features of package `tocbasic`.
-(scrartcl)              Maybe implementation of \float@listhead will
-(scrartcl)              be removed from KOMA-Script soon.
-(scrartcl)              Loading of package `scrhack' may help to
-(scrartcl)              avoid this warning, if you are using a
-(scrartcl)              a package that still implements the
-(scrartcl)              deprecated \float@listhead interface  on input line 301
-.
 
-(./Dokumentation Robotik.lol)
+("C:\Users\Basti\Documents\Git\Robotik_Doku_Robofreunde\Dokumentation Robotik.l
+ol")
 \tf@lol=\write5
-\openout5 = `"Dokumentation Robotik.lol"'.
+ [17]
+("C:\Users\Basti\Documents\Git\Robotik_Doku_Robofreunde\Dokumentation Robotik.a
+ux")
 
- [16] (./Dokumentation Robotik.aux) ) 
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 5878 strings out of 493093
- 85853 string characters out of 6138556
- 293211 words of memory out of 5000000
- 9266 multiletter control sequences out of 15000+600000
- 14129 words of font info for 35 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 46i,10n,50p,1018b,1692s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2015/texmf-dist/fonts/enc/dvip
-s/cm-super/cm-super-t1.enc}<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1
-200.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c
-:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c:/texlive/
-2015/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb><c:/texlive/2015/texmf
--dist/fonts/type1/public/cm-super/sfsx1440.pfb><c:/texlive/2015/texmf-dist/font
-s/type1/public/cm-super/sfsx1728.pfb><c:/texlive/2015/texmf-dist/fonts/type1/pu
-blic/cm-super/sfsx2488.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-su
-per/sfti1200.pfb>
-Output written on "Dokumentation Robotik.pdf" (16 pages, 400243 bytes).
+ 4949 strings out of 493921
+ 69052 string characters out of 3147282
+ 223065 words of memory out of 3000000
+ 8182 multiletter control sequences out of 15000+200000
+ 14129 words of font info for 35 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 37i,10n,47p,1014b,1289s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Basti\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
+ecsx1440.pk> <C:\Users\Basti\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\ecti1200.pk> <C:\Users\Basti\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\jknappen\ec\dpi600\ecsx1200.pk> <C:\Users\Basti\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\jknappen\ec\dpi600\ecsx1728.pk> <C:\Users\Basti\AppData\Local\MiKTeX
+\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk> <C:\Users\Basti\AppData\Lo
+cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx2488.pk> <C:\Users\Basti\
+AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Us
+ers\Basti\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.
+pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on "Dokumentation Robotik.pdf" (17 pages, 366683 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
+ 449 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

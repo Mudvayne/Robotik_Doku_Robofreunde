@@ -40,16 +40,36 @@ Es handelt sich hier nur um einen Vorschlag für die Struktur des Dokuments. Das
 \tableofcontents
 
 \section{Einleitung}
-\textit{Ein paar einleitende Sätze. (Was ist Robocup und so...)}
+\textit{Verfasser: Stumpf}\\
+\\
+Die Lehrveranstaltung Robotik im SS-2015 hatte die Programmierung des NAO -- eines humanoiden Roboters von Aldebaran -- als übergreifendes Thema. Diesem sollten für Fussball notwendige Bewegungsabläufe und Taktiken beigebracht werden. Aufgrund des großen Andrangs könnten sich nicht alle Teilnehmer mit dem einzigen zur Verfügung stehenden NAO Modell beschäftigen. Die Gruppe wurde also in ein Hardware und 2 Simulationsteams aufgeteilt.\\
+\\
+Die vorgegebene Simulationumgebung war die auf Simspark basierende RoboCup 3D-Soccer Simulation League.\\
+Das vorgegebene Ziel unserer beiden Simulationsteams war es, je eine eigene Mannschaft aufs Feld zu bringen und diese am Ende gegeneinander antreten zu lassen.\\
+\\
+RoboCup ist eine Fussball-Liga humanoider Roboter. Die Teams mehrerer Länder treten gegeneinander an um ein bestes Team zu ermitteln.\\
+\\
+In der RoboCup Soccer Simulation League werden die Spiele simuliert. Die Roboter werden durch virtuelle Instanzen ersetzt, die über definierte Schnittstellen auf den Server verbunden und gesteuert werden können.\\
+\\
+Es gibt eine 2D und eine 3D Version. Für uns war insbesondere die 3D Version interessant, weil NAO hier das aktuelle Robotermodell ist. Anforderungen und Regeln der 3D Version sind vergleichbar mit dem echten RoboCup.\\
+\\
+Da die Schnittstellen zum Server auf sehr niedriger Ebene definiert sind - Bewegung von Gelenken - ist es für den Zeitraum der Lehrveranstaltung zu aufwändig, einen virtuellen Roboter komplett selbstständig zu entwickeln. Es gibt allerdings einige Frameworks, auf denen die eigene Arbeit aufgebaut werden kann.
+
 \section{Anforderungen}
+\textbf{-> TODO: Freddy???}
 \textit{Was waren die allgemeinen Anforderungen?}
 \section{Zeitplan}
+\textbf{-> TODO: Stumpfi}
 \textit{Was wurde wann gemacht?}
+\section{RoboCup - Installation}
 \section{Framework}
+\textbf{-> TODO: Stumpfi}
 \textit{Ein paar einleitende Sätze.}
 \subsection{Entscheidung für Magma}
+\textbf{-> TODO: Stumpfi}
 \textit{Warum Magma?}
 \subsection{Überblick Magma}
+\textbf{-> TODO: Stumpfi}
 \textit{Alles, was wir so über das Framework rausgefunden haben und erwähnenswert ist.}
 
 \section{KI-Konzept}
@@ -115,9 +135,19 @@ Abbildung \ref{Einfacher Strategie Entscheider} zeigt den Enscheidungsbaum eines
 Abbildung \ref{Gesamtkonzept KI} zeigt das Gesamtkonzept mit allen 4 Ebenen. Ganz unten befinden sich die elementaren Bewegungen. Rollen werden auf der Schicht darüber definiert. Sie greifen als einzige Schicht auf elementare Bewegungen direkt zu. Über den Rollen befindet sich die Strategie-Ebene. Jede Strategie hält einen Pool an Rollen vor und Steuert damit die konkrete Aufstellung auf dem Spielfeld. Auf höchster Ebene befindet sich der Entscheidungsmechanismus, der Situationsabhängig eine passende Strategie aktiviert. 
 
 
-\section{Elementare Bewegungen}\label{Elementare Bewegungen}
-\textit{Hier kommt der Stuff rein, der angepasst werden musste \dots
-(Laufen, Schießen und son shiat). (Subsections machen!)}
+\section{Elementare Bewegungen}\label{se:Elementare Bewegungen}
+\subsection{Anforderungen}
+\textbf{-> TODO: Stumpfi}
+\subsection{Laufen}\label{sse:Elem Bew:Laufen}
+\textbf{-> TODO: Felix}
+\subsection{Dribbeln}\label{sse:Elem Bew:Dribbeln}
+\textbf{-> TODO: Felix}
+\subsection{Schie{\ss}en}\label{sse:Elem Bew:Schiessen}
+\textbf{-> TODO: Stumpfi}
+\subsubsection{Behaviors}
+\textbf{-> TODO: Stumpfi}
+\subsubsection{Evaluierung, Metrik Bots}
+\textbf{-> TODO: Stumpfi}
 
 \section{Rollen}
 
@@ -280,13 +310,10 @@ Listing \ref{ESM Torwart} zeigt die Bedingungen für eine erneute Bewegnung. Nur
 \subsection{Standardrolle: Verteidiger}
 \subsection{Standardrolle: Mittelfeld}
 
-
-\subsection{Spezialrolle: Kick-off}
-\textit{Bastus}
-\subsection{Spezialrolle: ...}
-\textit{Bastus}
+\subsection{Spezialrollen: Standardsituationen}
+\textbf{-> TODO: Stumpfi}
 \section{Grafisches Debugging}
-\textit{Felix do your thing}
+\textbf{-> TODO: Felix}
 
 \section{Strategien}
 
