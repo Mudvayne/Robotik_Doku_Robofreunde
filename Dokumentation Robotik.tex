@@ -249,10 +249,104 @@ Verfügbare sekundäre Rollen:
 \end{itemize}
 
 \subsubsection{Verschiedene NAO-Models}
-\subsubsection{DecisionMaker}
-\subsubsection{Believes}
-\subsubsection{Behaviors}
+\subsubsection{DecisionMaker, Believes, Behaviors}
+\textit{Verfasser: Stumpf}\\
+\\
+DecisionMaker, Believes un Behaviors sind in Magma Offenburg ein eng verwobenes Konstrukt. Der DecisionMaker hat die Aufgabe, die Entscheidung über die nächste auszuführende Aktion zu treffen. Das zu implementierende Interface ist IDecisionMaker und definiert zwei relevante Methoden:
+\begin{itemize}
+\item \texttt{boolean decide();} Wird aufgerufen, wenn der DecisionMaker anhand des aktuellen Thoughtmodels eine Entscheidung über die nächste Aktion treffen soll. Überschreibt currentBehavior.
+\item \texttt{IBehavior getCurrentBehavior();} Gibt die aktuell auszuführende Aktion currentBehavior zurück.
+\end{itemize}
+
+Die konkrete Implementierung des DecisionMakers kennt die Instanz des Thoughtmodels und hat somit immer Zugriff auf alle aktuellen Informationen. Die konkrete Entscheidung der nächsten Aktion ist ausgelagert in die Believes, wie man an folgendem Codeausschnitt der Implementierung von \texttt{decide()} sehen kann.
+\begin{lstlisting}[caption=Ausschnitt aus decide(), captionpos=b, label=lst:DecidionMaker - decide()]
+.
+.
+.
+void decide() {
+	.
+	.
+	.
+	IBehavior toExecute = null;
+
+	// temperature cool down
+	toExecute = temperatureCoolDown();
+	if (toExecute != null) {
+		return toExecute;
+	}
+	// what to do when the game is finished
+	toExecute = gameEndedAction();
+	if (toExecute != null) {
+		return toExecute;
+	}
+	// beam to this players starting position if it is allowed
+	toExecute = beamHome();
+	if (toExecute != null) {
+		return toExecute;
+	}
+	.
+	.
+	.
+	currentBehavior = toExecute;
+}
+.
+.
+.
+protected IBehavior temperatureCoolDown()
+{
+	IBelief tooHot = believes.get(IBeliefConstants.TEMPERATURE_HOT);
+	if (tooHot.getTruthValue() > 0.7) {
+		return behaviors.get(IBehaviorConstants.SHUT_OFF);
+	}
+	if (tooHot.getTruthValue() > 0.4) {
+		return behaviors.get(IBehaviorConstants.MOVE_ZERO);
+	}
+	return null;
+}
+.
+.
+.
+\end{lstlisting}
+
+Wie man in obigem Codeausschnitt sehen kann, werden der Reihe nach, nach Prioritäten geordnet, verschiedene Believes abgefragt. Sollte eine der Believes zutreffen, oder über einem Schwellwert sein (siehe Methode \texttt{temperatureCoolDown()}), so wird die damit verknüpfte Behavior zurückgegeben. Eine Behavior ist Zusammengesetzt aus Movements, von denen jede eine Reihe von gewünschten Winkelpositionen verschiedener Gelenke enthält, sowie Informationen in wie vielen Cycles und mit welcher Geschwindigkeit diese erreicht werden. Eine Behavior definiert somit einen Bewegungsablauf.
+Beispiele für Behaviors sind:
+\begin{itemize}
+\item Aufstehen
+\item Laufen
+\item Kicken
+\item Sich ausschalten
+\item Nichts tun
+\item Ball fokussieren
+\item usw.
+\end{itemize}
+
+Meist prüfen die Behaviors selbst noch einmal, ob das mit ihnen verknüpfte Belief auch zutrifft. Zum Beispiel wird der Kick nur ausgeführt, wenn der Ball auch Kickable ist (Siehe Belief BallKickable). Falls nicht wird entweder die NullBehavior zurückgegeben, also nicht getan oder ein Fehler geworfen.
+
 \subsubsection{Thought- und Worldmodel}
+\textit{Verfasser: Stumpf}\\
+\\
+Das Thoughtmodel steht für die Datenhaltung des Agents. Es definieren den Zustand, in dem sich der Agent und das aktuelle Spiel gerade befinden. Nicht alle Daten sind im Thoughtmodel selbst enthalten, es fungiert jedoch als Container für Worldmodel, Flagmodel und Agentmodel. Das Worldmodel ist hiervon das wichtigste, da es die meisten Informationen enthält. Die Kommunikation über das Say-Interface des Servers wird praktischerweise ausgenutzt, um das Worldmodel aller eigenen Agents möglichst konsistent zu halten. Die Spieler tauschen darüber Informationen wie die eigene Position aus, die dann mit dem Worldmodel der anderen Spieler abgeglichen wird.
+Positionen im Worldmodel sind immer aus Sicht des eigenen Teams angegeben. Der Ursprung des Koordinatensystems ist der Mittelpunkt des Spielfeldes. Die eigene Hälfte liegt dann im negativen Bereich der X-Achse, die gegnerische im positiven. Vom eigenen Tor aus gesehen links entspricht positiven Werten auf der Y-Achse, rechts negativen.\\
+\\
+Im Folgenden einige Thoughtmodel spezifische Informationen, diese stehen immer in Bezug zum eigenen Agent:
+\begin{itemize}
+\item \texttt{getObstacles()} Hindernisse, die ich (eigener Agent) umgehen muss.
+\item \texttt{getPlayersAtMe()} Alle Spieler, geordnet nach Abstand zu mir.
+\item \texttt{getOpponentsAtMe()} Alle Gegner, geordnet nach Abstand zu mir.
+\item \texttt{...}
+\end{itemize}
+
+Das Worldmodel enthält die meisten für das Spiel relevanten Informationen:
+\begin{itemize}
+\item \texttt{Ball getBall()} Das Ball Objekt enthält Informationen über den Ball (u.a. seine Position).
+\item \texttt{Vector3D getOwn/OpponentGoalPosition()} Position des eigenen/gegnerischen Tors. 
+\item \texttt{GameState getGameState()} Spielstatus als Enum.
+\item \texttt{PlaySide getPlaySide()} Spielfeldseite als Enum.
+\item \texttt{float getGameTime()} Spielzeit.
+\item \texttt{int getGoalsWe/TheyScored()} Anzahl der eigenen/gegnerischen Tore.
+\item \texttt{...}
+\end{itemize}
+
 \subsubsection{Server Kommunikation}
 
 \section{KI-Konzept}
