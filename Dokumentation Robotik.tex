@@ -7,6 +7,7 @@
 \usepackage{color}
 \usepackage{hyperref}
 \usepackage{tabularx}
+\usepackage[toc,page]{appendix}
 \setlength{\parindent}{0pt}
                            
 \lstset{ 
@@ -689,9 +690,171 @@ Listing \ref{ESM Torwart} zeigt die Bedingungen für eine erneute Bewegnung. Nur
 \end{figure}
 
 \subsection{Standardrolle: Verteidiger}
-\textbf{-> TODO: Freddy}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\ScaleIfNeeded]{Grafiken/KI/defender/defender.png}
+	\caption{State-Automat des Verteidigers}
+	\label{State-Automat des Verteidigers}
+\end{figure}
+Das folgende Kapitel beschreibt die Funktionsweise und den Prozess zur Erstellung der Rolle des Verteidigers.
+
+\subsubsection{Vorgehensweise}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\ScaleIfNeeded]{Grafiken/KI/defender/vorgehensweise.png}
+	\caption{Vorgehensweise zur Entwicklung des Verteidigers}
+	\label{Vorgehensweise-Verteidigers}
+\end{figure}
+Der in Abbildung \ref{Vorgehensweise-Verteidgers} dargestellte Prozess ist der Anforderung geschuldet zu einem m"oglichst fr"uhen Zeitpunkt bereits einen funktionierenden Spieler auf das Feld schicken zu k"onnen. Deswegen wurde ein iterativer Prozess gew"ahlt, dabei wird initial ein einfaches Grundger"ust entwickelt welches anschlie"senden Zyklisch verbessert werden kann. Der Prozess kann verlassen werden, wenn keine Zeit mehr f"ur Verbesserungen vorhanden ist, oder keine weiteren Probleme mit der Logik des Verteidigers gefunden werden k"onnen.\\
+\\
+\subsubsection{Use-Cases}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\ScaleIfNeeded]{Grafiken/KI/defender/useCases.png}
+	\caption{Die Use-Cases des Verteidigers}
+	\label{Usecases-Verteidigers}
+\end{figure}
+
+F"ur den Verteidiger wurden die in Abbildung \ref{Usecases-Verteidigers} ermittelten Use-Cases definiert. Dabei gilt zu beachten, dass diese nicht den Anspruch haben alle m"oglichen F"alle abzubilden, sich aber auf einige wenige wichtige zu reduzieren. Dieses Vorgehen ist der Anforderung des einfachen Grundger"ustet geschuldet. F"uer die Use-Cases wurde ferner die idealisierende Annahme getroffen, dass auf der eigenen Spielfeldseite nur Verteidiger existieren. Ferner wurde dem gegnerischen Spieler eine h"ohere Priorit"at zugeteilt als dem Ball, die Annahme hierbei ist, dass der Ball durch den gegnerische Spieler in das Spielfeld getragen wird. Sollte der Ball frei sein und ein gegnerischer Spieler auf der eigenen Feldh"alfte sein, bewegt sich dieser auf den Ball zu, da er von dem Verteidiger gedeckt wird, sollten diese gleichzeitig bei dem Ball ankommen, die daraus resultierende Situation ist dann wieder der erst genannten gleich.
+
+paragraph{UseCase: Spielgeschehen auf anderer Spielh"alfte}
+Weder der Ball noch Gegnerische Spieler befinden sich auf der eigenen Spielh"alfte.
+paragraph{UseCase: Ball in eigener Spielh"alfte}
+Der Ball jedoch keine gegnerischen Spieler befinden sich auf der eigenen Spielh"alfte.
+paragraph{UseCase: Gegner (mit Ball) in eigener Spielh"alfte}
+Gegnerische Spieler befinden sich auf dem Spielfeld. Dabei ist es unerheblich ob der Ball ebenfalls mit auf dem Spielfeld ist.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Standardrolle: Mittelfeld}
-\textbf{-> TODO: Lohr}
+\textit{Verfasser: Lohr}\\
+\subsubsection{Planung, Evaluierung von Frameworks}
+Zu Anfang wurde die Vorgehensweise geplant und verschiedene Frameworks evaluiert. Unter anderem wurden Zigorat und Delta3D, zwei Frameworks, welche in C++ geschrieben wurden, evaluiert. Zigorat war zu rudimentär, da wichtige Aktionen, z.B. Laufen, noch nicht implementiert waren. Delta3D war zu instabil. \par
+Parallel dazu wurde recherchiert, wie eine KI am besten implementiert wird. Hierzu gibt es zwei Ansätze:
+\begin{itemize}
+ \item State-Driven Agent Design
+ \item Goal-Driven Agent Design
+\end{itemize}
+
+\subsubsection{State-Driven Agent Design}
+Das State-Driven Agent Design basiert auf Zustandsautomaten, wie sie auch in UML definiert wurden. Ein Zustandsautomat setzt sich zusammen auf verschiedenen Zuständen (States), davon genau ein Startzustand und min. ein Endzustand. Die Übergänge (Transitions) von einem Zustand in einen anderen werden durch Ereignisse (Events) ausgelöst.
+
+\begin{figure}[ht]
+	\centering
+  \includegraphics[width=0.85\textwidth]{Grafiken/KI/Bsp-Zustandsdiagramm.png}
+	\caption{Ein stark vereinfachter Zustandsautomat}
+	\label{fig1}
+\end{figure}
+
+Es gibt mehrere Möglichkeiten einen Zustandsautomaten zu implementieren. Es gibt unter anderem verschiedene Bibliotheken, die das implementieren eines Zustandsautomaten erleichtern. Unter anderem für C++: Boost.MSM (Meta State Machine), Boost.Statechart und Qt Statemachine Framework (aus dem Qt Framework). Für Java erschien die Tungsten FSM von Continuent am ausgereiftesten. Die Option ein auf Eclipse basierendes Tool namens Yakindu Statechart Tools\footnote{\url{http://statecharts.org/}} zu nutzen wurde verworfen, da nicht sicher war, wie sich das in den schon bestehenden Sourcecode einfügt.
+
+\subsubsection{Goal-Driven Agent Design}
+Das Goal-Driven Agent Design wird in \cite[S. 379 ff.]{buckland2005programming} beschrieben. Es besteht aus Zielen, die entweder weitere Unterziele beinhalten können, oder sie sind selber ein atomarer Bestandteil, und haben keine weiteren Unterziele mehr. (vgl. Kompositionsmuster \ref{fig2} aus \cite{gamma1994design}) Ob ein Ziel erreicht wurde, wird dadurch bestimmt, ob gewisse Unterziele erreicht wurden oder nicht. Schlägt ein Ziel fehl kann es neu ausgeführt werden.
+
+\begin{figure}[ht]
+	\centering
+  \includegraphics[width=0.85\textwidth]{Grafiken/KI/goal-driven.png}
+	\caption{Das Kompositionsmuster. Grafik entstammt \cite[S. 383]{buckland2005programming}}
+	\label{fig2}
+\end{figure}
+
+\subsubsection{Tungsten FSM}
+Es wurde das Tungsten FSM von Continuent für eine Beispielimplementierung herangezogen. Die Tungsten FSM besteht unter anderem aus
+\begin{itemize}
+ \item States
+ \item Transitions
+ \item Actions
+ \item Guards
+\end{itemize}
+Die Funktionsweise wurde im Wiki (Robofreunde n. V.) unter Tungsten\_FSM festgehalten. Die grundlegenden Funktionen seien hier nochmal wiederholt:
+
+\paragraph{States}
+Zustände werden wie folgt definiert:
+\begin{lstlisting}
+State haveBall = new State("Habe_Ball", StateType.START);
+State gotoGoalWithBall = new State("Laufe_zu_Tor", StateType.ACTIVE);
+State shootBallToGoal = new State("Torschuss", StateType.END);
+\end{lstlisting}
+Es gibt drei Arten von Zuständen:
+\begin{itemize}
+ \item \underline{Start}: Jede Statemachine hat genau einen Startzustand. Nach dem Start der Machine geht diese automatisch in diesen Zustand
+ \item \underline{End}: Jede Statemachine braucht min. einen Endzustand. Dieser terminiert die Statemachine
+ \item \underline{Active}: Jeder Zustand, der weder Start- noch Endzustand ist
+\end{itemize}
+
+\paragraph{Transitions}
+Ein Zustandsübergang wird dadurch definiert von welchen Zustand aus er in welchen Zustand wechselt und unter welchen Umständen (Guard) und welche Aktion (Action) er dabei ausführt. In dem nächsten Beispiel sieht man einen Übergang von Zustand 1 in Zustand 2, falls ein Event vom Typ MeinEvent auftritt. Dabei wird die Action NullAction ausgeführt:
+\begin{lstlisting}
+Transition t = new Transition("Zustand1_zu_Zustand2", new EventTypeGuard(MeinEvent.class),
+                    zustand1, new NullAction(), zustand2);
+\end{lstlisting}
+
+\paragraph{StateTransitionMap}
+Alle Zustände und Zustandsübergänge werden in einer Map gespeichert:
+\begin{lstlisting}
+StateTransitionMap map = new StateTransitionMap();
+map.addState(zustand1);
+map.addState(zustand2);
+map.addTransition(t);
+\end{lstlisting}
+
+\paragraph{Action}
+Eine Action wird beim Übergang in einen anderen Zustand oder beim Eintritt oder Austritt aus einem Zustand ausgeführt. Das Interface Action ist zu implementieren, und eine Methode \underline{doAction} muss definiert werden:
+\begin{lstlisting}
+public class NullAction implements Action{
+        @Override
+        public void doAction(Event message, Entity entity, Transition transition, int actionType) 
+        throws TransitionRollbackException, TransitionFailureException, InterruptedException
+        {
+            // Hier kommt die Logik hin
+        }
+    }
+\end{lstlisting}
+
+\paragraph{Guard}
+Ein Guard überprüft, ob ein Zustandsübergang genommen wird, oder nicht. Ein Guard muss das Interface Guard implementieren und die Methode \underline{accept} definieren:
+\begin{lstlisting}
+public class OwnGuard implements Guard
+{
+    @Override
+    public boolean accept(Event message, Entity entity, State state)
+    {
+        // Hier kommt die Logik hin
+    }   
+}
+\end{lstlisting}
+Es gibt bereits einige vordefinierten Guards, wie z.B. EventTypeGuard, der nur positiv wird, wenn ein bestimmter Zustand geworfen wird.
+
+\subsubsection{Mittelfeldspieler}
+Mit der Tungsten FSM wurde neben einem minimalen Bot auch ein Bot programmiert, der die Rolle ``Mittelfeldspieler'' einnehmen soll. Es wurden unter anderem folgende Use-Cases aufgestellt:
+
+\begin{itemize}
+ \item Eigene Mannschaft im Ballbesitz
+ \begin{itemize}
+  \item Solange die eigene Mannschaft im Ballbesitz ist, soll der Bot Abstand zum Ball halten
+  \item Der Bot soll passiv bleiben, und versuchen das Vorankommen von gegnerischen Spieler zu verhindern
+  \item Positionierung evtl. zwischen einem gegnerischen Spieler und dem ballbesitzendem eigenen Spieler um diesem einen, vom Gegner ungehinderten Lauf in Richtung Tor zu ermöglichen
+ \end{itemize}
+ 
+ \item Gegner im Ballbesitz
+ \begin{itemize}
+  \item Der Bot soll versuchen aktiv dem Gegner den Ball abzunehmen
+  \item keine Behinderung von eigenen Mitspielern
+ \end{itemize}
+ 
+ \item Eigener Spieler im Ballbesitz
+ \begin{itemize}
+  \item Falls keine Behinderung durch gegnerische Spieler: Versuche selber Tor zu schießen
+  \item Falls der Spieler bedrängt wird, nach Möglichkeit auf freistehenden Mitspieler passe
+ \end{itemize}
+\end{itemize}
+Die Anwendungsfälle (Use cases) wurden anschaulich dargestellt (siehe Anhang \ref{usecases_midfielder}), und aus diesen Use Cases leitet sich das Zustandsdiagramm ab, nach dem der Bot agiert. Das Zustandsdiagramm befindet sich in Anhang \ref{statechart_midfielder}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Spezialrollen: Standardsituationen}
 \textit{Verfasser: Stumpf}\\
 \\
@@ -795,5 +958,25 @@ Die Entscheidung wird getroffen anhand von gemeinsamer Logik, zum Beispiel \text
 \section{Verzeichnisse}
 \listoffigures
 
-\lstlistoflistings 
+\lstlistoflistings
+
+\begin{appendices}
+\section{Use cases für den Bot ``Mittelfeldspieler''}
+\label{usecases_midfielder}
+
+\noindent\makebox[\textwidth]{\includegraphics[angle=90,origin=c,width=0.9\paperwidth]{Grafiken/KI/mittelfeldspieler/eigene_mannschaft_im_angriff.png}}
+
+\noindent\makebox[\textwidth]{\includegraphics[angle=90,origin=c,width=0.9\paperwidth]{Grafiken/KI/mittelfeldspieler/eigene_mannschaft_im_angriff_fall_2.png}}
+
+\noindent\makebox[\textwidth]{\includegraphics[angle=90,origin=c,width=0.9\paperwidth]{Grafiken/KI/mittelfeldspieler/gegnerische_mannschaft_im_angriff.png}}
+
+\noindent\makebox[\textwidth]{\includegraphics[angle=90,origin=c,width=0.9\paperwidth]{Grafiken/KI/mittelfeldspieler/gegnerische_mannschaft_im_angriff_fall_2.png}}
+
+\section{Zustandsdiagramm für den Bot ``Mittelfeldspieler''}
+\label{statechart_midfielder}
+
+\noindent\makebox[\textwidth]{\includegraphics[angle=90,origin=c,width=0.9\paperwidth]{Grafiken/KI/mittelfeldspieler/mittelfeldspieler.png}}
+
+\end{appendices}
+
 \end{document}
