@@ -350,9 +350,13 @@ Das Worldmodel enthält die meisten für das Spiel relevanten Informationen:
 \subsubsection{Server Kommunikation}
 
 \section{KI-Konzept}
+\textit{Verfasser: Wurth}\\
+
 Für die KI wurde ein Konzept entwickelt, dass sich einfach in die bereits existierende Architektur des verwendeten Frameworks integrieren ließ. Ziel war es, eine möglichst flexible und gleichzeitig einfache Architektur zu entwerfen. Das Ergebnis ist eine Schichten-Architektur, deren Teilkomponenten einfach verändert oder ausgetauscht werden können. Nebeneffekte auf andere Module sind durch die Architektur weitgehend ausgeschlossen. So war es beispielsweise Problemlos möglich, verschiedene Herangehensweisen für die Implementierung von Rollen in das Gesamtsystem zu integrieren. Verschiedene Teammitglieder konnten also ihre selbst entwickelten Rollen schnell und einfach in das Gesamtsystem integrieren, ohne andere Komponenten anpassen zu müssen.
 
 \subsection{Anforderungen}
+\textit{Verfasser: Wurth}\\
+
 Das gewählte Framework und die Tatsache, dass eine Steuerung für eigenständige Roboter entwickelt werden musste, stellt einige Anforderungen an die zu entwickelnde künstliche Intelligenz.\\
 \\
 Jeder Roboter ist als unabhängiges Individuum zu verstehen. Das hat die direkte Folge, dass Entscheidungen nicht von einer übergeordneten Instanz getroffen werden können; Jeder Roboter muss aufgrund der ihm zur Verfügung stehenden Informationen seine eigenen Entscheidungen treffen. Das Fehlen einer zentralen Komponente erschwert es erheblich, ein aufeinander abgestimmtes Team-Spiel zu entwickeln. Dennoch gibt es für dieses Problem gute Ansätze. Die Anforderung, die sich zusammenfassend daraus ableiten lässt, ist die Notwendigkeit einer dezentralen Lösung für die KI.\\
@@ -362,12 +366,18 @@ Eine weitere Anforderung ergibt sich aus der Wahl des Frameworks. Das Framework 
 Neben den mehr oder weniger durch die äußeren Umstände vorgegebenen Anforderungen haben wir noch weitere zwei Anforderungen definiert. Roboter sollen ihre Rolle dynamisch wechseln, außerdem soll es zusätzlich die Möglichkeit geben, die aktuell verfolgte Spiel-Strategie nach Bedarf zu ändern.
 
 \subsection{Komponenten}
+\textit{Verfasser: Wurth}\\
+
 Das KI-Grundkonzept besteht aus insgesamt 4 Schichten. Jede Schicht kennt ausschließlich die darunterliegende Schicht. Die unterste Ebene definiert Grundlegende Bewegungen eines Roboters. Direkt darüber befinden sich Rollen. Rollen sind zum Beispiel \glqq Stürmer\grqq oder \glqq Torwart\grqq, aber auch Spezialrollen wie \glqq Anstoß\grqq oder \glqq Freistoß\grqq. Über den Rollen befindet sich die Strategie-Ebene. Auf höchster Ebene befindet sich der Strategie-Entscheider.
 
 \subsubsection{Elementare Bewegungen}
-Elementare Bewegungen sind die Grundlage für alle höheren Schichten. Sie sind die unmittelbare Voraussetzung die darüber liegenden Rollen, weil sie von diesen direkt benutzt werden. Elementare Bewegungen sind zum Beispiel: \glqq Laufen\grqq, \glqq Aufstehen\grqq, \glqq Schießen\grqq, oder \glqq Dribbeln\grqq. Abgesehen vom \glqq Dribbeln\grqq waren alle Bewegungen bereits mehr oder weniger funktionsfähig im Framework vorhanden. Dennoch musste an einigen Stellen optimiert und angepasst werden, siehe Kapitel \ref{Elementare Bewegungen}.
+\textit{Verfasser: Wurth}\\
+
+Elementare Bewegungen sind die Grundlage für alle höheren Schichten. Sie sind die unmittelbare Voraussetzung die darüber liegenden Rollen, weil sie von diesen direkt benutzt werden. Elementare Bewegungen sind zum Beispiel: \glqq Laufen\grqq, \glqq Aufstehen\grqq, \glqq Schießen\grqq, oder \glqq Dribbeln\grqq. Abgesehen vom \glqq Dribbeln\grqq waren alle Bewegungen bereits mehr oder weniger funktionsfähig im Framework vorhanden. Dennoch musste an einigen Stellen optimiert und angepasst werden, siehe Kapitel \ref{se:Elementare Bewegungen}.
 
 \subsubsection{Rollen}\label{Rollen Konzept}
+\textit{Verfasser: Wurth}\\
+
 Rollen definieren das Grundlegende Verhalten eines Roboters. Ein Verteidiger verfolgt eine andere Spielweise als ein Torwart. Alle unsere Rollen sind Statemachines. Eine wichtige Frage ist, wo und wie die KI für Standard-Situationen wie zum Beispiel den \glqq Anstoß\grqq in der Architektur verankert werden soll. Eine naheliegende Lösung ist die Definition von Spezialrollen, die genau diese Standard-Situationen behandeln. Die Alternative wäre eine Erweiterung aller Standard-Rollen um die Algorithmik der Standard-Situationen. Einen wirklichen Mehrwert hat man dadurch allerdings nicht, denn der Algorithmus um einen Anstoß zu machen benötigt keine Routinen eines Stürmers. Umgekehrt gilt das Selbe. Die Entscheidung fiel also auf die Definition von Spezialrollen, die genau diese Standard-Situationen umsetzen. Ein Spieler, der normalerweise zum Beispiel Stürmer ist, wechselt bei Bedarf einfach seine Rolle in \glqq Anstoß\grqq{} und im Anschluss wieder zurück.
 
 \begin{figure}[H]
@@ -380,9 +390,13 @@ Rollen definieren das Grundlegende Verhalten eines Roboters. Ein Verteidiger ver
 Abbildung \ref{Simple keeper} zeigt Beispielhaft den Entscheidungsbaum eines einfachen Torwarts.
 
 \subsubsection{Strategien}
+\textit{Verfasser: Wurth}\\
+
 Rollen sollen nicht selbst entscheiden, ob und in welche andere Rolle gewechselt wird. Das widerspräche der Schichtenarchitektur. Deshalb wurde die darüber liegende Strategieschicht eingeführt. Die Aufgabe dieser Schicht ist es, Rollen dynamisch zuzuordnen. Daher ist die Bezeichnung \glqq Strategie\grqq auch treffend; Eine Strategie steuert unter Anderem die Gesamtaufstellung des Teams. Damit lässt sich die allgemeine Spielweise des gesamten Teams steuern, mehr Verteidiger bedeutet eine defensive, mehr Angreifer eine aggressive Strategie. Eine Strategie benötigt einen Pool an Rollen, die sie \glqq verteilen\grqq darf. Dieser Pool definiert die grundlegende Spielweise eines Teams. Aufgabe jeder Strategie ist es dann, Rollen dynamisch nach Bedarf zu verteilen. Darunter fällt auch die Vergabe der Spezialrollen.
 
 \subsubsection{Strategie-Entscheider}
+\textit{Verfasser: Wurth}\\
+
 In der Strategieebene können verschiedene Strategien für verschiedene Gesamtaufstellungen des Teams definiert werden. Im Laufe eines Spiels kann es sinnvoll sein, die Aufstellung an die Gegebenheiten und Anforderungen an das Spiel anzupassen. Dafür Wurde auf höchster Ebene ein Entscheidungsmechanismus etabliert. Die Aufgabe dieser Schicht ist es, je nach Bedarf eine passende Strategie auszuwählen. Dafür gibt es verschiedene Ansätze, zum Beispiel könnte eine passende Strategie je nach aktuellem Spielstand ausgesucht werden. Beispiel: 
 \begin{itemize}
 \item Mannschaft liegt vorne: Defensive Strategie
@@ -401,6 +415,7 @@ In der Strategieebene können verschiedene Strategien für verschiedene Gesamtau
 Abbildung \ref{Einfacher Strategie Entscheider} zeigt den Enscheidungsbaum eines sehr einfachen Entscheidungsmeachanismus für Strategien.
 
 \subsection{Gesamtübersicht}\label{sse:KI-Gesamtübersicht}
+\textit{Verfasser: Wurth}\\
 
 \begin{figure}[H]
 	\centering
@@ -427,9 +442,11 @@ Abbildung \ref{Gesamtkonzept KI} zeigt das Gesamtkonzept mit allen 4 Ebenen. Gan
 \textbf{-> TODO: Stumpfi}
 
 \section{Rollen}
+\textit{Verfasser: Wurth}\\
 
 Rollen legen fest, welches übergeordnete Ziel ein Roboter zu einem bestimmten Zeitpunkt verfolgt aber vor Allem, wie dieses Ziel erreicht werden soll. Ziele wie Aufstehen nach einem Sturz, oder die eigene Position vor dem Ball korrigieren, sind untergeordnete Ziele die vor allem in den elementaren Bewegungen verfolgt werden. Ein Stürmer, dessen finales Ziel es ist, ein Tor zu schießen, muss natürlich einige Schritte Vorarbeit zum Erreichen dieses Ziels leisten. Zum Beispiel muss er zuerst den Ball erobern. Die Algorithmik, die zum Erreichen eines solchen Ziels erforderlich ist, findet ihren Platz in den Rollen. Wie in Kapitel \ref{Rollen Konzept} bereits erwähnt, werden Rollen in zwei Kategorien unterteilt, nämlich Standard-Rollen und Spezial-Rollen.
 \\
+
 Unter Standardrollen fallen alle normalen Spielertypen wie Stürmer, Verteidiger oder Torwart. In diesem Projekt wurden insgesamt 4 Standardrollen implementiert, deren genauere Beschreibung in diesem Kapitel Platz findet. Die Implementierung der Standardrollen wurde von verschiedenen Team-Mitgliedern durchgeführt. Stürmer und Torwart wurden von einer Person, Verteidiger und Mittelfeldspieler auch von jeweils einer Person entwickelt. Die Herangehensweisen unterscheiden sich deshalb zwischen den Rollen stark.
 \\
 
@@ -437,9 +454,12 @@ Spezialrollen wiederum kümmern sich um spezielle Situationen wie zum Beispiel d
 
 
 \subsection{Standardrollen: Torwart und Stürmer}
+\textit{Verfasser: Wurth}\\
+
 Die Rolle Torwart und die Rolle Stürmer wurden von einer Person entwickelt. Sie teilen sich deshalb ein gemeinsames Grundkonzept.
 
 \subsubsection{Konzept}
+\textit{Verfasser: Wurth}\\
 
 Wie alle anderen Rollen auch, sind die Rollen für Torwart und Stürmer State-Machines. Jede State-Machine beinhaltet mehrere States. Jeder State hat eine ganz bestimmte Aufgabe, zum Beispiel: Zu einer bestimmten Position laufen. Im Kern befindet sich innerhalb eines States nur die Parametrisierung einer konkreten elementaren Bewegung. Diese Bewegung kann dann mittels Poll von außen abgefragt werden.
 \\
@@ -477,9 +497,9 @@ public abstract class BaseAttackerCenter extends BaseState {
 }
 \end{lstlisting}
 
-\ref{Beispiel Basisklasse Stürmer} Zeigt den Aufbau einer Basisklasse für States am Beispiel des Stürmers. Sie bekommt in der Methode \lstinline$bootstrap()$ von Außen alle States und hält sie dann vor. Außerdem befindet sich ab Zeile 21 der die Methode \lstinline$decideNextState()$.
+Listing \ref{Beispiel Basisklasse Stürmer} zeigt den Aufbau einer Basisklasse für States am Beispiel des Stürmers. Sie bekommt in der Methode \lstinline$bootstrap()$ von außen alle States und hält sie dann vor. Außerdem befindet sich ab Zeile 21 die Methode \lstinline$decideNextState()$.
 
-Jeder Konkrete State leitet von diesem Basis-State ab und erbst somit alle States der Statemachine sowie die Methode \lstinline$decideNextState()$.
+Jeder Konkrete State leitet von diesem Basis-State ab und erbt somit alle States der Statemachine sowie die Methode \lstinline$decideNextState()$.
 \\
 
 \begin{lstlisting}[caption=Beispiel eines konkreten States: GoToBallState, captionpos=b, label=Beispiel eines konkreten States: GoToBallState]
@@ -515,6 +535,7 @@ public class GoToBallState extends BaseAttackerCenter {
 Listing \ref{Beispiel eines konkreten States: GoToBallState} zeigt Beispielhaft den State, der für das Laufen zum Ball verantwortlich ist. Er hält eine sogenannte \lstinline$IBehavior$ vor, die am Ende für das Ausführen der Bewegung benötigt wird. Innerhalb des States findet also nicht die Ausführung der Bewegung statt, sondern nur deren Parametrisierung. In der \lstinline$update()$-Methode passiert in Zeile 12 zuerst die Abfrage des für die aktuelle Situation besten States. Dazu wird die geerbte Methode \lstinline$decideNextState()$ aufgerufen. Nur wenn der zurückgegebene State er selbst ist, soll er seinen Code ausführen und die \lstinline$IBehavior$ bearbeiten (Zeilen 14 - 18). Wurde ein anderer State zurückgegeben, wird kein eigener Code ausgeführt und der neue State zurückgegeben (Zeile 20). Damit die \lstinline$IBehavior$ von außen abgerufen werden kann, wurde hierfür ein Getter erzeugt (Zeilen 23 - 26).
 
 \subsubsection{Standardrolle: Torwart}
+\textit{Verfasser: Wurth}\\
 
 \begin{figure}[H]
 	\centering
@@ -576,6 +597,7 @@ if (nextState == this && (targetDistance > 0.2 || !angleCloseEnough(angleToBall)
 
 Listing \ref{ESM Torwart} zeigt die Bedingungen für eine erneute Bewegnung. Nur, wenn die Zieldistanz einen hinreichend kleinen Wert überschreitet, oder der Winkel des Roboters zum Ball nicht gut genug ist, soll zur neuen Position gelaufen werden. Ursprünglich wurde nur die Distanz zum Ziel herangezogen, mit der Folge, dass der Roboter teilweise quer zum Ball stehen blieb. Damit verdeckt er aber weniger Fläche vom Tor, also wurde noch ein optimaler Winkel zum Ball miteinbezogen.
 \subsubsection{Standardrolle: Stürmer}
+\textit{Verfasser: Wurth}\\
 
 \begin{figure}[H]
 	\centering
@@ -585,17 +607,17 @@ Listing \ref{ESM Torwart} zeigt die Bedingungen für eine erneute Bewegnung. Nur
 \end{figure}
 
 \subsection{Standardrolle: Verteidiger}
+\textbf{-> TODO: Freddy}
 \subsection{Standardrolle: Mittelfeld}
-
+\textbf{-> TODO: Lohr}
 \subsection{Spezialrollen: Standardsituationen}
 \textbf{-> TODO: Stumpfi}
 \section{Grafisches Debugging}\label{se:Grafisches Debugging}
 \textbf{-> TODO: Felix}
-
 \section{Strategien}
-
+\textbf{-> TODO: Freddy}
 \section{Strategie-Entscheider}
-
+\textbf{-> TODO: Freddy}
 \section{Zusammenfassung und Ausblick}
 \textit{Ergebnisse und Vermächtnis...}
 

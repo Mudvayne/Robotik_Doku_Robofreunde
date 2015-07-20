@@ -20,25 +20,25 @@
 \contentsline {subsubsection}{\numberline {6.2.1}Elementare Bewegungen}{16}{subsubsection.6.2.1}
 \contentsline {subsubsection}{\numberline {6.2.2}Rollen}{16}{subsubsection.6.2.2}
 \contentsline {subsubsection}{\numberline {6.2.3}Strategien}{17}{subsubsection.6.2.3}
-\contentsline {subsubsection}{\numberline {6.2.4}Strategie-Entscheider}{17}{subsubsection.6.2.4}
+\contentsline {subsubsection}{\numberline {6.2.4}Strategie-Entscheider}{18}{subsubsection.6.2.4}
 \contentsline {subsection}{\numberline {6.3}Gesamt\IeC {\"u}bersicht}{19}{subsection.6.3}
-\contentsline {section}{\numberline {7}Elementare Bewegungen}{19}{section.7}
-\contentsline {subsection}{\numberline {7.1}Anforderungen}{19}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Laufen}{19}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}Dribbeln}{19}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}Schie{\ss }en}{19}{subsection.7.4}
-\contentsline {subsubsection}{\numberline {7.4.1}Behaviors}{20}{subsubsection.7.4.1}
-\contentsline {subsubsection}{\numberline {7.4.2}Evaluierung, Metrik Bots}{20}{subsubsection.7.4.2}
-\contentsline {section}{\numberline {8}Rollen}{20}{section.8}
-\contentsline {subsection}{\numberline {8.1}Standardrollen: Torwart und St\IeC {\"u}rmer}{20}{subsection.8.1}
-\contentsline {subsubsection}{\numberline {8.1.1}Konzept}{20}{subsubsection.8.1.1}
-\contentsline {subsubsection}{\numberline {8.1.2}Standardrolle: Torwart}{23}{subsubsection.8.1.2}
+\contentsline {section}{\numberline {7}Elementare Bewegungen}{20}{section.7}
+\contentsline {subsection}{\numberline {7.1}Anforderungen}{20}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Laufen}{20}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Dribbeln}{20}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Schie{\ss }en}{20}{subsection.7.4}
+\contentsline {subsubsection}{\numberline {7.4.1}Behaviors}{21}{subsubsection.7.4.1}
+\contentsline {subsubsection}{\numberline {7.4.2}Evaluierung, Metrik Bots}{21}{subsubsection.7.4.2}
+\contentsline {section}{\numberline {8}Rollen}{21}{section.8}
+\contentsline {subsection}{\numberline {8.1}Standardrollen: Torwart und St\IeC {\"u}rmer}{21}{subsection.8.1}
+\contentsline {subsubsection}{\numberline {8.1.1}Konzept}{21}{subsubsection.8.1.1}
+\contentsline {subsubsection}{\numberline {8.1.2}Standardrolle: Torwart}{24}{subsubsection.8.1.2}
 \contentsline {subsubsection}{\numberline {8.1.3}Standardrolle: St\IeC {\"u}rmer}{26}{subsubsection.8.1.3}
-\contentsline {subsection}{\numberline {8.2}Standardrolle: Verteidiger}{26}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}Standardrolle: Mittelfeld}{26}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}Spezialrollen: Standardsituationen}{26}{subsection.8.4}
-\contentsline {section}{\numberline {9}Grafisches Debugging}{26}{section.9}
-\contentsline {section}{\numberline {10}Strategien}{27}{section.10}
-\contentsline {section}{\numberline {11}Strategie-Entscheider}{27}{section.11}
-\contentsline {section}{\numberline {12}Zusammenfassung und Ausblick}{27}{section.12}
-\contentsline {section}{\numberline {13}Verzeichnisse}{27}{section.13}
+\contentsline {subsection}{\numberline {8.2}Standardrolle: Verteidiger}{27}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Standardrolle: Mittelfeld}{27}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Spezialrollen: Standardsituationen}{27}{subsection.8.4}
+\contentsline {section}{\numberline {9}Grafisches Debugging}{27}{section.9}
+\contentsline {section}{\numberline {10}Strategien}{28}{section.10}
+\contentsline {section}{\numberline {11}Strategie-Entscheider}{28}{section.11}
+\contentsline {section}{\numberline {12}Zusammenfassung und Ausblick}{28}{section.12}
+\contentsline {section}{\numberline {13}Verzeichnisse}{28}{section.13}

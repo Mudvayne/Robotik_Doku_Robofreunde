@@ -1,0 +1,43 @@
+\BOOKMARK [1][-]{section.1}{Einleitung}{}% 1
+\BOOKMARK [1][-]{section.2}{Anforderungen}{}% 2
+\BOOKMARK [1][-]{section.3}{Zeitplan}{}% 3
+\BOOKMARK [1][-]{section.4}{RoboCup Soccer Simulation League}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Installation auf Windows Systemen}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Installation Linux Systemen}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Installation Windows + VM}{section.4}% 7
+\BOOKMARK [1][-]{section.5}{Framework}{}% 8
+\BOOKMARK [2][-]{subsection.5.1}{Entscheidung f\374r Magma}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.2}{Magma Offenburg}{section.5}% 10
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Agent Startup Routine}{subsection.5.2}% 11
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Verschiedene NAO-Models}{subsection.5.2}% 12
+\BOOKMARK [3][-]{subsubsection.5.2.3}{DecisionMaker, Believes, Behaviors}{subsection.5.2}% 13
+\BOOKMARK [3][-]{subsubsection.5.2.4}{Thought- und Worldmodel}{subsection.5.2}% 14
+\BOOKMARK [3][-]{subsubsection.5.2.5}{Server Kommunikation}{subsection.5.2}% 15
+\BOOKMARK [1][-]{section.6}{KI-Konzept}{}% 16
+\BOOKMARK [2][-]{subsection.6.1}{Anforderungen}{section.6}% 17
+\BOOKMARK [2][-]{subsection.6.2}{Komponenten}{section.6}% 18
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Elementare Bewegungen}{subsection.6.2}% 19
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Rollen}{subsection.6.2}% 20
+\BOOKMARK [3][-]{subsubsection.6.2.3}{Strategien}{subsection.6.2}% 21
+\BOOKMARK [3][-]{subsubsection.6.2.4}{Strategie-Entscheider}{subsection.6.2}% 22
+\BOOKMARK [2][-]{subsection.6.3}{Gesamt\374bersicht}{section.6}% 23
+\BOOKMARK [1][-]{section.7}{Elementare Bewegungen}{}% 24
+\BOOKMARK [2][-]{subsection.7.1}{Anforderungen}{section.7}% 25
+\BOOKMARK [2][-]{subsection.7.2}{Laufen}{section.7}% 26
+\BOOKMARK [2][-]{subsection.7.3}{Dribbeln}{section.7}% 27
+\BOOKMARK [2][-]{subsection.7.4}{Schie\337en}{section.7}% 28
+\BOOKMARK [3][-]{subsubsection.7.4.1}{Behaviors}{subsection.7.4}% 29
+\BOOKMARK [3][-]{subsubsection.7.4.2}{Evaluierung, Metrik Bots}{subsection.7.4}% 30
+\BOOKMARK [1][-]{section.8}{Rollen}{}% 31
+\BOOKMARK [2][-]{subsection.8.1}{Standardrollen: Torwart und St\374rmer}{section.8}% 32
+\BOOKMARK [3][-]{subsubsection.8.1.1}{Konzept}{subsection.8.1}% 33
+\BOOKMARK [3][-]{subsubsection.8.1.2}{Standardrolle: Torwart}{subsection.8.1}% 34
+\BOOKMARK [3][-]{subsubsection.8.1.3}{Standardrolle: St\374rmer}{subsection.8.1}% 35
+\BOOKMARK [2][-]{subsection.8.2}{Standardrolle: Verteidiger}{section.8}% 36
+\BOOKMARK [2][-]{subsection.8.3}{Standardrolle: Mittelfeld}{section.8}% 37
+\BOOKMARK [2][-]{subsection.8.4}{Spezialrollen: Standardsituationen}{section.8}% 38
+\BOOKMARK [1][-]{section.9}{Grafisches Debugging}{}% 39
+\BOOKMARK [1][-]{section.10}{Strategien}{}% 40
+\BOOKMARK [1][-]{section.11}{Strategie-Entscheider}{}% 41
+\BOOKMARK [1][-]{section.12}{Zusammenfassung und Ausblick}{}% 42
+\BOOKMARK [1][-]{section.13}{Verzeichnisse}{}% 43
