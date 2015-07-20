@@ -38,8 +38,6 @@
 \makeatother
 
 \begin{document}
-Es handelt sich hier nur um einen Vorschlag für die Struktur des Dokuments. Das Ding erhebt keinen Anspruch auf Vollständigkeit, sondern ist das Ergebnis von maximal 15 Minuten \glqq Fuck, wir müssen den Shit fertig machen, ich fang mal an lol\grqq. Bevor wir dann wirklich anfangen aufzuteilen, wer was schreibt (abseits der offensichtlichen Stellen), sollten wir die Struktur des Dokuments \textbf{zusammen} durchgehen und finalisieren. Btw, ich hab keinen Plan von Latex, sollte ich also gegen irgendwelche Konventionen verstoßen haben würde es mich nicht wundern... Hoffe aber es passt einigermaßen. Manu
-
 
 \maketitle
 \tableofcontents
@@ -421,33 +419,33 @@ Das Worldmodel enthält die meisten für das Spiel relevanten Informationen:
 \section{KI-Konzept}
 \textit{Verfasser: Wurth}\\
 
-Für die KI wurde ein Konzept entwickelt, dass sich einfach in die bereits existierende Architektur des verwendeten Frameworks integrieren ließ. Ziel war es, eine möglichst flexible und gleichzeitig einfache Architektur zu entwerfen. Das Ergebnis ist eine Schichten-Architektur, deren Teilkomponenten einfach verändert oder ausgetauscht werden können. Nebeneffekte auf andere Module sind durch die Architektur weitgehend ausgeschlossen. So war es beispielsweise Problemlos möglich, verschiedene Herangehensweisen für die Implementierung von Rollen in das Gesamtsystem zu integrieren. Verschiedene Teammitglieder konnten also ihre selbst entwickelten Rollen schnell und einfach in das Gesamtsystem integrieren, ohne andere Komponenten anpassen zu müssen.
+Für die KI wurde ein Konzept entwickelt, dass sich einfach in die bereits existierende Architektur des verwendeten Frameworks integrieren ließ. Ziel war es, eine möglichst flexible und gleichzeitig einfache Architektur zu entwerfen. Das Ergebnis ist eine Schichten-Architektur, deren Teilkomponenten einfach verändert oder ausgetauscht werden können. Nebeneffekte auf andere Module sind durch die Architektur weitgehend ausgeschlossen. So war es beispielsweise problemlos möglich, verschiedene Herangehensweisen für die Implementierung von Rollen in das Gesamtsystem zu integrieren. Verschiedene Teammitglieder konnten also ihre selbst entwickelten Rollen schnell und einfach in das Gesamtsystem integrieren, ohne andere Komponenten anpassen zu müssen.
 
 \subsection{Anforderungen}
 \textit{Verfasser: Wurth}\\
 
-Das gewählte Framework und die Tatsache, dass eine Steuerung für eigenständige Roboter entwickelt werden musste, stellt einige Anforderungen an die zu entwickelnde künstliche Intelligenz.\\
+Das gewählte Framework und die Notwenigkeit einer Steuerung für eigenständige Roboter, stellt einige Anforderungen an die zu entwickelnde künstliche Intelligenz.\\
 \\
-Jeder Roboter ist als unabhängiges Individuum zu verstehen. Das hat die direkte Folge, dass Entscheidungen nicht von einer übergeordneten Instanz getroffen werden können; Jeder Roboter muss aufgrund der ihm zur Verfügung stehenden Informationen seine eigenen Entscheidungen treffen. Das Fehlen einer zentralen Komponente erschwert es erheblich, ein aufeinander abgestimmtes Team-Spiel zu entwickeln. Dennoch gibt es für dieses Problem gute Ansätze. Die Anforderung, die sich zusammenfassend daraus ableiten lässt, ist die Notwendigkeit einer dezentralen Lösung für die KI.\\
+Jeder Roboter ist als unabhängiges Individuum zu verstehen. Das hat die direkte Folge, dass Entscheidungen nicht von einer übergeordneten Instanz getroffen werden können; Jeder Roboter muss aufgrund der ihm zur Verfügung stehenden Informationen selbstständig Entscheidungen treffen. Das Fehlen einer zentralen Komponente erschwert es erheblich, ein aufeinander abgestimmtes Team-Spiel zu entwickeln. Dennoch gibt es für dieses Problem gute Ansätze. Die Anforderung, die sich zusammenfassend daraus ableiten lässt, ist eine Lösung mittels einer dezentralen Architektur für die KI.\\
 \\
 Eine weitere Anforderung ergibt sich aus der Wahl des Frameworks. Das Framework arbeitet weitgehend mit Polling, also einem kontinuierlichen Abfragen der nächsten Aktion. Es ist daher naheliegend, auch für die hier zu entwickelnde KI einen Ansatz mit Polling zu zu verfolgen.\\
 \\
-Neben den mehr oder weniger durch die äußeren Umstände vorgegebenen Anforderungen haben wir noch weitere zwei Anforderungen definiert. Roboter sollen ihre Rolle dynamisch wechseln, außerdem soll es zusätzlich die Möglichkeit geben, die aktuell verfolgte Spiel-Strategie nach Bedarf zu ändern.
+Neben den mehr oder weniger durch die äußeren Umstände vorgegebenen Anforderungen haben wir noch zwei weitere Anforderungen definiert. Roboter sollen ihre Rolle dynamisch wechseln, außerdem soll es zusätzlich die Möglichkeit geben, die aktuell verfolgte Spiel-Strategie nach Bedarf zu ändern.
 
 \subsection{Komponenten}
 \textit{Verfasser: Wurth}\\
 
-Das KI-Grundkonzept besteht aus insgesamt 4 Schichten. Jede Schicht kennt ausschließlich die darunterliegende Schicht. Die unterste Ebene definiert Grundlegende Bewegungen eines Roboters. Direkt darüber befinden sich Rollen. Rollen sind zum Beispiel \glqq Stürmer\grqq oder \glqq Torwart\grqq, aber auch Spezialrollen wie \glqq Anstoß\grqq oder \glqq Freistoß\grqq. Über den Rollen befindet sich die Strategie-Ebene. Auf höchster Ebene befindet sich der Strategie-Entscheider.
+Das KI-Grundkonzept besteht aus insgesamt 4 Schichten. Jede Schicht kennt ausschließlich die darunterliegende Schicht. Die unterste Ebene definiert die grundlegende Bewegungen eines Roboters. Direkt darüber befinden sich Rollen. Rollen sind zum Beispiel \glqq Stürmer\grqq{} oder \glqq Torwart\grqq, aber auch Spezialrollen wie \glqq Anstoß\grqq{} oder \glqq Freistoß\grqq. Über den Rollen befindet sich die Strategie-Ebene. Auf höchster Ebene befindet sich der Strategie-Entscheider. Die einzelnen Ebenen werden nachfolgend detaillierter beleuchtet.
 
 \subsubsection{Elementare Bewegungen}
 \textit{Verfasser: Wurth}\\
 
-Elementare Bewegungen sind die Grundlage für alle höheren Schichten. Sie sind die unmittelbare Voraussetzung die darüber liegenden Rollen, weil sie von diesen direkt benutzt werden. Elementare Bewegungen sind zum Beispiel: \glqq Laufen\grqq, \glqq Aufstehen\grqq, \glqq Schießen\grqq, oder \glqq Dribbeln\grqq. Abgesehen vom \glqq Dribbeln\grqq waren alle Bewegungen bereits mehr oder weniger funktionsfähig im Framework vorhanden. Dennoch musste an einigen Stellen optimiert und angepasst werden, siehe Kapitel \ref{se:Elementare Bewegungen}.
+Elementare Bewegungen sind die Grundlage für alle höheren Schichten. Sie sind die unmittelbare Voraussetzung die darüber liegenden Rollen, weil sie von diesen direkt benutzt werden. Elementare Bewegungen sind zum Beispiel: \glqq Laufen\grqq, \glqq Aufstehen\grqq, \glqq Schießen\grqq, oder \glqq Dribbeln\grqq. Abgesehen vom \glqq Dribbeln\grqq{} waren alle Bewegungen bereits mehr oder weniger funktionsfähig im Framework vorhanden. Dennoch musste an einigen Stellen optimiert und angepasst werden. Kapitel \ref{se:Elementare Bewegungen} widmet sich diesem Problem.
 
 \subsubsection{Rollen}\label{Rollen Konzept}
 \textit{Verfasser: Wurth}\\
 
-Rollen definieren das Grundlegende Verhalten eines Roboters. Ein Verteidiger verfolgt eine andere Spielweise als ein Torwart. Alle unsere Rollen sind Statemachines. Eine wichtige Frage ist, wo und wie die KI für Standard-Situationen wie zum Beispiel den \glqq Anstoß\grqq in der Architektur verankert werden soll. Eine naheliegende Lösung ist die Definition von Spezialrollen, die genau diese Standard-Situationen behandeln. Die Alternative wäre eine Erweiterung aller Standard-Rollen um die Algorithmik der Standard-Situationen. Einen wirklichen Mehrwert hat man dadurch allerdings nicht, denn der Algorithmus um einen Anstoß zu machen benötigt keine Routinen eines Stürmers. Umgekehrt gilt das Selbe. Die Entscheidung fiel also auf die Definition von Spezialrollen, die genau diese Standard-Situationen umsetzen. Ein Spieler, der normalerweise zum Beispiel Stürmer ist, wechselt bei Bedarf einfach seine Rolle in \glqq Anstoß\grqq{} und im Anschluss wieder zurück.
+Ein Verteidiger verfolgt andere Ziele als ein Torwart. Rollen definieren das grundlegende Verhalten, also die grundlegenden Ziele eines Roboters. Alle unsere Rollen sind Statemachines, die allerdings unterschiedlich umgesetzt wurden. Eine wichtige Frage ist, wo und wie die KI für Standard-Situationen, wie zum Beispiel den \glqq Anstoß\grqq, in der Architektur verankert werden soll. Eine naheliegende Lösung ist die Definition von Spezialrollen, die genau diese Standard-Situationen behandeln. Die Alternative wäre eine Erweiterung aller Standard-Rollen um die Algorithmik der Standard-Situationen. Einen wirklicher Mehrwert ergibt sich daraus aber nicht, denn der Algorithmus um einen Anstoß durchzuführen benötigt keine Routinen eines Stürmers. Umgekehrt gilt das Selbe. Die Entscheidung fiel also auf die Definition von Spezialrollen, die genau diese Standard-Situationen umsetzen. Ein Roboter, dessen Rolle normalerweise Stürmer ist, wechselt bei Bedarf einfach seine Rolle in \glqq Anstoß\grqq{} und im Anschluss wieder zurück.
 
 \begin{figure}[H]
 	\centering
@@ -461,7 +459,7 @@ Abbildung \ref{Simple keeper} zeigt Beispielhaft den Entscheidungsbaum eines ein
 \subsubsection{Strategien}
 \textit{Verfasser: Wurth}\\
 
-Rollen sollen nicht selbst entscheiden, ob und in welche andere Rolle gewechselt wird. Das widerspräche der Schichtenarchitektur. Deshalb wurde die darüber liegende Strategieschicht eingeführt. Die Aufgabe dieser Schicht ist es, Rollen dynamisch zuzuordnen. Daher ist die Bezeichnung \glqq Strategie\grqq auch treffend; Eine Strategie steuert unter Anderem die Gesamtaufstellung des Teams. Damit lässt sich die allgemeine Spielweise des gesamten Teams steuern, mehr Verteidiger bedeutet eine defensive, mehr Angreifer eine aggressive Strategie. Eine Strategie benötigt einen Pool an Rollen, die sie \glqq verteilen\grqq darf. Dieser Pool definiert die grundlegende Spielweise eines Teams. Aufgabe jeder Strategie ist es dann, Rollen dynamisch nach Bedarf zu verteilen. Darunter fällt auch die Vergabe der Spezialrollen.
+Rollen sollen nicht selbst entscheiden, ob und in welche andere Rolle gewechselt wird. Das widerspräche der Schichtenarchitektur. Deshalb wurde die darüber liegende Strategieschicht eingeführt. Die Aufgabe dieser Schicht ist es, Rollen dynamisch zuzuordnen. Daher ist die Bezeichnung \glqq Strategie\grqq{} auch treffend; Eine Strategie steuert unter Anderem die Gesamtaufstellung des Teams. Damit lässt sich die allgemeine Spielweise des gesamten Teams steuern, mehr Verteidiger bedeutet eine defensive, mehr Angreifer eine aggressive Strategie. Eine Strategie benötigt einen Pool an Rollen, die sie \glqq verteilen\grqq{} darf. Dieser Pool legt indirekt die Spielweise eines Teams fest. Aufgabe jeder Strategie ist es dann, Rollen dynamisch nach Bedarf zu verteilen. Darunter fällt insbesondere auch die Vergabe der Spezialrollen.
 
 \subsubsection{Strategie-Entscheider}
 \textit{Verfasser: Wurth}\\
@@ -483,18 +481,19 @@ In der Strategieebene können verschiedene Strategien für verschiedene Gesamtau
 
 Abbildung \ref{Einfacher Strategie Entscheider} zeigt den Enscheidungsbaum eines sehr einfachen Entscheidungsmeachanismus für Strategien.
 
+\pagebreak
+
 \subsection{Gesamtübersicht}\label{sse:KI-Gesamtübersicht}
 \textit{Verfasser: Wurth}\\
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\ScaleIfNeeded]{Grafiken/KI/Ki-Concept}
+	\includegraphics[width=1.0\textwidth]{Grafiken/KI/Ki-Concept}
 	\caption{Gesamtkonzept KI}
 	\label{Gesamtkonzept KI}
 \end{figure}
 
-Abbildung \ref{Gesamtkonzept KI} zeigt das Gesamtkonzept mit allen 4 Ebenen. Ganz unten befinden sich die elementaren Bewegungen. Rollen werden auf der Schicht darüber definiert. Sie greifen als einzige Schicht auf elementare Bewegungen direkt zu. Über den Rollen befindet sich die Strategie-Ebene. Jede Strategie hält einen Pool an Rollen vor und Steuert damit die konkrete Aufstellung auf dem Spielfeld. Auf höchster Ebene befindet sich der Entscheidungsmechanismus, der Situationsabhängig eine passende Strategie aktiviert. 
-
+Abbildung \ref{Gesamtkonzept KI} zeigt das Gesamtkonzept mit allen 4 Ebenen. Ganz unten befinden sich die elementaren Bewegungen. Rollen werden auf der Schicht darüber definiert. Sie greifen als einzige Schicht auf elementare Bewegungen direkt zu. Über den Rollen befindet sich die Strategie-Ebene. Jede Strategie hält einen Pool an Rollen vor und steuert damit die konkrete Aufstellung auf dem Spielfeld. Auf höchster Ebene befindet sich der Entscheidungsmechanismus, der Situationsabhängig eine passende Strategie aktiviert. 
 
 \section{Elementare Bewegungen}\label{se:Elementare Bewegungen}
 \textit{Verfasser: Stumpf}\\
@@ -669,7 +668,7 @@ Das Ergebnis der Optimierung kann man in folgender Tabelle sehen.
 \section{Rollen}
 \textit{Verfasser: Wurth}\\
 
-Rollen legen fest, welches übergeordnete Ziel ein Roboter zu einem bestimmten Zeitpunkt verfolgt aber vor Allem, wie dieses Ziel erreicht werden soll. Ziele wie Aufstehen nach einem Sturz, oder die eigene Position vor dem Ball korrigieren, sind untergeordnete Ziele die vor allem in den elementaren Bewegungen verfolgt werden. Ein Stürmer, dessen finales Ziel es ist, ein Tor zu schießen, muss natürlich einige Schritte Vorarbeit zum Erreichen dieses Ziels leisten. Zum Beispiel muss er zuerst den Ball erobern. Die Algorithmik, die zum Erreichen eines solchen Ziels erforderlich ist, findet ihren Platz in den Rollen. Wie in Kapitel \ref{Rollen Konzept} bereits erwähnt, werden Rollen in zwei Kategorien unterteilt, nämlich Standard-Rollen und Spezial-Rollen.
+Rollen legen fest, welches übergeordnete Ziel ein Roboter zu einem bestimmten Zeitpunkt verfolgt, aber vor Allem, wie dieses Ziel erreicht werden soll. Ziele wie Aufstehen nach einem Sturz, oder die eigene Position vor dem Ball korrigieren, sind untergeordnete Ziele, die vor allem in den elementaren Bewegungen verfolgt werden. Ein Stürmer, dessen finales Ziel es ist, ein Tor zu schießen, muss natürlich einige Schritte Vorarbeit zum Erreichen dieses Ziels leisten. Zum Beispiel muss er zuerst den Ball erobern. Die Algorithmik, die zum Erreichen eines solchen Ziels erforderlich ist, findet ihren Platz in den Rollen. Wie in Kapitel \ref{Rollen Konzept} bereits erwähnt, werden Rollen in zwei Kategorien unterteilt, nämlich Standard-Rollen und Spezial-Rollen.
 \\
 
 Unter Standardrollen fallen alle normalen Spielertypen wie Stürmer, Verteidiger oder Torwart. In diesem Projekt wurden insgesamt 4 Standardrollen implementiert, deren genauere Beschreibung in diesem Kapitel Platz findet. Die Implementierung der Standardrollen wurde von verschiedenen Team-Mitgliedern durchgeführt. Stürmer und Torwart wurden von einer Person, Verteidiger und Mittelfeldspieler auch von jeweils einer Person entwickelt. Die Herangehensweisen unterscheiden sich deshalb zwischen den Rollen stark.
@@ -723,8 +722,9 @@ public abstract class BaseAttackerCenter extends BaseState {
 \end{lstlisting}
 
 Listing \ref{Beispiel Basisklasse Stürmer} zeigt den Aufbau einer Basisklasse für States am Beispiel des Stürmers. Sie bekommt in der Methode \lstinline$bootstrap()$ von außen alle States und hält sie dann vor. Außerdem befindet sich ab Zeile 21 die Methode \lstinline$decideNextState()$.
+\\
 
-Jeder Konkrete State leitet von diesem Basis-State ab und erbt somit alle States der Statemachine sowie die Methode \lstinline$decideNextState()$.
+Jeder konkrete State leitet von diesem Basis-State ab und erbt somit alle States der Statemachine sowie die Methode \lstinline$decideNextState()$.
 \\
 
 \begin{lstlisting}[caption=Beispiel eines konkreten States: GoToBallState, captionpos=b, label=Beispiel eines konkreten States: GoToBallState]
@@ -757,7 +757,8 @@ public class GoToBallState extends BaseAttackerCenter {
 }
 \end{lstlisting}
 
-Listing \ref{Beispiel eines konkreten States: GoToBallState} zeigt Beispielhaft den State, der für das Laufen zum Ball verantwortlich ist. Er hält eine sogenannte \lstinline$IBehavior$ vor, die am Ende für das Ausführen der Bewegung benötigt wird. Innerhalb des States findet also nicht die Ausführung der Bewegung statt, sondern nur deren Parametrisierung. In der \lstinline$update()$-Methode passiert in Zeile 12 zuerst die Abfrage des für die aktuelle Situation besten States. Dazu wird die geerbte Methode \lstinline$decideNextState()$ aufgerufen. Nur wenn der zurückgegebene State er selbst ist, soll er seinen Code ausführen und die \lstinline$IBehavior$ bearbeiten (Zeilen 14 - 18). Wurde ein anderer State zurückgegeben, wird kein eigener Code ausgeführt und der neue State zurückgegeben (Zeile 20). Damit die \lstinline$IBehavior$ von außen abgerufen werden kann, wurde hierfür ein Getter erzeugt (Zeilen 23 - 26).
+Listing \ref{Beispiel eines konkreten States: GoToBallState} zeigt beispielhaft den State, der für das Laufen zum Ball verantwortlich ist. Er hält eine sogenannte \lstinline$IBehavior$ vor, die am Ende für das Ausführen der Bewegung benötigt wird. Innerhalb des States findet also nicht die Ausführung der Bewegung statt, sondern nur deren Parametrisierung. In der \lstinline$update()$-Methode wird zunächst abgefragt, welcher State für die aktuelle Situation am besten ist (Zeile 12). Dazu wird die geerbte Methode \lstinline$decideNextState()$ aufgerufen. Nur wenn der zurückgegebene State er selbst ist, soll er seinen Code ausführen und die \lstinline$IBehavior$ bearbeiten (Zeilen 14 - 18). Wurde ein anderer State zurückgegeben, wird kein eigener Code ausgeführt und der neue State zurückgegeben (Zeile 20). Damit die \lstinline$IBehavior$ von außen abgerufen werden kann, wurde hierfür ein Getter erzeugt (Zeilen 23 - 26).
+\pagebreak
 
 \subsubsection{Standardrolle: Torwart}
 \textit{Verfasser: Wurth}\\
@@ -772,11 +773,14 @@ Listing \ref{Beispiel eines konkreten States: GoToBallState} zeigt Beispielhaft 
 Abbildung \ref{Torwart Entscheidungsbaum} zeigt den Entscheidungsbaum des Torwarts. Die Entscheidungsbäume von Torwart und Stürmer finden ihre direkte Umsetzung in der \lstinline$decideNextState()$ des Basis-States. Es war also sehr sinnvoll vor der Implementierung derartige Entscheidungsbäume zu entwerfen.
 \\
 
-Die Statemachine des Torwarts besteht aus insgesamt 4 States. Die erste Überprüfung ist, ob der Spieler den Ball besitzt. Besitzt er den Ball, will er ihn schnell wieder loswerden, schließlich ist er ein Torwart. Dazu Sucht er im eigenen Team passende Passpartner. Ein passender Passpartner steht in einer passenden Entfernung und wird nicht von einem gegnerischen Spieler geblockt. Ist ein passender Spieler gefunden wird der Pass ausgeführt. Findet sich kein Spieler, soll der Ball in Richtung der Mittellinie geschossen werden, also möglichst weit weg von eigenen Tor.
+\textbf{Der Entscheidungsbaum}
 \\
 
-Besitzt der Torwart den Ball nicht, kommt es darauf an wie weit der Ball weg ist. Ist der Ball ein gutes Stück entfernt, soll in den State \lstinline$GuardGoalState$ gewechselt werden. Was dieser State genau macht wird später beschrieben. Kommt der Ball dem eigenen Tor zu Nahe, soll der Torwart reagieren und auf den Ball zulaufen um ihn zu erobern.
+Die Statemachine des Torwarts besteht aus insgesamt 4 States. Die erste Überprüfung ist, ob der Spieler den Ball besitzt. Besitzt er den Ball, will er ihn schnell wieder loswerden, schließlich ist er ein Torwart. Dazu sucht er im eigenen Team passende Passpartner. Ein passender Passpartner steht in einer passenden Entfernung und wird nicht von einem gegnerischen Spieler geblockt. Ist ein passender Spieler gefunden wird der Pass ausgeführt. Findet sich kein Spieler, soll der Ball in Richtung der Mittellinie geschossen werden, also möglichst weit weg vom eigenen Tor.
 \\
+
+Besitzt der Torwart den Ball nicht, kommt es auf die Entfernung des Ball an. Ist der Ball ein gutes Stück entfernt, soll in den State \lstinline$GuardGoalState$ gewechselt werden. Was dieser State genau macht wird später beschrieben. Kommt der Ball dem eigenen Tor zu nahe, soll der Torwart reagieren und auf den Ball zulaufen, um ihn zu erobern.
+\pagebreak
 
 \textbf{Der \lstinline$GuardGoalState$}
 \\
@@ -805,12 +809,13 @@ public Vector3D getGoodGoalieDefendPosition() {
 
 \end{lstlisting}
 
-Listing \ref{Umsetzung des GuardGoalState} zeigt die Berechnung der korrekten Position im Code. Notwendig sind jeweils die Position des Ball und des eigenen Tors (Zeilen 2 und 3). Dann wird ein Richtungsvektor berechnet, der vom Tor Richtung Ball zeigt (Zeile 4). Dieser wird zuerst normiert und dann auf die Länge 2 skaliert. Der Abstand 2 vom Tor hat sich als guter Wert herausgestellt (Zeile 5). Die gesuchte Position errechnet sich durch die Addition des Richtungsvektors auf die Torkoordinate (Zeile 6).
+Listing \ref{Umsetzung des GuardGoalState} zeigt die Berechnung der korrekten Position im Code. Notwendig sind jeweils die Position des Balls und des eigenen Tors (Zeilen 2 und 3). Dann wird ein Richtungsvektor berechnet, der vom Tor in Richtung Ball zeigt (Zeile 4). Dieser wird zuerst normiert und dann auf die Länge 2 skaliert. Der Abstand 2 vom Tor hat sich als guter Wert herausgestellt (Zeile 5). Die gesuchte Position errechnet sich durch die Addition des Richtungsvektors auf die Torkoordinate (Zeile 6).
 \\
 
 \textbf{Energiesparmaßnahme}
 \\
-Der Torwart wird die meiste Zeit innerhalb des \lstinline$GuardGoalState$ bleiben. Bei jedem Poll wird eine neue Position anhand der Ball und Torposition berechnet, zu der er dann hinläuft. Bei Ball und Torkoordinate handelt es sich aber um circa Angaben, schließlich wird das Worldmodel anhand der Sensoren des Roboters kontinuierlich korrigiert. Dabei kommt es zu minimalen Schwankungen, die zu einer neu berechneten Laufposition führen. Somit kommt der Roboter quasi nie zum Stillstand, auch wenn er seiner berechneten Laufposition extrem nahe ist. Damit der Roboter stehen bleibt, wenn er hinreichend nahe an seiner Zielposition steht, wurde eine Energiesparmaßnahme etabliert.
+
+Der Torwart wird die meiste Zeit innerhalb des \lstinline$GuardGoalState$ bleiben. Bei jedem Poll wird eine neue Position anhand der Ball und Torposition berechnet, zu der er dann hinläuft. Bei Ball und Torkoordinate handelt es sich aber um circa Angaben, schließlich wird das Worldmodel anhand der Sensoren des Roboters kontinuierlich korrigiert. Dabei kommt es zu minimalen Schwankungen, die zu einer neu berechneten Laufposition führen. Somit kommt der Roboter quasi nie zum Stillstand, auch wenn er seiner berechneten Laufposition extrem nahe ist. Damit der Roboter stehen bleibt, wenn er hinreichend nahe an seiner Zielposition steht, wurde eine Energiesparmaßnahme eingeführt.
 \\
 
 \begin{lstlisting}[caption=Energiesparmaßnahme Torwart, captionpos=b, label= ESM Torwart]
@@ -821,15 +826,104 @@ if (nextState == this && (targetDistance > 0.2 || !angleCloseEnough(angleToBall)
 \end{lstlisting}
 
 Listing \ref{ESM Torwart} zeigt die Bedingungen für eine erneute Bewegnung. Nur, wenn die Zieldistanz einen hinreichend kleinen Wert überschreitet, oder der Winkel des Roboters zum Ball nicht gut genug ist, soll zur neuen Position gelaufen werden. Ursprünglich wurde nur die Distanz zum Ziel herangezogen, mit der Folge, dass der Roboter teilweise quer zum Ball stehen blieb. Damit verdeckt er aber weniger Fläche vom Tor, also wurde noch ein optimaler Winkel zum Ball miteinbezogen.
+
+\pagebreak 
+
 \subsubsection{Standardrolle: Stürmer}
 \textit{Verfasser: Wurth}\\
+
+\textbf{Der Entscheidungsbaum}
+\\
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\ScaleIfNeeded]{Grafiken/KI/attackerCenter_v2}
 	\caption{Stürmer Entscheidungsbaum}
-	\label{Stürmer Entscheidungsbaum}
+	\label{Stuermer Entscheidungsbaum}
 \end{figure}
+
+Abbildung \ref{Stuermer Entscheidungsbaum} zeigt den Entscheidungsbaum des Stürmers. Genau wie der Torwart, prüft auch der Stürmer als erstes, ob er in Ballbesitz ist. Wenn er den Ball nicht hat, prüft er, ob ein anderer Spieler den Ball besitzt. Sollte ein Teamkollege am Ball sein, soll er den Teamkollegen natürlich nicht stören oder ihm gar den Ball abnehmen. Er sollte in der Nähe des Teamkollegen bleiben und eingreifen, falls der Teamkollege den Ball verliert oder fällt. Besitzt der Stürmer den Ball, will er ihn natürlich ins gegnerische Tor bringen, in diesem Fall dribbeln. Dabei kann es passieren dass er in eine ungünstige Zone auf dem Spielfeld gerät, die er zuerst wieder verlassen muss (dazu später mehr). Ist der Stürmer mit seinem Ball unterwegs in Richtung gegnerisches Tor, ist es sehr wahrscheinlich, dass sich gegnerische Spieler in den Weg stellen. Er sollte also seine Laufbahn so anpassen, dass er Gegner im Optimalfall umläuft. Wie genau das geschieht wird auch später beschrieben. Ist der Stürmer dem gegnerischen Tor ausreichend nahe gekommen, soll er den Ball ohne Umwege hineindribbeln.
+\\
+
+\textbf{Warum schießt der Stürmer nicht?}
+\\
+
+Der Stürmer hat wider Erwarten keinen Zustand, in dem es zu einem Schuss kommen kann. In der ersten Version hat der Stürmer gepasst und auch Tore geschossen. Es hat sich jedoch bald herausgestellt, dass schießen sehr lange dauert. Der Roboter  muss sich vor jedem Schuss zuerst mühsam vor dem Ball positionieren. Außerdem war der Schuss bis kurz vor dem Endspiel, wenn er denn mal geklappt hat, eher kläglich. Das hätte dazu geführt, dass der Stürmer oft den Ball verliert. Deshalb wurde überall dort, wo normalerweise geschossen werden sollte, gedibbelt. Das Positionieren am Ball funktioniert beim Dribbeln sehr viel besser, dadurch geht weniger Zeit verloren. Der Verzicht auf Schüsse hat den Nachteil, dass das Passen komplett wegfiel, allerdings stellte sich das als ein eher kleines Übel heraus. Unser Stürmer passt nicht, unser Stürmer gewinnt, notfalls im Alleingang.
+\\
+
+\textbf{Gegnern ausweichen}
+\\
+
+Der Stürmer soll Gegnern auf dem Feld ausweichen und sie im Optimalfall umlaufen. Dazu muss er die Gegner natürlich erkennen und verstehen, dass sie sich in der Nähe seiner Laufline befinden und damit sehr wahrscheinlich ein Hindernis darstellen oder bald zu einem werden.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Grafiken/KI/obstacle_2}
+	\caption{Hindernis erkennen 1}
+	\label{Hindernis erkennen 1}
+\end{figure}
+
+Abbildung \ref{Hindernis erkennen 1} zeigt diese Situation an einem Beispiel. Der gründe Punkt ist der Stürmer und seine Laufbahn wird mit der grün-gestrichelten Linie angedeutet. In der Nähe seiner Laufbahn befindet sich ein gegnerischer Spieler. Damit dieser als Hindernis erkannt werden kann, muss der Abstand aller gegnerischen Spieler  zur Linie geprüft werden. Unterschreitet der Abstand einen bestimmten Wert, wird der Gegner als potentielles Hindernis erkannt. Ziel ist es jetzt, den Abstand vom Gegner zur Lauflinie zu vergrößern.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Grafiken/KI/obstacle_3}
+	\caption{Hindernis erkennen 2}
+	\label{Hindernis erkennen 2}
+\end{figure}
+
+Abbildung \ref{Hindernis erkennen 2} verdeutlicht das Vorgehen. Um den Abstand zu erhöhen, muss die Zielposition geändert werden. In diesem Fall muss der Stürmer links am Gegner vorbei, also zu einer Position die weiter links liegt als die ursprüngliche. Ein rechts-seitiges Umlaufen des Gegners hätte 2 Nachteile. Erstens würde der Abstand vom Gegner zum Ball zuerst kleiner werden, bevor er wieder wächst. Das ist verschwendete Energie. Zweitens tendiert der Stürmer dann eher dazu den Seitenlinien zu nahe zu kommen. Die Vorgehensweise ist also auch eine natürliche Meidung der Spielfeldgrenzen, auch wenn sie nicht ganz ausreicht (dazu später mehr).
+\\
+
+Im fertigen Programm erkennt der Stürmer nur das Hindernis mit dem geringsten Abstand zu ihm. Das ist eine Vereinfachung, die aber trotzdem sehr gute Ergebnisse erzielt hat.
+\\
+
+\textbf{Deadzones}
+\\
+
+Bei einigen Tests viel auf, dass der State für das dribbeln nicht verhindert, dass gewisse ungünstige Zonen auf dem Spielfeld betreten werden. Ein Beispiel sind die natürlichen Grenzen auf dem Feld: Die Außenlinien.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Grafiken/KI/deadzone_1}
+	\caption{Spielfeldgrenzen 1}
+	\label{Spielfeldgrenzen 1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Grafiken/KI/deadzone_2}
+	\caption{Spielfeldgrenzen 2}
+	\label{Spielfeldgrenzen 2}
+\end{figure}
+
+Abbildung \ref{Spielfeldgrenzen 1} zeigt, wie ein Stürmer beim Ausweichen das Spielfeld verlassen würde. Das muss natürlich verhindert werden. Die Lösung ist denkbar einfach, kurz vor den Außenlinien wurden Zonen etabliert (Abbildung \ref{Spielfeldgrenzen 2}), die nicht betreten werden dürfen, wenn der Stürmer den Ball besitzt.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Grafiken/KI/deadzone_5}
+	\caption{Deadzone neben dem gegnerischen Tor 1}
+	\label{Deadzone neben dem gegnerischen Tor 1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Grafiken/KI/deadzone_3}
+	\caption{Deadzone neben dem gegnerischen Tor 2}
+	\label{Deadzone neben dem gegnerischen Tor 2}
+\end{figure}
+
+Abbildung \ref{Deadzone neben dem gegnerischen Tor 1} zeigt ein weiteres Problem. Ist der Stürmer dem gegnerischen Tor nahe genug, soll er direkt ins Tor dribbeln. Damit das auch wirklich zu einem Tor führt, muss die Position ein kleines Stück hinter die Torlinie gesetzt werden. Es könnte sonst dazu kommen, dass der Ball auf der Linie liegen bleibt. Das führt zu dem Problem, dass der Ball, der von einem gewissen Winkel zur Torlinie gespielt wird, noch vor dem Tor das Spielfeld verlässt. Damit das nicht passiert, macht es Sinn, auch hier Zonen zu definieren, die mit Ball nicht betreten werden sollen (Siehe Abbildung \ref{Deadzone neben dem gegnerischen Tor 2}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Grafiken/KI/deadzone_6}
+	\caption{Deadzone neben dem gegnerischen Tor 3}
+	\label{Deadzone neben dem gegnerischen Tor 3}
+\end{figure}
+
+Es kann (und soll) aber dennoch vorkommen, dass sich ein Stürmer im Ballbesitz innerhalb einer Deadzone befindet. Nämlich dann, wenn er dort den Ball erobert. Bei den beiden Zonen in der Nähe der Aus-Linie korrigiert sich das Problem von alleine, die neue Laufposition befindet sich garantiert außerhalb. Bei den Zonen neben dem gegnerischen Tor, muss allerdings nachgeholfen werden. Die neue Laufposition befindet sich direkt vor dem Tor etwa in Höhe des Elfmeterpunktes (siehe Abbildung \ref{Deadzone neben dem gegnerischen Tor 3}). Das bedeutet natürlich nicht, dass er dieses neue Ziel tatsächlich erreicht. Sobald er die Deadzone verlässt ist sein Ziel erneut das gegnerische Tor.
+
 
 \subsection{Standardrolle: Verteidiger}
 \include{CapterDefender}
