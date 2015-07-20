@@ -248,7 +248,64 @@ Verfügbare sekundäre Rollen:
 \item KickOff
 \end{itemize}
 
+\subsubsection{Sammlung von Agent Startup Parametern}
+\textit{Verfasser: Stumpf}\\
+\\
+Im Folgenden möchte ich meine Sammlung an Kommandozeile- und JVM-Parametern festhalten, die zum aktuellen Zeitpunkt unserer Magma Offenburg Weiterentwicklung verwendet werden können um:
+\begin{itemize}
+\item Ein Team zu erstellen
+	\begin{itemize}
+	\item \textbf{Keeper:}\\
+\texttt{JVM: -DplayableRoles=Keeper,GoalKick\\
+arg: --teamname="RoboFreunde" --playerid=2 --server=127.0.0.1 --		port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --		decisionmaker=31 --homePosition=-15.0:0.0}
+	\item \textbf{Defense:}\\
+\texttt{JVM: -DplayableRoles=Defense,CornerKick,FreeKick,ThrowIn}\\
+\textbf{-Left:}\\
+\texttt{arg: --teamname="RoboFreunde" --playerid=2 --server=127.0.0.1 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=31 --homePosition=-10.0:5.0}\\
+\textbf{-Mid:}\\
+\texttt{arg: --teamname="RoboFreunde" --playerid=6 --server=127.0.0.1 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=31 --homePosition=-10.0:0.0}\\
+\textbf{Right:}\\
+\texttt{arg: --teamname="RoboFreunde" --playerid=3 --server=127.0.0.1 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=31 --homePosition=-10.0:-5.0}
+	\item \textbf{MidField:} NOTE: Es wird abgeraten den Mittelfeldspieler zu verwenden, da dieser zum aktuellen Zeitpunkt unzureichend funktioniert!\\
+\texttt{JVM:-DplayableRoles=Middle,CornerKick,FreeKick,ThrowIn,KickOff}\\
+\textbf{-Left:}\\
+\texttt{arg: --teamname="RoboFreunde" --playerid=8 --server=127.0.0.1 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=31 --homePosition=-7.0:-4.0}\\
+\textbf{-Mid:}\\
+\texttt{arg: --teamname="RoboFreunde" --playerid=9 --server=127.0.0.1 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=31 --homePosition=-7.0:0.0}\\
+\textbf{Right:}\\
+\texttt{arg: --teamname="RoboFreunde" --playerid=10 --server=127.0.0.1 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=31 --homePosition=-7.0:4.0}
+	\item \textbf{Attack:}\\
+\texttt{JVM: -DplayableRoles=Attack,CornerKick,FreeKick,ThrowIn,KickOff}\\
+\textbf{-Left:}\\
+\texttt{arg: --teamname="RoboFreunde" --playerid=4 --server=127.0.0.1 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=31 --homePosition=-4.0:2.5}\\
+\textbf{-Mid:}\\
+\texttt{arg: --teamname="RoboFreunde" --playerid=7 --server=127.0.0.1 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=31 --homePosition=-2.0:0.0}\\
+\textbf{-Right:}\\
+\texttt{arg: --teamname="RoboFreunde" --playerid=5 --server=127.0.0.1 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=31 --homePosition=-3.0:-2.5}
+	\end{itemize}
+\item Challenges zu starten
+	\begin{itemize}
+	\item \textbf{Kicks to Goal Challenge:}\\
+\texttt{arg: --teamname="RoboFreunde" --server=127.0.0.1 --playerid=2 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=12 --homePosition=-2.0:0.0}
+	\item \textbf{Time to Goal Challenge:}\\
+\texttt{arg: --teamname="RoboFreunde" --server=127.0.0.1 --playerid=2 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=14 --homePosition=-2.0:0.0}
+	\end{itemize}
+\item Metrik-Agents zu starten
+	\begin{itemize}
+	\item \textbf{Kick Evaluation:}\\
+\texttt{arg: --teamname="RoboFreunde" --server=127.0.0.1 --playerid=2 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=26 --homePosition=-2.0:0.0}
+	\item \textbf{Run Evaluation:}\\
+\texttt{arg: --teamname="RoboFreunde" --playerid=2 --server=127.0.0.1  --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=13}
+	\item \textbf{Dribble Evaluation:}\\
+\texttt{arg: --teamname="RoboFreunde" --playerid=2 --server=127.0.0.1  --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=23}
+	\item \textbf{Manual Keyboard Bot:} NOTE: Dieser Bot lässt sich mit einem Gamepad steuern. Unterstützt wird der XBox-Controller. Gedacht ist es, damit einen Agent in gewünschte Spielposition zu bringen und seine Reaktion zu testen.\\
+\texttt{arg: --teamname="RoboFreunde" --playerid=2 --server=127.0.0.1  --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=100}
+	\end{itemize}
+\end{itemize}
+
 \subsubsection{Verschiedene NAO-Models}
+\textbf{-> TODO: Felix}
+
 \subsubsection{DecisionMaker, Believes, Behaviors}
 \textit{Verfasser: Stumpf}\\
 \\
@@ -348,6 +405,7 @@ Das Worldmodel enthält die meisten für das Spiel relevanten Informationen:
 \end{itemize}
 
 \subsubsection{Server Kommunikation}
+\textbf{-> TODO: Felix}
 
 \section{KI-Konzept}
 \textit{Verfasser: Wurth}\\
@@ -428,8 +486,23 @@ Abbildung \ref{Gesamtkonzept KI} zeigt das Gesamtkonzept mit allen 4 Ebenen. Gan
 
 
 \section{Elementare Bewegungen}\label{se:Elementare Bewegungen}
+\textit{Verfasser: Stumpf}\\
+\\
+Im Laufe der Entwicklung hat sich herausgestellt, dass die in Magma Offenburg verfügbare Behaviors unzureichend waren für unsere Anforderungen.\\
+\\
+Es mangelte entweder an Funktionalität, oder an der Performance der Bewegungsabläufe. So war zum Beispiel weder Dribbeln, noch der Kick zu einer gegebenen Position implementiert und die Behaviors für Laufen und Kicken funktionierten denkbar schlecht.\\
+\\
+Es wurde demnach ein Teil des Teams mit der Implementierung und Optimierung benötigter Bewegungsabläufe beauftragt.
+
 \subsection{Anforderungen}
-\textbf{-> TODO: Stumpfi}
+\textit{Verfasser: Stumpf}\\
+\\
+Die Anforderungen an die neuen Behaviors kamen zum Teil aus dem KI-Team. So sind Dribbeln und ein Kick zu gegebener Position (KickToPosition) von den KI's vorausgesetzte Behaviors.\\
+\\
+Es fielen jedoch auch offensichtliche Mängel an einigen Behaviors auf, die es zu beheben galt. So war das Laufen von Magma Offenburg anfangs genau so wenig zu gebrauchen wie die implementierten Kicks.\\
+\\
+Mittels entwickelter Metriken und diese umsetzenden Metrik-Agents wurden die neuen und optimierten Behaviors mit den alten verglichen und getestet, um die Verbesserungen sichtbar zu machen. Sehr wichtig dafür war die Möglichkeit des grafischen Debugging mit RoboViz. (siehe \autoref{se:Grafisches Debugging})
+
 \subsection{Laufen}\label{sse:Elem Bew:Laufen}
 \textbf{-> TODO: Felix}
 \subsection{Dribbeln}\label{sse:Elem Bew:Dribbeln}
@@ -611,7 +684,95 @@ Listing \ref{ESM Torwart} zeigt die Bedingungen für eine erneute Bewegnung. Nur
 \subsection{Standardrolle: Mittelfeld}
 \textbf{-> TODO: Lohr}
 \subsection{Spezialrollen: Standardsituationen}
-\textbf{-> TODO: Stumpfi}
+\textit{Verfasser: Stumpf}\\
+\\
+Die Standardsituationen sind über Spezialrollen umgesetzt. Die aktuelle Strategie weist -- falls das Spiel in einer Standardsituation ist -- einem der Spieler die Spezialrolle zu, mit dieser umzugehen.\\
+\\
+Die verschiedenen Spezialrollen für Standards werden hier kurz vorgestellt. Die folgenden Statemachines sollen einen Überblick über die benötigte Funktionalität geben.\\
+\\
+Sie befinden sich im Package\\\texttt{magma.agent.decision.simple.robofreunde.role.standard\_situations}.
+
+\subsubsection{Ansto{\ss}}
+\textit{Verfasser: Stumpf}\\
+\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Grafiken/KI/Standardsituationen/KickoffSM}
+	\caption{Spezialrolle - Kickoff}
+	\label{fig:Standard - Kickoff}
+\end{figure}
+
+Der Ansto{\ss} besteht generell aus einer Positionierung am Ball mit anschließendem Pass. Es ist darauf zu achten die Spielregel für den Ansto{\ss} nicht zu verletzen. Nachdem der Ball berührt wurde, darf der gleiche Spieler diesen nicht erneut berühren. Deshalb wird hier nach dem Pass eine Neupositionierung vorgenommen und somit versucht dem Ball aus dem Weg zu gehen.\\
+\\
+Benötigte Behaviors sind KickToPosition und RunToPosition. Eine Logik für die Positionierung am Ball muss ebenso wie die Neupositionierung vorhanden sein.\\
+\\
+Es wurde hier der Pass gewählt, da der uns zur Verfügung stehende Kick leider nicht weit genug kommt, als dass sich ein Kick in die gegnerische Hälfte lohnen würde.
+
+\subsubsection{Freisto{\ss}, Ecke}
+\textit{Verfasser: Stumpf}\\
+\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Grafiken/KI/Standardsituationen/FreeKickSM}
+	\caption{Spezialrolle - Freekick}
+	\label{fig:Standard - Freekick, Cornerkick}
+\end{figure}
+
+Vorweg zu erwähnen ist, dass der Freisto{\ss} aus dem aktuellen Regelwerk (Stand: 2015) entfernt und durch Auszeiten ersetzt wurde. Insofern ist diese Implementierung nur der Vollständigkeit und Kompatibilität halber aufgeführt.\\
+\\
+Da beim Freisto{\ss} kein direktes Tor erzielt werden darf wird hier einfach zum nächsten Mitspieler in der Nähe gepasst, sollte kein Mitspieler in der Nähe sein, der in einer besseren Position als man selbst ist, so wird in Richtung Tor gedribbelt.\\
+\\
+Benötigte Behaviors sind KickToPosition, RunToPosition sowie DribbleBall. Es wird eine Logik für die Positionierung vorausgesetzt.\\
+\\
+Als Zustandsautomat für die Standardsituation Ecke wurde der selbe verwendet wie für den Freisto{\ss}.
+
+\subsubsection{Einwurf}
+\textit{Verfasser: Stumpf}\\
+\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Grafiken/KI/Standardsituationen/KickInSM}
+	\caption{Spezialrolle - Kick in}
+	\label{fig:Standard - KickIn}
+\end{figure}
+
+Der Zustandsautomat des Einwurfs ist grundsätzlich gleich dem des Freisto{\ss}es, da nicht geworfen, sondern gekickt wird.
+
+\subsubsection{Absto{\ss}}
+\textit{Verfasser: Stumpf}\\
+\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Grafiken/KI/Standardsituationen/GoalKickSM}
+	\caption{Spezialrolle - Goalkick}
+	\label{fig:Standard - Goalkick}
+\end{figure}
+
+Der Zustandsautomat des Absto{\ss}es ist grundsätzlich gleich dem des Ansto{\ss}es. Der einzige Unterschied ist, dass der Ball nach einem Abstoß erneut berührt werden darf, weshalb die Neupositionierung und Vermeidung der Ballberührung wegfällt.
+
+\subsubsection{Implementierung}
+\textit{Verfasser: Stumpf}\\
+\\
+Bei der Implementierung der Standardsituationen wollte ich unnötige Redundanz vermeiden. Die Rollen waren sich so ähnlich, dass ich mich entschlossen habe, sie auf gemeinsamen States aufzubauen.\\
+\\
+Die beiden gemeinsam verwendeten States sind InteractWithBall und MoveToBall.\\
+\\
+Solange man sich nicht in der Nähe des Balles befindet wird man sich im State \textbf{MoveToBall} aufhalten. Dieser State gibt intern eine RunToPosition Behavior zurück, mit dem Ziel sich in die Nähe des Balls zu begeben.\\
+\\
+Ist man in der Nähe des Balls, so wird man in den \textbf{InteractWithBall} State wechseln. Dieser enthält die meiste Logik und entscheidet wie mit dem Ball interagiert werden soll.\\ 
+Intern wird zuerst entschieden, welche Interaktion ausgeführt werden soll. Zur Auswahl stehen:
+\begin{itemize}
+\item Zum Tor Dribblen
+\item Zum Tor Schießen
+\item Zu Mitspieler passen
+\end{itemize}
+Die Interaktionen sind über eine Methode des States \\
+\\
+\texttt{public void setActiveInteractions(\\boolean dribbleToGoal, boolean passToMate, boolean kickToGoal)}\\
+\\
+konfigurierbar. Es wird nur aus aktiven Interaktionen ausgewählt.
+Die Entscheidung wird getroffen anhand von gemeinsamer Logik, zum Beispiel \textit{\glqq Befinde ich mich in der Nähe des Tors, so dass ein Torschuss erfolgreich sein könnte?\grqq}, oder \textit{\glqq Ist ein Mitspieler in der Nähe, der besser steht als ich?\grqq}.
+
 \section{Grafisches Debugging}\label{se:Grafisches Debugging}
 \textbf{-> TODO: Felix}
 \section{Strategien}
@@ -619,6 +780,7 @@ Listing \ref{ESM Torwart} zeigt die Bedingungen für eine erneute Bewegnung. Nur
 \section{Strategie-Entscheider}
 \textbf{-> TODO: Freddy}
 \section{Zusammenfassung und Ausblick}
+\textbf{-> TODO: Freddy}
 \textit{Ergebnisse und Vermächtnis...}
 
 \section{Verzeichnisse}

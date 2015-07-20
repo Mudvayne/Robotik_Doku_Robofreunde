@@ -10,35 +10,41 @@
 \contentsline {subsection}{\numberline {5.1}Entscheidung f\IeC {\"u}r Magma}{6}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Magma Offenburg}{7}{subsection.5.2}
 \contentsline {subsubsection}{\numberline {5.2.1}Agent Startup Routine}{10}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Verschiedene NAO-Models}{12}{subsubsection.5.2.2}
-\contentsline {subsubsection}{\numberline {5.2.3}DecisionMaker, Believes, Behaviors}{12}{subsubsection.5.2.3}
-\contentsline {subsubsection}{\numberline {5.2.4}Thought- und Worldmodel}{14}{subsubsection.5.2.4}
-\contentsline {subsubsection}{\numberline {5.2.5}Server Kommunikation}{15}{subsubsection.5.2.5}
-\contentsline {section}{\numberline {6}KI-Konzept}{15}{section.6}
-\contentsline {subsection}{\numberline {6.1}Anforderungen}{15}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Komponenten}{16}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}Elementare Bewegungen}{16}{subsubsection.6.2.1}
-\contentsline {subsubsection}{\numberline {6.2.2}Rollen}{16}{subsubsection.6.2.2}
-\contentsline {subsubsection}{\numberline {6.2.3}Strategien}{17}{subsubsection.6.2.3}
-\contentsline {subsubsection}{\numberline {6.2.4}Strategie-Entscheider}{18}{subsubsection.6.2.4}
-\contentsline {subsection}{\numberline {6.3}Gesamt\IeC {\"u}bersicht}{19}{subsection.6.3}
-\contentsline {section}{\numberline {7}Elementare Bewegungen}{20}{section.7}
-\contentsline {subsection}{\numberline {7.1}Anforderungen}{20}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Laufen}{20}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}Dribbeln}{20}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}Schie{\ss }en}{20}{subsection.7.4}
-\contentsline {subsubsection}{\numberline {7.4.1}Behaviors}{21}{subsubsection.7.4.1}
-\contentsline {subsubsection}{\numberline {7.4.2}Evaluierung, Metrik Bots}{21}{subsubsection.7.4.2}
-\contentsline {section}{\numberline {8}Rollen}{21}{section.8}
-\contentsline {subsection}{\numberline {8.1}Standardrollen: Torwart und St\IeC {\"u}rmer}{21}{subsection.8.1}
-\contentsline {subsubsection}{\numberline {8.1.1}Konzept}{21}{subsubsection.8.1.1}
-\contentsline {subsubsection}{\numberline {8.1.2}Standardrolle: Torwart}{24}{subsubsection.8.1.2}
-\contentsline {subsubsection}{\numberline {8.1.3}Standardrolle: St\IeC {\"u}rmer}{26}{subsubsection.8.1.3}
-\contentsline {subsection}{\numberline {8.2}Standardrolle: Verteidiger}{27}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}Standardrolle: Mittelfeld}{27}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}Spezialrollen: Standardsituationen}{27}{subsection.8.4}
-\contentsline {section}{\numberline {9}Grafisches Debugging}{27}{section.9}
-\contentsline {section}{\numberline {10}Strategien}{28}{section.10}
-\contentsline {section}{\numberline {11}Strategie-Entscheider}{28}{section.11}
-\contentsline {section}{\numberline {12}Zusammenfassung und Ausblick}{28}{section.12}
-\contentsline {section}{\numberline {13}Verzeichnisse}{28}{section.13}
+\contentsline {subsubsection}{\numberline {5.2.2}Sammlung von Agent Startup Parametern}{12}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Verschiedene NAO-Models}{14}{subsubsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.4}DecisionMaker, Believes, Behaviors}{14}{subsubsection.5.2.4}
+\contentsline {subsubsection}{\numberline {5.2.5}Thought- und Worldmodel}{16}{subsubsection.5.2.5}
+\contentsline {subsubsection}{\numberline {5.2.6}Server Kommunikation}{17}{subsubsection.5.2.6}
+\contentsline {section}{\numberline {6}KI-Konzept}{17}{section.6}
+\contentsline {subsection}{\numberline {6.1}Anforderungen}{18}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Komponenten}{18}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Elementare Bewegungen}{18}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Rollen}{19}{subsubsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.3}Strategien}{20}{subsubsection.6.2.3}
+\contentsline {subsubsection}{\numberline {6.2.4}Strategie-Entscheider}{20}{subsubsection.6.2.4}
+\contentsline {subsection}{\numberline {6.3}Gesamt\IeC {\"u}bersicht}{21}{subsection.6.3}
+\contentsline {section}{\numberline {7}Elementare Bewegungen}{22}{section.7}
+\contentsline {subsection}{\numberline {7.1}Anforderungen}{22}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Laufen}{23}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Dribbeln}{23}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Schie{\ss }en}{23}{subsection.7.4}
+\contentsline {subsubsection}{\numberline {7.4.1}Behaviors}{23}{subsubsection.7.4.1}
+\contentsline {subsubsection}{\numberline {7.4.2}Evaluierung, Metrik Bots}{23}{subsubsection.7.4.2}
+\contentsline {section}{\numberline {8}Rollen}{23}{section.8}
+\contentsline {subsection}{\numberline {8.1}Standardrollen: Torwart und St\IeC {\"u}rmer}{24}{subsection.8.1}
+\contentsline {subsubsection}{\numberline {8.1.1}Konzept}{24}{subsubsection.8.1.1}
+\contentsline {subsubsection}{\numberline {8.1.2}Standardrolle: Torwart}{26}{subsubsection.8.1.2}
+\contentsline {subsubsection}{\numberline {8.1.3}Standardrolle: St\IeC {\"u}rmer}{29}{subsubsection.8.1.3}
+\contentsline {subsection}{\numberline {8.2}Standardrolle: Verteidiger}{30}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Standardrolle: Mittelfeld}{30}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Spezialrollen: Standardsituationen}{30}{subsection.8.4}
+\contentsline {subsubsection}{\numberline {8.4.1}Ansto{\ss }}{31}{subsubsection.8.4.1}
+\contentsline {subsubsection}{\numberline {8.4.2}Freisto{\ss }, Ecke}{32}{subsubsection.8.4.2}
+\contentsline {subsubsection}{\numberline {8.4.3}Einwurf}{33}{subsubsection.8.4.3}
+\contentsline {subsubsection}{\numberline {8.4.4}Absto{\ss }}{34}{subsubsection.8.4.4}
+\contentsline {subsubsection}{\numberline {8.4.5}Implementierung}{34}{subsubsection.8.4.5}
+\contentsline {section}{\numberline {9}Grafisches Debugging}{35}{section.9}
+\contentsline {section}{\numberline {10}Strategien}{35}{section.10}
+\contentsline {section}{\numberline {11}Strategie-Entscheider}{35}{section.11}
+\contentsline {section}{\numberline {12}Zusammenfassung und Ausblick}{35}{section.12}
+\contentsline {section}{\numberline {13}Verzeichnisse}{36}{section.13}
