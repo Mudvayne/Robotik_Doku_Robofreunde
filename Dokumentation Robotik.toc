@@ -2,23 +2,23 @@
 \contentsline {section}{\numberline {1}Einleitung}{3}{section.1}
 \contentsline {section}{\numberline {2}Anforderungen}{4}{section.2}
 \contentsline {section}{\numberline {3}Zeitplan}{4}{section.3}
-\contentsline {section}{\numberline {4}RoboCup Soccer Simulation League}{4}{section.4}
-\contentsline {subsection}{\numberline {4.1}Installation auf Windows Systemen}{5}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Installation Linux Systemen}{5}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Installation Windows + VM}{5}{subsection.4.3}
+\contentsline {section}{\numberline {4}RoboCup Soccer Simulation League}{5}{section.4}
+\contentsline {subsection}{\numberline {4.1}Installation auf Windows Systemen}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Installation Linux Systemen}{6}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Installation Windows + VM}{6}{subsection.4.3}
 \contentsline {section}{\numberline {5}Framework}{6}{section.5}
-\contentsline {subsection}{\numberline {5.1}Entscheidung f\IeC {\"u}r Magma}{6}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Magma Offenburg}{7}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}Agent Startup Routine}{10}{subsubsection.5.2.1}
+\contentsline {subsection}{\numberline {5.1}Entscheidung f\IeC {\"u}r Magma}{7}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Magma Offenburg}{8}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Agent Startup Routine}{11}{subsubsection.5.2.1}
 \contentsline {subsubsection}{\numberline {5.2.2}Sammlung von Agent Startup Parametern}{12}{subsubsection.5.2.2}
 \contentsline {subsubsection}{\numberline {5.2.3}Verschiedene NAO-Models}{14}{subsubsection.5.2.3}
 \contentsline {subsubsection}{\numberline {5.2.4}DecisionMaker, Believes, Behaviors}{14}{subsubsection.5.2.4}
 \contentsline {subsubsection}{\numberline {5.2.5}Thought- und Worldmodel}{16}{subsubsection.5.2.5}
 \contentsline {subsubsection}{\numberline {5.2.6}Server Kommunikation}{17}{subsubsection.5.2.6}
-\contentsline {section}{\numberline {6}KI-Konzept}{17}{section.6}
+\contentsline {section}{\numberline {6}KI-Konzept}{18}{section.6}
 \contentsline {subsection}{\numberline {6.1}Anforderungen}{18}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Komponenten}{18}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}Elementare Bewegungen}{18}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.1}Elementare Bewegungen}{19}{subsubsection.6.2.1}
 \contentsline {subsubsection}{\numberline {6.2.2}Rollen}{19}{subsubsection.6.2.2}
 \contentsline {subsubsection}{\numberline {6.2.3}Strategien}{20}{subsubsection.6.2.3}
 \contentsline {subsubsection}{\numberline {6.2.4}Strategie-Entscheider}{20}{subsubsection.6.2.4}

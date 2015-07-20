@@ -1,14 +1,15 @@
 \select@language {ngerman}
-\contentsline {figure}{\numberline {1}{\ignorespaces Magma Offenburg - Agent Runtime Architecture}}{8}{figure.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Magma Offenburg - Agent Runtime Loop}}{9}{figure.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces Magma Offenburg - Observer Structure}}{10}{figure.3}
-\contentsline {figure}{\numberline {4}{\ignorespaces Beispiel Rolle: Einfacher Torwart}}{19}{figure.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces Einfacher Strategie Entscheider}}{21}{figure.5}
-\contentsline {figure}{\numberline {6}{\ignorespaces Gesamtkonzept KI}}{22}{figure.6}
-\contentsline {figure}{\numberline {7}{\ignorespaces Torwart Entscheidungsbaum}}{27}{figure.7}
-\contentsline {figure}{\numberline {8}{\ignorespaces Veranschaulichung des \lstinline $GuardGoalState$s}}{28}{figure.8}
-\contentsline {figure}{\numberline {9}{\ignorespaces St\IeC {\"u}rmer Entscheidungsbaum}}{30}{figure.9}
-\contentsline {figure}{\numberline {10}{\ignorespaces Spezialrolle - Kickoff}}{31}{figure.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces Spezialrolle - Freekick}}{32}{figure.11}
-\contentsline {figure}{\numberline {12}{\ignorespaces Spezialrolle - Kick in}}{33}{figure.12}
-\contentsline {figure}{\numberline {13}{\ignorespaces Spezialrolle - Goalkick}}{34}{figure.13}
+\contentsline {figure}{\numberline {1}{\ignorespaces Team Robofreunde - Timeline}}{5}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Magma Offenburg - Agent Runtime Architecture}}{8}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Magma Offenburg - Agent Runtime Loop}}{9}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Magma Offenburg - Observer Structure}}{10}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Beispiel Rolle: Einfacher Torwart}}{20}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Einfacher Strategie Entscheider}}{21}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Gesamtkonzept KI}}{22}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Torwart Entscheidungsbaum}}{27}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Veranschaulichung des \lstinline $GuardGoalState$s}}{28}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces St\IeC {\"u}rmer Entscheidungsbaum}}{30}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Spezialrolle - Kickoff}}{31}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Spezialrolle - Freekick}}{32}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Spezialrolle - Kick in}}{33}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Spezialrolle - Goalkick}}{34}{figure.14}
