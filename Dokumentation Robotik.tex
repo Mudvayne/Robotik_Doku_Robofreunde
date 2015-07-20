@@ -48,13 +48,12 @@ Es handelt sich hier nur um einen Vorschlag für die Struktur des Dokuments. Das
 Die Lehrveranstaltung Robotik im SS-2015 hatte die Programmierung des NAO -- eines humanoiden Roboters von Aldebaran -- als übergreifendes Thema. Diesem sollten für Fussball notwendige Bewegungsabläufe und Taktiken beigebracht werden. Aufgrund des großen Andrangs könnten sich nicht alle Teilnehmer mit dem einzigen zur Verfügung stehenden NAO Modell beschäftigen. Die Gruppe wurde also in ein Hardware und 2 Simulationsteams aufgeteilt.\\
 \\
 Die vorgegebene Simulationumgebung war die auf Simspark basierende RoboCup 3D-Soccer Simulation League.\\
-Das vorgegebene Ziel unserer beiden Simulationsteams war es, je eine eigene Mannschaft aufs Feld zu bringen und diese am Ende gegeneinander antreten zu lassen.\\
+Das Ziel unserer beiden Simulationsteams war es, je eine eigene Mannschaft aufs Feld zu bringen und diese am Ende gegeneinander antreten zu lassen.\\
 \\
-RoboCup ist eine Fussball-Liga humanoider Roboter. Die Teams mehrerer Länder treten gegeneinander an um ein bestes Team zu ermitteln.\\
+RoboCup ist eine Fussball-Liga humanoider Roboter. Die Teams mehrerer Länder treten gegeneinander an um ein bestes Team zu ermitteln. In der RoboCup Soccer Simulation League werden die Spiele simuliert. Die Roboter werden durch virtuelle Instanzen ersetzt, die über definierte Schnittstellen auf den Server verbunden und gesteuert werden können.\\
 \\
-In der RoboCup Soccer Simulation League werden die Spiele simuliert. Die Roboter werden durch virtuelle Instanzen ersetzt, die über definierte Schnittstellen auf den Server verbunden und gesteuert werden können.\\
-\\
-Es gibt eine 2D und eine 3D Version. Für uns war insbesondere die 3D Version interessant, weil NAO hier das aktuelle Robotermodell ist. Anforderungen und Regeln der 3D Version sind vergleichbar mit dem echten RoboCup.\\
+Es gibt eine 2D und eine 3D Version. Für uns war insbesondere die 3D Version interessant, weil NAO hier das aktuelle Robotermodell ist. Anforderungen und Regeln der 3D Version sind vergleichbar mit dem echten RoboCup. Das Regelwerk möchte ich hier nicht noch einmal näher erläutern, es ist auf \\
+\href{www.robocupgermanopen.de/sites/default/files/rules_GO_2015_3DSim.pdf}{www.robocupgermanopen.de/sites/default/files/rules\_GO\_2015\_3DSim.pdf} sehr gut beschrieben.\\
 \\
 Da die Schnittstellen zum Server auf sehr niedriger Ebene definiert sind - Bewegung von Gelenken - ist es für den Zeitraum der Lehrveranstaltung zu aufwändig, einen virtuellen Roboter komplett selbstständig zu entwickeln. Es gibt allerdings einige Frameworks, auf denen die eigene Arbeit aufgebaut werden kann.
 
@@ -78,7 +77,7 @@ Die folgende Timeline soll ein Überblick über den Verlauf der Lehrveranstaltun
 \\
 Simspark ist die Engine, auf der der die RoboCup Soccer Simulation League aufgebaut ist. Es wird beschrieben als generisches Simulationssystem für mehrere Agents und ist bei Sourceforge als OpenSource Projekt registriert.\\
 \\
-In der RoboCup Simulation können sich die Agents -- NAO-Agents in 3D - - mit dem Server verbinden und über ein Textprotokoll mit diesem kommunizieren. In jedem Zyklus werden vom NAO-Agent Daten über die gewünschten Bewegungen der Effektoren (Gelenke) an den Server gesendet, der den virtuellen NAO entsprechend reagieren lässt. Als Antwort erhält der Agent Informationen über die Position seiner Effektoren und Daten seiner Sensoren (z.B. visuelle Sensoren, Lagesensoren).\\
+In der RoboCup Simulation können sich die Agents -- NAO-Agents in 3D -- mit dem Server verbinden und über ein Textprotokoll mit diesem kommunizieren. In jedem Zyklus werden vom NAO-Agent Daten über die gewünschten Bewegungen der Effektoren (Gelenke) an den Server gesendet, der den virtuellen NAO entsprechend reagieren lässt. Als Antwort erhält der Agent Informationen über die Position seiner Effektoren und Daten seiner Sensoren (z.B. visuelle Sensoren, Lagesensoren).\\
 \\
 Die erste Herausforderung war es, die Simulationsumgebung lokal auf jedem der Rechner zu installieren, um Entwicklung und Tests zu ermöglichen. Unsere Erfahrungen werden in diesem Abschnitt kurz zusammengefasst. Für das Endspiel wurde uns ein Rechner für die Installation des Servers zur Verfügung gestellt. Diese Aufgabe hat das andere Simulations-Team übernommen.\\
 \\
@@ -95,7 +94,7 @@ Trotz wiederholter Versuche von Teammitgliedern beider Teams haben wir die zu un
 \\
 Sowohl auf ArchLinux und Debian ist die Simulationsumgebung lauffähig. Die Installation muss auf diesen Systemen allerdings manuell über das zur Verfügung stehende tar.gz erfolgen.\\
 \\
-Auf Fedora hingegen funktioniert die Installation sehr komfortabel, da die Pakete im Paketmanager hinterlegt sind. \texttt{'yum install rcssserver3d'}
+Auf Fedora hingegen funktioniert die Installation sehr komfortabel, da die Pakete im Paketmanager hinterlegt sind via \texttt{'yum install rcssserver3d'}.
 \subsection{Installation Windows + VM}
 \textit{Verfasser: Stumpf}\\
 \\
@@ -140,7 +139,7 @@ Im Vergleich zu den anderen Kandidaten ausschlaggebend war unter anderem:
 \begin{itemize}
 \item Die Programmiersprache Java kam den meisten unserer Gruppenmitglieder sehr gelegen. In Absprache mit der anderen Simulationsgruppe wurde au{\ss}erdem dafür gestimmt, unterschiedliche Sprachen zu verwenden. Ein weiterer Grund.
 \item Magma Offenburg bietet mehrere Schussimplementierungen, was zumindest tinman und libbats nicht vorweisen können.
-\item Die Trennung der Agents in logische Abstraktionsebenen, DecisionMaker (Trifft Entscheidung was zu tun ist), Believe (Gibt zurück ob ein Zustand zutrifft, z.B. "Liege ich am Boden?"), Behavior (Führt aus was zu tun ist) war uns sympathisch.
+\item Die Trennung der Agents in logische Abstraktionsebenen, DecisionMaker (Trifft Entscheidung was zu tun ist), Belief (Gibt zurück ob ein Zustand zutrifft, z.B. "Liege ich am Boden?"), Behavior (Führt aus was zu tun ist) war uns sympathisch.
 \end{itemize}
 
 Hier noch einmal ein Überblick über Vorteile und Nachteile von Magma Offenburg:
@@ -316,7 +315,7 @@ arg: --teamname="RoboFreunde" --playerid=2 --server=127.0.0.1 --		port=3100 --lo
 \subsubsection{Verschiedene NAO-Models}
 \textbf{-> TODO: Felix}
 
-\subsubsection{DecisionMaker, Believes, Behaviors}
+\subsubsection{DecisionMaker, Believes, Behaviors} \label{sse:decisionmaker-belives-behaviors}
 \textit{Verfasser: Stumpf}\\
 \\
 DecisionMaker, Believes un Behaviors sind in Magma Offenburg ein eng verwobenes Konstrukt. Der DecisionMaker hat die Aufgabe, die Entscheidung über die nächste auszuführende Aktion zu treffen. Das zu implementierende Interface ist IDecisionMaker und definiert zwei relevante Methoden:
@@ -387,7 +386,7 @@ Beispiele für Behaviors sind:
 \item usw.
 \end{itemize}
 
-Meist prüfen die Behaviors selbst noch einmal, ob das mit ihnen verknüpfte Belief auch zutrifft. Zum Beispiel wird der Kick nur ausgeführt, wenn der Ball auch Kickable ist (Siehe Belief BallKickable). Falls nicht wird entweder die NullBehavior zurückgegeben, also nicht getan oder ein Fehler geworfen.
+Meist prüfen die Behaviors selbst noch einmal, ob das mit ihnen verknüpfte Belief auch zutrifft. Zum Beispiel wird der Kick nur ausgeführt, wenn der Ball auch Kickable ist (Siehe Belief BallKickable). Falls nicht wird entweder die NullBehavior zurückgegeben, also nichts getan oder ein Fehler geworfen.
 
 \subsubsection{Thought- und Worldmodel}
 \textit{Verfasser: Stumpf}\\
@@ -518,11 +517,152 @@ Mittels entwickelter Metriken und diese umsetzenden Metrik-Agents wurden die neu
 \subsection{Dribbeln}\label{sse:Elem Bew:Dribbeln}
 \textbf{-> TODO: Felix}
 \subsection{Schie{\ss}en}\label{sse:Elem Bew:Schiessen}
-\textbf{-> TODO: Stumpfi}
-\subsubsection{Behaviors}
-\textbf{-> TODO: Stumpfi}
+\textit{Verfasser: Stumpf}\\
+\\
+Magma Offenburg bietet mehrere Implementierungen für den Ballschuss. Welche davon die geeignetste ist wurde zu Beginn anhand des Kriteriums \textit{\glqq Anschauen und Ausprobieren\grqq} festgestellt.\\
+\\
+Letztendlich haben wir uns dann für die KickStraight Behavior entschlossen. Diese hat eine recht umfangreiche Funktionalität. So wählt sie aus, welcher Fuß abhängig von der Spielerposition besser für den Kick geeignet ist. Zum anderen wird, abhängig davon ob ein Gegner in der Nähe ist oder nicht, entschieden ob ein schneller Kick oder der normale Kick ausgeführt werden soll.\\
+\\
+Die anderen erwähnenswerten Behavior sind: SlomoKick und KickStraight2. Es gibt noch eine Vielzahl an weiteren Kicks, diese sind aber entweder fehlerhaft (haben sich nicht vernünftig einbinden lassen), implementieren verschiedene Interfaces oder funktionieren schlecht bis gar nicht. Es liegt die Vermutung nahe, das viele der Kicks inzwischen deprecated, aber nicht als solche markiert sind.\\
+\\
+Da StraightKick nur den Bewegungsablauf eines geraden Kicks nach vorne definiert, wir aber einen Kick wollten der zu einer gegebenen Position kickt, wurde eine neue Behavior erstellt.\\
+\\
+\textbf{KickToPosition} bietet genau die gewünschte Funktionalität. Folgender Auszug zeit die Idee der Umsetzung.
+
+\begin{lstlisting}[caption=KickToPosition, captionpos=b, label=lst:KickToPosition]
+ @Override
+    public IBehavior decideNextBasicBehavior() {
+        updateInternalValues();
+        myShootBehavior.setIntendedKickDirection(properKickPose.getAngle());
+        // set relative pose to ball and angle to kick to
+        myShootBehavior.setRelativeRunToPose(properKickPose.getX(), properKickPose.getY(), properKickPose.getAngle());
+        myShootBehavior.setKickPower(kickPower);
+        // is ball kickable calculates if the player is in a certain polygon, depending of the ball position
+        if (myShootBehavior.isBallKickable() > 0) {
+            return myShootBehavior;
+        } else {
+            // if the ball is not kickable reposition and run to proper kick pose
+            RunToPosition runToPos = (RunToPosition) behaviors.get(IBehaviorConstants.RUN_TO_POSITION);
+            runToPos.setPosition(properKickPose, 0, 0, 55, false);
+            return runToPos;
+        }
+    }
+\end{lstlisting}
+
+KickToPosition erbt von der Klasse ComplexBehavior, welche aus verschiedenen anderen Behaviors zusammengesetzt sein kann. Über die Methode \textit{decideNextBasicBehavior()} wird für den aktuellen Zyklus ausgewählt welche Behavior ausgeführt werden soll. Im Fall von KickToPosition sind die zwei zur Wahl stehenden Behaviors  RunToPosition (runToPos) um zu Laufen und ein über die Methode \texttt{void setUsedKick(String usedKick)} konfigurierbar Kick (myShootBehavior).\\
+\\
+In Zeile 3 werden für die Entscheidung benötigte Werte vorberechnet. Zeile 4 bis 7 aktualisiert diese für die intern verwendete Kick Behavior damit die Abfrage in Zeile 8 den erwünschten Wert zurückgibt.  \texttt{isBallKickable()} wird von einer Parentklasse implementiert und liefert zurück ob der Ball so liegt, dass man ihn kicken kann. Sollte die der Fall sein so werden wir schießen, wenn nicht wird über die RunToPosition Behavior eine Neupositionierung am Ball vorgenommen, so dass wir gut für einen Schuss zur Zielposition stehen.\\
+\\
+Im Verlauf der Entwicklung wurde letztendlich jedoch ersichtlich, dass der originale KickStraight aus folgenden Gründen nicht verwendbar ist.
+\begin{itemize}
+\item Fällt sehr oft hin
+\item Kickt oft in den Boden
+\item Nur ca. 60\% erfolgreiche Kicks
+\item Reichweite unbefriedigend
+\end{itemize}
+Die Performance der Kicks musste also noch einmal grundlegend betrachtet und verglichen werden um anschließend eine Optimierung vornehmen zu können.
 \subsubsection{Evaluierung, Metrik Bots}
-\textbf{-> TODO: Stumpfi}
+\textit{Verfasser: Stumpf}\\
+\\
+Mit dem Ziel eine Vergleichsmöglichkeit für die Kicks zu schaffen habe ich folgende Punkte als Grundlage für eine Metrik definiert.
+
+\begin{itemize}
+\item Durchschnittliche Schussreichweite
+\item Durchschnittliche Geschwindigkeit mit dem Ball vereint:
+	\begin{itemize}
+	\item Anteil erfolgreicher Schüsse (Schusssequenz kostet Zeit)
+	\item Anteil der Schüsse ohne Hinfallen (Hinfallen kostet Zeit)
+	\end{itemize}
+\end{itemize}
+
+Diese Metrik wurde umgesetzt im Agent KickEvaluation, der im Package\\ \texttt{magma.agent.decision.simple.robofreunde.role.evaluation.kick} zu finden ist. Dieser berechnet die oben definierten Werte anhand einem standardisierten Ablauf und verwendet das Roboviz Debugging um sie auszugeben.		
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\ScaleIfNeeded]{Grafiken/Kick/KickMetrikAgent}
+	\caption{Ausgabe - Kick Metrik Agent}
+	\label{KickMetrikAgent}
+\end{figure}
+
+Zusätzlich werden die Informationen noch auf der Konsole ausgegeben, um diese besser abspeichern und vergleichen zu können. Die Ausgabe wird mit jedem Schuss -- das hei{\ss}t der Ball hat sich bewegt -- aktualisiert.
+
+\begin{lstlisting}[caption=Kick Metrik Konsolenausgabe, captionpos=b, label=lst:KickMetricConsoleOutput]
+.
+.
+.
+average distance per shot: "0,72" | total distance: "4,77" | average speed: "0,07"m/s
+average distance per shot: "0,79" | total distance: "6,61" | average speed: "0,08"m/s
+average distance per shot: "0,88" | total distance: "11,59" | average speed: "0,11"m/s
+\end{lstlisting}
+
+Die Evaluierung von SlomoKick, KickStraight und KickStraight2 des Magma Offenburg Frameworks ergab ohne Optimierung ähnliche Werte. Ich habe mich deshalb dazu entschieden, den ohnehin bereits verwendeten KickStraight zu optimieren.
+
+\subsubsection{Optimierung}
+\textit{Verfasser: Stumpf}\\
+\\
+Folgende Punkte konnten als Ursache der Probleme beim KickStraight festgestellt werden:
+\begin{itemize}
+\item Statisches Balancing!
+\item Verwendung von nur einem Gelenk (Hüfte)
+\item Kein Ausreizen der maximalen Winkel und Geschwindigkeit
+\item Falsche, schlechte Werte (-> Boden-Kick)
+\end{itemize}
+
+Die nähere Analyse der Implementierung hat gezeigt, dass die Bewegungsphasen hart im Code definiert sind, was man in \autoref{lst:KickStraight-Movementphases} gut erkennen kann. In diesem Falle war das von Vorteil, da die Werte so sehr einfach manipuliert werden konnten.
+
+\begin{lstlisting}[caption=KickStraight Bewegungsphasen, captionpos=b, label=lst:KickStraight-Movementphases]
+.
+.
+.
+kickRight.add(new MovementPhase("moveLegBackwards2", 20) //
+	.add(INaoConstants.LHipPitch, 30, 1f) //
+	.add(INaoConstants.LKneePitch, -20, 1f) //
+	.add(INaoConstants.LFootPitch, 10, 0.5f) //
+	.add(INaoConstants.RHipPitch, -5, 2f) //
+	.add(INaoConstants.RKneePitch, -40, 2f) //
+	.add(INaoConstants.RFootPitch, 20, 2f) //
+	.add(INaoConstants.RHipRoll, 0, 1f) //
+	.add(INaoConstants.RFootRoll, 16, 2f) //
+	);
+kickRight.add(new MovementPhase("kickRight", CYCLES_FOR_KICK) //
+	.add(INaoConstants.LHipPitch, -50, 21f) // 
+	.add(INaoConstants.LFootPitch, 33, 14f) // 
+	.add(INaoConstants.LKneePitch, -16, 2f) // 
+	.add(INaoConstants.RKneePitch, 6, 21f) // 
+	);
+.
+.
+.
+\end{lstlisting}
+
+Die größten Probleme bereitete das \textbf{statische Balancing}. Nach der Ausführung des Kicks erfolgten ursprünglich einige Bewegungsphasen, die den Roboter wieder in eine stabile Ausgangsposition bringen sollten. Da der Kick allerdings selten gleich verläuft -- der NAO ist nie in exakt der gleichen Ausgangslage -- hat dieses statische Balancing dazu geführt, dass der NAO meist das Gleichgewicht verloren hat und umgefallen ist.\\
+\\
+Diese Problem konnte behoben werden, indem die kompletten Bewegungsphasen für das Balancing entfernt wurden. Das funktioniert deshalb sehr gut, da direkt nach dem Kick die RunToPosition Behavior aufgerufen wird, um sich neu zu positionieren. Die RunToPosition balanciert sich hingegen viel besser und stabiler, vermutlich dynamisch.\\
+\\
+Des Weiteren führten \textbf{fehlerhafte Werte in den Bewegungsphasen} dazu, dass der NAO gerne in den Boden gekickt hat. Durch eine Anpassung der Gelenkwinkel sowie Winkelgeschwindigkeiten konnte dieses Problem deutlich verbessert werden.\\
+\\
+Durch \textbf{Erweiterung der Bewegungsabläufe um neue Gelenke} konnte sowohl die Geschwindigkeit, als auch die Stabilität des Schusses erhöht werden.\\
+\\
+Als Letztes wurde die \textbf{Gelenkwinkelgeschwindigkeit nicht ausgereizt}, zu der der NAO fähig ist. Durch die Erhöhung wurde durchschnittliche Reichweite des Schusses deutlich erhöht.\\
+\\
+Der optimierte Kick wurde als Behavior KickStraight3 abgespeichert und liegt im Package \texttt{magma.robots.robofreunde.behavior.basic;}\\
+\\
+Das Ergebnis der Optimierung kann man in folgender Tabelle sehen.
+
+\begin{tabularx}{\textwidth}{|X|X|X|}
+\hline
+ & \textbf{KickStraight vorher} & \textbf{KickStraight3 Nachher}\\
+\hline
+\hline
+ Distance & ca. 0.8m & ca. 2.6m\\
+\hline 
+ Speed & ca. 0.06m/s & ca. 0.2 m/s\\
+\hline
+ Fallen & 4/10 & 2/10\\
+\hline
+ Successful Kicks & 6/10 & 9/10\\
+\hline
+\end{tabularx}
 
 \section{Rollen}
 \textit{Verfasser: Wurth}\\
@@ -878,7 +1018,7 @@ Der Ansto{\ss} besteht generell aus einer Positionierung am Ball mit anschließe
 \\
 Benötigte Behaviors sind KickToPosition und RunToPosition. Eine Logik für die Positionierung am Ball muss ebenso wie die Neupositionierung vorhanden sein.\\
 \\
-Es wurde hier der Pass gewählt, da der uns zur Verfügung stehende Kick leider nicht weit genug kommt, als dass sich ein Kick in die gegnerische Hälfte lohnen würde.
+Es wurde hier der Pass gewählt, da der uns zur Verfügung stehende Kick leider nicht weit genug kommt, als dass sich ein Kick in die gegnerische Hälfte lohnen würde. In Turnieren sieht man häufig einen direkten Kick weit in die gegnerische Hälfte, was vermutlich die bessere Strategie ist wenn der Kick 10+ Meter weit kommt.
 
 \subsubsection{Freisto{\ss}, Ecke}
 \textit{Verfasser: Stumpf}\\
