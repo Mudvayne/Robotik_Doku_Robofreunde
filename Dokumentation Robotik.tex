@@ -496,6 +496,38 @@ Abbildung \ref{Einfacher Strategie Entscheider} zeigt den Enscheidungsbaum eines
 \end{figure}
 
 Abbildung \ref{Gesamtkonzept KI} zeigt das Gesamtkonzept mit allen 4 Ebenen. Ganz unten befinden sich die elementaren Bewegungen. Rollen werden auf der Schicht darüber definiert. Sie greifen als einzige Schicht auf elementare Bewegungen direkt zu. Über den Rollen befindet sich die Strategie-Ebene. Jede Strategie hält einen Pool an Rollen vor und steuert damit die konkrete Aufstellung auf dem Spielfeld. Auf höchster Ebene befindet sich der Entscheidungsmechanismus, der Situationsabhängig eine passende Strategie aktiviert. 
+\subsection{Alternative Ansätze}
+\textit{Verfasser: Lohr}\\
+
+Es wurde recherchiert, wie eine KI am besten implementiert wird (Unter anderem in \cite{buckland2005programming}). Hierzu gibt es zwei Ansätze:
+\begin{itemize}
+ \item State-Driven Agent Design
+ \item Goal-Driven Agent Design
+\end{itemize}
+
+\subsubsection{State-Driven Agent Design}
+\textit{Verfasser: Lohr}\\
+Das State-Driven Agent Design basiert auf Zustandsautomaten, wie sie auch in UML definiert wurden. Ein Zustandsautomat setzt sich zusammen auf verschiedenen Zuständen (States), davon genau ein Startzustand und min. ein Endzustand. Die Übergänge (Transitions) von einem Zustand in einen anderen werden durch Ereignisse (Events) ausgelöst.
+
+\begin{figure}[ht]
+	\centering
+  \includegraphics[width=0.7\textwidth]{Grafiken/KI/Bsp-Zustandsdiagramm.png}
+	\caption{Ein stark vereinfachter Zustandsautomat}
+	\label{fig1}
+\end{figure}
+
+Es gibt mehrere Möglichkeiten einen Zustandsautomaten zu implementieren. Es gibt unter anderem verschiedene Bibliotheken, die das implementieren eines Zustandsautomaten erleichtern. Unter anderem für C++: Boost.MSM (Meta State Machine), Boost.Statechart und Qt Statemachine Framework (aus dem Qt Framework). Für Java erschien die Tungsten FSM von Continuent am ausgereiftesten. Die Option ein auf Eclipse basierendes Tool namens Yakindu Statechart Tools\footnote{\url{http://statecharts.org/}} zu nutzen wurde verworfen, da nicht sicher war, wie sich das in den schon bestehenden Sourcecode einfügt.\par Die  Implementierung des Mittelfeldspieler mittels der Tungsten FSM wird auf der Seite \pageref{tungsten_fsm} im Abschnitt \ref{tungsten_fsm} erläutert.
+
+\subsubsection{Goal-Driven Agent Design}
+\textit{Verfasser: Lohr}\\
+Das Goal-Driven Agent Design wird in \cite[S. 379 ff.]{buckland2005programming} beschrieben. Es besteht aus Zielen, die entweder weitere Unterziele beinhalten können, oder sie sind selber ein atomarer Bestandteil, und haben keine weiteren Unterziele mehr. (vgl. Kompositionsmuster \ref{fig2} aus \cite{gamma1994design}) Ob ein Ziel erreicht wurde, wird dadurch bestimmt, ob gewisse Unterziele erreicht wurden oder nicht. Schlägt ein Ziel fehl kann es neu ausgeführt werden.
+
+\begin{figure}[ht]
+	\centering
+  \includegraphics[width=0.7\textwidth]{Grafiken/KI/goal-driven.png}
+	\caption{Das Kompositionsmuster. Grafik entstammt \cite[S. 383]{buckland2005programming}}
+	\label{fig2}
+\end{figure}
 
 \section{Elementare Bewegungen}\label{se:Elementare Bewegungen}
 \textit{Verfasser: Stumpf}\\
@@ -926,45 +958,14 @@ Abbildung \ref{Deadzone neben dem gegnerischen Tor 1} zeigt ein weiteres Problem
 
 Es kann (und soll) aber dennoch vorkommen, dass sich ein Stürmer im Ballbesitz innerhalb einer Deadzone befindet. Nämlich dann, wenn er dort den Ball erobert. Bei den beiden Zonen in der Nähe der Aus-Linie korrigiert sich das Problem von alleine, die neue Laufposition befindet sich garantiert außerhalb. Bei den Zonen neben dem gegnerischen Tor, muss allerdings nachgeholfen werden. Die neue Laufposition befindet sich direkt vor dem Tor etwa in Höhe des Elfmeterpunktes (siehe Abbildung \ref{Deadzone neben dem gegnerischen Tor 3}). Das bedeutet natürlich nicht, dass er dieses neue Ziel tatsächlich erreicht. Sobald er die Deadzone verlässt ist sein Ziel erneut das gegnerische Tor.
 
-
 \subsection{Standardrolle: Verteidiger}
 \include{CapterDefender}
 
 \subsection{Standardrolle: Mittelfeld}
 \textit{Verfasser: Lohr}\\
-\subsubsection{Planung, Evaluierung von Frameworks}
-Zu Anfang wurde die Vorgehensweise geplant und verschiedene Frameworks evaluiert. Unter anderem wurden Zigorat und Delta3D, zwei Frameworks, welche in C++ geschrieben wurden, evaluiert. Zigorat war zu rudimentär, da wichtige Aktionen, z.B. Laufen, noch nicht implementiert waren. Delta3D war zu instabil. \par
-Parallel dazu wurde recherchiert, wie eine KI am besten implementiert wird. Hierzu gibt es zwei Ansätze:
-\begin{itemize}
- \item State-Driven Agent Design
- \item Goal-Driven Agent Design
-\end{itemize}
-
-\subsubsection{State-Driven Agent Design}
-\textit{Verfasser: Lohr}\\
-Das State-Driven Agent Design basiert auf Zustandsautomaten, wie sie auch in UML definiert wurden. Ein Zustandsautomat setzt sich zusammen auf verschiedenen Zuständen (States), davon genau ein Startzustand und min. ein Endzustand. Die Übergänge (Transitions) von einem Zustand in einen anderen werden durch Ereignisse (Events) ausgelöst.
-
-\begin{figure}[ht]
-	\centering
-  \includegraphics[width=0.85\textwidth]{Grafiken/KI/Bsp-Zustandsdiagramm.png}
-	\caption{Ein stark vereinfachter Zustandsautomat}
-	\label{fig1}
-\end{figure}
-
-Es gibt mehrere Möglichkeiten einen Zustandsautomaten zu implementieren. Es gibt unter anderem verschiedene Bibliotheken, die das implementieren eines Zustandsautomaten erleichtern. Unter anderem für C++: Boost.MSM (Meta State Machine), Boost.Statechart und Qt Statemachine Framework (aus dem Qt Framework). Für Java erschien die Tungsten FSM von Continuent am ausgereiftesten. Die Option ein auf Eclipse basierendes Tool namens Yakindu Statechart Tools\footnote{\url{http://statecharts.org/}} zu nutzen wurde verworfen, da nicht sicher war, wie sich das in den schon bestehenden Sourcecode einfügt.
-
-\subsubsection{Goal-Driven Agent Design}
-\textit{Verfasser: Lohr}\\
-Das Goal-Driven Agent Design wird in \cite[S. 379 ff.]{buckland2005programming} beschrieben. Es besteht aus Zielen, die entweder weitere Unterziele beinhalten können, oder sie sind selber ein atomarer Bestandteil, und haben keine weiteren Unterziele mehr. (vgl. Kompositionsmuster \ref{fig2} aus \cite{gamma1994design}) Ob ein Ziel erreicht wurde, wird dadurch bestimmt, ob gewisse Unterziele erreicht wurden oder nicht. Schlägt ein Ziel fehl kann es neu ausgeführt werden.
-
-\begin{figure}[ht]
-	\centering
-  \includegraphics[width=0.85\textwidth]{Grafiken/KI/goal-driven.png}
-	\caption{Das Kompositionsmuster. Grafik entstammt \cite[S. 383]{buckland2005programming}}
-	\label{fig2}
-\end{figure}
 
 \subsubsection{Tungsten FSM}
+\label{tungsten_fsm}
 \textit{Verfasser: Lohr}\\
 Es wurde das Tungsten FSM von Continuent für eine Beispielimplementierung herangezogen. Die Tungsten FSM besteht unter anderem aus
 \begin{itemize}
