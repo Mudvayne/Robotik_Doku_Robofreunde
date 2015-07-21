@@ -58,7 +58,9 @@ Es gibt eine 2D und eine 3D Version. Für uns war insbesondere die 3D Version in
 Da die Schnittstellen zum Server auf sehr niedriger Ebene definiert sind - Bewegung von Gelenken - ist es für den Zeitraum der Lehrveranstaltung zu aufwändig, einen virtuellen Roboter komplett selbstständig zu entwickeln. Es gibt allerdings einige Frameworks, auf denen die eigene Arbeit aufgebaut werden kann.
 
 \section{Anforderungen}
-\textbf{-> TODO: Freddy???}
+\textit{Verfasser: Weber}
+stuff
+
 \textit{Was waren die allgemeinen Anforderungen?}
 \section{Zeitplan}
 \textit{Verfasser: Stumpf, Schramm, Wurth}\\
@@ -1270,7 +1272,36 @@ Es wurde zu dieser Art der Konfiguration gegriffen, da eine feste Verdrahtung vo
 
 \section{Strategie-Entscheider}
 \textit{Verfasser: Weber}\\
-Das Konzept des Strategie-Entscheider wurde bereits in Kapitel \ref{StrategieEntscheiderLabel} besprochen. Der folgende Abschnitt zeigt seine Implementierung.\\
+Das Konzept des Strategie-Entscheider wurde bereits in Kapitel \ref{StrategieEntscheiderLabel} besprochen. Der folgende Abschnitt zeigt ei.\\
+Der aktuelle Entscheider, arbeitet mit insgesamt 3 unterschiedlichen Strategien. Wobei es sich um eine einfache Proof of Concept-Strategie handelt, sowie die aus den Vorg"anger bekannten defensiver und aggressiver Strategien. Die simple Strategie kann nur "uber einen JVM Parameter aktiviert werden, sollte dieser nicht gesetzt sein, wird die Logik f"ur aggressive, bzw. defensive Strategie ausgef"uhrt. Wie in dem folgenden Code Ausschnitt gezeigt, findet eine Transistion von Defensive zu Aggressive Strategie statt, sobald sich das eigene Team in einem 2 Punkte R"uckstand befindet.
+
+\begin{lstlisting}[caption=Interne Logik des Strategie-Entscheiders, captionpos=b]
+if (USE_SIMPLE) {
+    currentStrategy = simple;
+    currentStrategy.init(getPlayer());
+} else {
+    int ownGoalCount = getPlayer().getModel().getWorldModel().getGoalsWeScored();
+    int otherGoalCount = getPlayer().getModel().getWorldModel().getGoalsTheyScored();
+    PossibleStates newState;
+
+    if (ownGoalCount + 2 <= otherGoalCount) {
+        currentStrategy = aggressive;
+        newState = PossibleStates.Agressive;
+    } else {
+        currentStrategy = defensive;
+        newState = PossibleStates.Passive;
+    }
+
+    //Call Init, only when State has changed.
+    if (newState != oldState) {
+        currentStrategy.init(getPlayer());
+    }
+
+    oldState = newState;
+}
+
+currentStrategy.update();
+\end{lstlisting}
 
 \section{Zusammenfassung und Ausblick}
 \textbf{-> TODO: Freddy}
