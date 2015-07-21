@@ -1,0 +1,17 @@
+Der Simspark-Server kann verscheidene NAO-Modelle simulieren. Diese unterscheiden sich zum
+Beispiel in der Länge der Extremitäten oder der Existenz von Zehen. Im Server-Verzeichnis
+liegen eine Reihe von Ruby-Scene-Graph-Dateien, welche die geometrische Beschaffenheit der
+verschiedenen Typen definieren. Konnektiert ein Bot auf den Server, so schickt dieser in seiner initialen Nachricht einen String mit, der auf das entsprechende Modell verweist.\\
+
+Im Magma-Framework werden diese verschiedenen Modelle durch eigene AgentMetaModel[s]
+abgebildet. Diese sind in eigenen Packages unter 'magma.robots' organisiert. Initial waren
+im fünf verschiedene Modelle enthalten. ('nao', 'nao1', 'nao2', 'nao3' und 'naotoe')\\
+Mit Hilfe des RunToPositionMetricBots (siehe: \ref{sse:Elem Bew:Laufen}) wurde das Modell 'nao', welches auf der Server-Datei: 'rsg/agent/nao/nao.rsg' basiert als bestes ausgewählt. Im Zuge der Laufoptimierung wurden sämtliche Parameter mit denen aus der Server-Konfiguration verglichen.
+Aufgrund von Abweichungen wurde dann ein eigenes AgentMetaModel 'NaoRF' im Package
+'robofreunde' erstellt, das diese behebt.\\
+So wurden zum Beispiel die Translationsvektoren der Füße von 'new Vector3D(0, 0.03, -0.035)'
+auf 'new Vector3D(0, 0.03, -0.04)' verlängert. (Entsprechend der 'setLocalPos'-Z-Komponente
+'(def \$FootRelAnkle\_Z -0.04)' in 'data/rsg/agent/nao/naoleg.rsg')
+
+Die Auswahl der AgentMetaModel[s] erfolgt durch die zugehörige ComponentFactory (siehe: 
+\ref{subsec:Agent Startup Routine} -factory). 

@@ -1,0 +1,49 @@
+Da die Laufleistungen der NAOs anfangs zu Wünschen übrig lies, wurde eine Optimierung vorgenommen. Zunächst wurde der RunToPositionMetricBot implementiert. Dieser läuft einen Parkour ab und misst die benötigte Zeit. Diese gilt als Metrik für die Laufoptimierung. Je kürzer die benötigte Zeit, desto besser die Lauffunktion.
+Out-of-the-box erreichte der Bot innerhalb einer Halbzeit nicht einmal den zweiten Wegpunkt.
+Danach erfolgte eine Verbesserung in drei Schritten:
+\begin{itemize}
+\item Laufgeschwindigkeit
+\item Gelenkwinkelgeschwindigkeit
+\item AgentMetaModel
+\end{itemize}
+Diese wurden iterativ abwechselnd ausgeführt, bis die Gesamtoptimierung in einem globalen Maximum angelangt war.
+
+\subsubsection{Laufgeschwindigkeit}
+Im ersten Schritt führte eine Reduktion der maximalen Laufgeschwindigkeit zu einer starken Abnahme von Stolperern. Die damit verbundene Einsparung an Aufstehungen führte somit trotz der langsameren Bewegung zu einer schneller Ankunft am Ziel.
+
+\subsubsection{Gelenkwinkelgeschwindigkeit}
+Im nächsten Schritt wurde mit der Konstante für die Gelenkwinkelgeschwindigkeit experimentiert (\textit{MAX\_JOINT\_SPEED} in  \texttt{magma.robots.nao.INaoConstants}). Eine Erhöhung dieses Werts führte zu einer stabileren und schnelleren Fortbewegung. Die Hoffnung optimale Ergebnisse mit der serverseitigen Konstante zu erzielen wurde leider enttäuscht.\\
+Die ausgelesene Geschwindigkeit in den Config-Files von 6.14 ist in Grad pro Timeframe. Eine Umrechnung in rad/s die der Server im Netzwerkprotokoll entgegen nimmt ergibt 7.03. Dies entspricht dem Wert, der im Framework als Konstante definiert war und zu schlechten Ergebnissen führte.\\
+
+Um mögliche Gründe hierfür zu finden wurde die Auswirkung der Konstante auf die tatsächlich erreichte Geschwindigkeit analysiert.
+Als zu untersuchendes Gelenk wurde der Nacken gewählt, da sich dieser beliebig bewegen lässt ohne den Schwerpunkt des Naos zu verlagern und ihn somit umzuwerfen. So werden Seiteneffekte durch die Gesamtdynamik des Roboters vermieden. Andere Gelenke sind auf die selbe Weise implementiert und die Ergebnisse lassen sich übertragen.
+
+Es wurde ein Test-Bot implementiert, der seinen Kopf so schnell dreht wie er kann. Dabei wurde die Netzwerkkommunikation mitgeschnitten und ausgelesen.
+Bei einer Wahl von 7.03 rad/s als maximale Gelenkwinkelgeschwindigkeit im Framework fiel auf, dass diese nie an den Server kommuniziert wurde.
+
+\begin{figure}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|X|X|X|}
+		\hline
+		Takt & Action & Perception\\
+		\hline
+		1 & (syn) & ... (HJ (n hj1) (ax -0.00)) ...\\
+		\hline
+        2 & (he1 -3.514)(syn) & ... (HJ (n hj1) (ax -4.03)) ...\\
+        \hline
+        3 & (syn) & ... (HJ (n hj1) (ax -8.05)) ...\\
+		\hline
+	\end{tabularx}
+	\caption{Netzwerkauszug bei Kopfdrehung}
+	\label{fig:networkjointanalysis}
+\end{figure}
+
+Trotz des Wunsches an das Framework eine Geschwindigkeit von 7.03 rad/s umzusetzen, gibt dieses nur die Hälfte, also 3.514 rad/s an den Server weiter.
+Zu beachten gilt, dass der zurückgegebene Wert in Grad/Tick ist und somit dem Wunsch von 3.514 rad/s voll entspricht.
+
+Dies ist auf die Implementierung der Motorrepräsentanten im Framework zurückzuführen.
+Dort (\texttt{magma.agent.agentmodel.impl.Motor}) weist die 'getNextSpeed(float angle)' Methode folgenden code auf: \textit{return (angle - perceivedAngle) / 2.0f;}.\\
+Der Motor erreicht durch die Halbierung des Winkels ein langsames Ausklingen an den Rändern der Bewegung. Nimmt man statt dessen den vollen Winkel erreicht der Nao auch die volle Geschwindigkeit von 7.03 rad/s, was leider durch ein Nachfedern an den Endpunkten begleitet wird. Werte von 80\% der Winkeldifferenz führen zu eine sauberen Bewegung, bei 80\% der Geschwindigkeit, leider kann der Nao mit diesen Einstellungen weder laufen, noch aufstehen. Die csv-Dateien der Bewegungen scheinen auf dieses Ausklingverhalten angewiesen, weshalb die ganze Analyse leider wenig Früchte trug und die Konfiguration zurückgesetzt wurde.
+
+\subsubsection{AgentMetaModel}
+Im letzten Schritt wurde das MetaModel des Agents im Framework mit dem des Servers verglichen und Unterschiede beseitigt. Auch dies hatte eine Erhöhung der Stabilität sowohl beim laufen, als auch beim Aufstehen zur Folge. Näheres dazu im Kapitel \ref{sec:nao-models}.

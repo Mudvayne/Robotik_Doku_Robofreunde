@@ -18,7 +18,8 @@
    tabsize=4,
    numbers=left,
    frame=single
-} 
+}
+\newcommand\todo[1]{\textcolor{red}{#1}}
 
 \title{Robotik Dokumentation - Team Robofreunde n.V.}
 \author{Lohr, Schramm, Stumpf, Weber, Wurth}
@@ -216,6 +217,7 @@ Mit der Antwort des Servers beginnt ein neuer Zyklus.
 Da der ChannelManager auf dem Observer Pattern basiert, möchte ich dieses noch kurz darlegen. Der ConnectionChannel meldet sich bei der SocketConnection als Observer an. Die SocketConnection hält die eigentliche Verbindung zum Server. Ist nun bei der Socket Connection ein Paket angekommen, informiert es alle seine Observer, also die ConnectionChannel, welche dann das Paket abholen, parsen und die enthaltene Information in den Perceptors abspeichern. Aus diesen werden sie dann vom Agent ausgelesen und in das Thoughtmodel übertragen. (siehe \autoref{fig:Magma - Agent Runtime Loop})
 
 \subsubsection{Agent Startup Routine}
+\label{subsec:Agent Startup Routine}
 \textit{Verfasser: Stumpf}\\
 \\
 Welcher Agent mit welchen Eigenschaften gestartet werden soll ist über Kommandozeilenparameter konfigurierbar. Auf diese möchte ich im folgenden kurz eingehen:\\
@@ -315,7 +317,10 @@ arg: --teamname="RoboFreunde" --playerid=2 --server=127.0.0.1 --		port=3100 --lo
 \end{itemize}
 
 \subsubsection{Verschiedene NAO-Models}
-\textbf{-> TODO: Felix}
+\label{sec:nao-models}
+\textit{Verfasser: Schramm}\\
+\\
+\input{NaoModels}
 
 \subsubsection{DecisionMaker, Believes, Behaviors} \label{sse:decisionmaker-belives-behaviors}
 \textit{Verfasser: Stumpf}\\
@@ -515,9 +520,13 @@ Es fielen jedoch auch offensichtliche Mängel an einigen Behaviors auf, die es z
 Mittels entwickelter Metriken und diese umsetzenden Metrik-Agents wurden die neuen und optimierten Behaviors mit den alten verglichen und getestet, um die Verbesserungen sichtbar zu machen. Sehr wichtig dafür war die Möglichkeit des grafischen Debugging mit RoboViz. (siehe \autoref{se:Grafisches Debugging})
 
 \subsection{Laufen}\label{sse:Elem Bew:Laufen}
-\textbf{-> TODO: Felix}
+\textit{Verfasser: Schramm}\\
+\\
+\input{Laufen}
 \subsection{Dribbeln}\label{sse:Elem Bew:Dribbeln}
-\textbf{-> TODO: Felix}
+\textit{Verfasser: Schramm}\\
+\\
+\input{Dribbeln}
 \subsection{Schie{\ss}en}\label{sse:Elem Bew:Schiessen}
 \textit{Verfasser: Stumpf}\\
 \\
@@ -1049,7 +1058,13 @@ konfigurierbar. Es wird nur aus aktiven Interaktionen ausgewählt.
 Die Entscheidung wird getroffen anhand von gemeinsamer Logik, zum Beispiel \textit{\glqq Befinde ich mich in der Nähe des Tors, so dass ein Torschuss erfolgreich sein könnte?\grqq}, oder \textit{\glqq Ist ein Mitspieler in der Nähe, der besser steht als ich?\grqq}.
 
 \section{Grafisches Debugging}\label{se:Grafisches Debugging}
-\textbf{-> TODO: Felix}
+\textit{Verfasser: Schramm}\\
+\\
+\input{RoboViz}
+\section{Manuelle Steuerung}\label{se:Manuelle Steuerung}
+\textit{Verfasser: Schramm}\\
+\\
+\input{ManualCtrl}
 \section{Strategien}
 \textbf{-> TODO: Freddy}
 \section{Strategie-Entscheider}
