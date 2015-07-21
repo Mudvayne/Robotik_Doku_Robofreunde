@@ -457,11 +457,13 @@ Ein Verteidiger verfolgt andere Ziele als ein Torwart. Rollen definieren das gru
 Abbildung \ref{Simple keeper} zeigt Beispielhaft den Entscheidungsbaum eines einfachen Torwarts.
 
 \subsubsection{Strategien}
+\label{StrategienLabel}
 \textit{Verfasser: Wurth}\\
 
 Rollen sollen nicht selbst entscheiden, ob und in welche andere Rolle gewechselt wird. Das widerspräche der Schichtenarchitektur. Deshalb wurde die darüber liegende Strategieschicht eingeführt. Die Aufgabe dieser Schicht ist es, Rollen dynamisch zuzuordnen. Daher ist die Bezeichnung \glqq Strategie\grqq{} auch treffend; Eine Strategie steuert unter Anderem die Gesamtaufstellung des Teams. Damit lässt sich die allgemeine Spielweise des gesamten Teams steuern, mehr Verteidiger bedeutet eine defensive, mehr Angreifer eine aggressive Strategie. Eine Strategie benötigt einen Pool an Rollen, die sie \glqq verteilen\grqq{} darf. Dieser Pool legt indirekt die Spielweise eines Teams fest. Aufgabe jeder Strategie ist es dann, Rollen dynamisch nach Bedarf zu verteilen. Darunter fällt insbesondere auch die Vergabe der Spezialrollen.
 
 \subsubsection{Strategie-Entscheider}
+\label{StrategieEntscheiderLabel}
 \textit{Verfasser: Wurth}\\
 
 In der Strategieebene können verschiedene Strategien für verschiedene Gesamtaufstellungen des Teams definiert werden. Im Laufe eines Spiels kann es sinnvoll sein, die Aufstellung an die Gegebenheiten und Anforderungen an das Spiel anzupassen. Dafür Wurde auf höchster Ebene ein Entscheidungsmechanismus etabliert. Die Aufgabe dieser Schicht ist es, je nach Bedarf eine passende Strategie auszuwählen. Dafür gibt es verschiedene Ansätze, zum Beispiel könnte eine passende Strategie je nach aktuellem Spielstand ausgesucht werden. Beispiel: 
@@ -939,6 +941,7 @@ Parallel dazu wurde recherchiert, wie eine KI am besten implementiert wird. Hier
 \end{itemize}
 
 \subsubsection{State-Driven Agent Design}
+\textit{Verfasser: Lohr}\\
 Das State-Driven Agent Design basiert auf Zustandsautomaten, wie sie auch in UML definiert wurden. Ein Zustandsautomat setzt sich zusammen auf verschiedenen Zuständen (States), davon genau ein Startzustand und min. ein Endzustand. Die Übergänge (Transitions) von einem Zustand in einen anderen werden durch Ereignisse (Events) ausgelöst.
 
 \begin{figure}[ht]
@@ -951,6 +954,7 @@ Das State-Driven Agent Design basiert auf Zustandsautomaten, wie sie auch in UML
 Es gibt mehrere Möglichkeiten einen Zustandsautomaten zu implementieren. Es gibt unter anderem verschiedene Bibliotheken, die das implementieren eines Zustandsautomaten erleichtern. Unter anderem für C++: Boost.MSM (Meta State Machine), Boost.Statechart und Qt Statemachine Framework (aus dem Qt Framework). Für Java erschien die Tungsten FSM von Continuent am ausgereiftesten. Die Option ein auf Eclipse basierendes Tool namens Yakindu Statechart Tools\footnote{\url{http://statecharts.org/}} zu nutzen wurde verworfen, da nicht sicher war, wie sich das in den schon bestehenden Sourcecode einfügt.
 
 \subsubsection{Goal-Driven Agent Design}
+\textit{Verfasser: Lohr}\\
 Das Goal-Driven Agent Design wird in \cite[S. 379 ff.]{buckland2005programming} beschrieben. Es besteht aus Zielen, die entweder weitere Unterziele beinhalten können, oder sie sind selber ein atomarer Bestandteil, und haben keine weiteren Unterziele mehr. (vgl. Kompositionsmuster \ref{fig2} aus \cite{gamma1994design}) Ob ein Ziel erreicht wurde, wird dadurch bestimmt, ob gewisse Unterziele erreicht wurden oder nicht. Schlägt ein Ziel fehl kann es neu ausgeführt werden.
 
 \begin{figure}[ht]
@@ -961,6 +965,7 @@ Das Goal-Driven Agent Design wird in \cite[S. 379 ff.]{buckland2005programming} 
 \end{figure}
 
 \subsubsection{Tungsten FSM}
+\textit{Verfasser: Lohr}\\
 Es wurde das Tungsten FSM von Continuent für eine Beispielimplementierung herangezogen. Die Tungsten FSM besteht unter anderem aus
 \begin{itemize}
  \item States
@@ -1028,6 +1033,7 @@ public class OwnGuard implements Guard
 Es gibt bereits einige vordefinierten Guards, wie z.B. EventTypeGuard, der nur positiv wird, wenn ein bestimmter Zustand geworfen wird.
 
 \subsubsection{Mittelfeldspieler}
+\textit{Verfasser: Lohr}\\
 Mit der Tungsten FSM wurde neben einem minimalen Bot auch ein Bot programmiert, der die Rolle ``Mittelfeldspieler'' einnehmen soll. Es wurden unter anderem folgende Use-Cases aufgestellt:
 
 \begin{itemize}
@@ -1144,10 +1150,127 @@ Die Entscheidung wird getroffen anhand von gemeinsamer Logik, zum Beispiel \text
 
 \section{Grafisches Debugging}\label{se:Grafisches Debugging}
 \textbf{-> TODO: Felix}
+
 \section{Strategien}
-\textbf{-> TODO: Freddy}
+\textit{Verfasser: Weber}\\
+Das Konzept einer Strategie wurde bereits in Kapitel \ref{StrategienLabel} besprochen. Der folgende Abschnitt zeigt ihre Implementierung sowie Konfigurierung.\\
+\\
+\subsection{Implementierung}
+\textit{Verfasser: Weber}\\
+In dem Konzept werden unterschiedliche Strategien erw"ahnt. Aus Zeitgr"unden konnte jedoch nur eine echte Strategie entwickelt werden, es ist zwar eine Aggressive sowie Defensive-Strategie vorhanden diese unterscheiden sich jedoch nicht in ihrer Logik. Deswegen wird im folgenden Text nur von der Strategie gesprochen. Die Strategie unterscheidet in Hauptrollen und Sekund"arrollen, die jenach Spiel-Status gew"ahlt werden.
+
+\begin{itemize}
+
+\item Hauptrolle
+\begin{itemize}
+\item Torwart
+\item Verteidiger
+\item Mittelfeld
+\item St"urmer
+\end{itemize}
+
+\item Sekund"arrollen
+\begin{itemize}
+\item Beam
+\item Ecke
+\item Freisto"s
+\item Einwurf
+\item Ansto"s
+\item Party
+
+\end{itemize}
+\end{itemize}
+
+Ein Roboter darf in dieser Strategie blo"s eine Hauptrolle annehmen, jedoch beliebig viele Sekund"arrollen besitzen. Dabei folgt die Strategie bei der Auswahl der Rolle dem folgendem Quelltext.\\
+
+\begin{lstlisting}[caption=Entscheidung zu einer Rolle, captionpos=b, label=EntscheidungRolleStrategie]
+if(gameState != lastState) {
+    decided = true;
+    lastState = gameState;
+
+    switch (gameState) {
+        case OWN_GOAL:
+        case OPPONENT_GOAL:
+        case BEFORE_KICK_OFF:
+            currentRole = beam;
+            break;
+        case OWN_CORNER_KICK:
+            currentRole = resolveSecondary(Roles.CornerKick);
+            break;
+        case OWN_FREE_KICK:
+            currentRole = resolveSecondary(Roles.FreeKick);
+            break;
+        case OWN_GOAL_KICK:
+            currentRole = resolveSecondary(Roles.GoalKick);
+            break;
+        case OWN_KICK_OFF:
+            currentRole = resolveSecondary(Roles.KickOff);
+            break;
+        case GAME_OVER:
+            currentRole = party;
+            break;
+        case PLAY_ON:
+            currentRole = resolveMainRole();
+            break;
+    }
+
+    if(currentRole != null) {
+        currentRole.init(getPlayer());
+        currentRole.setDebugger(getDebugger());
+    }
+}
+\end{lstlisting}
+
+Aus dem abgebildeten Quelltext lassen sich folgende Funktionalit"aten ableiten. Der "Ubergang zu einer neuen Rolle findet nur statt wenn ein Wechsel des GameState stattgefunden hat. Es kann ebenfalls zu dem Fall kommen, dass die aktuelle Rolle nicht gesetzt wurde, daf"ur wurde der Null-Check nach dem Switch implementiert. Denn sollte der Einsatz von einer Sekund"arrolle notwendig werden, wird nur der n"aheste Roboter aktiv. Dies wird auch durch ein Blick in die \lstinline$resolveSecondary$ Methode best"atigt.\\
+\\
+\begin{lstlisting}[caption=resolveSecondary Methode der Strategie, captionpos=b, label=EntscheidungRolleStrategie]
+private BotState resolveSecondary(Roles role) {
+    current = role;
+    List<Roles> secondary = availableRoles.stream()
+        .filter(roles -> (roles.isSecondaryRole()))
+        .collect(Collectors.toList());
+
+    if(secondary.stream().anyMatch(roles -> roles == role) && nearestPlayer()) {
+        switch (role) {
+            case CornerKick:
+                return corner;
+            case FreeKick:
+                return free;
+            case GoalKick:
+                return goal;
+            case ThrowIn:
+                return throwIn;
+            case KickOff:
+                return kickOff;
+        }
+    }
+
+    current = Roles.Null;
+    return nullBot;
+}
+\end{lstlisting}
+
+\subsection{Konfigurierung}
+\textit{Verfasser: Weber}\\
+Zur Konfiguration wurde zu den Java Virtual Machine (JVM) Properties zur"uck gegriffen. Diese werden beim Start der JVM als Konsolenparameter mit dem Prefix '-D' angegeben und k"onnen anschlie"send innerhalb der JVM mit \lstinline$System.getProperty("key", "fallback");$ abgerufen werden. Die gew"unschten Rollen f"ur den aktuellen Spieler, m"ussen mit dem Schl"ussel ``playableRoles'' angegeben werden. Die einzelnen Rollen lauten:
+
+\begin{itemize}
+\item Keeper
+\item Defense
+\item Middle
+\item Attack
+\item CornerKick
+\item FreeKick
+\item GoalKick
+\item ThrowIn
+\end{itemize}
+
+Es wurde zu dieser Art der Konfiguration gegriffen, da eine feste Verdrahtung von Rollen im Quelltext vermieden werden sollte. Desweiteren ist damit eine feingranulare Einstellung sowie flexibles "andern von Rollen m"oglich.
+
 \section{Strategie-Entscheider}
-\textbf{-> TODO: Freddy}
+\textit{Verfasser: Weber}\\
+Das Konzept des Strategie-Entscheider wurde bereits in Kapitel \ref{StrategieEntscheiderLabel} besprochen. Der folgende Abschnitt zeigt seine Implementierung.\\
+
 \section{Zusammenfassung und Ausblick}
 \textbf{-> TODO: Freddy}
 \textit{Ergebnisse und Vermächtnis...}
