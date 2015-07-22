@@ -75,7 +75,7 @@ Es gibt eine 2D und eine 3D Version. Für uns war insbesondere die 3D Version in
 Da die Schnittstellen zum Server auf sehr niedriger Ebene definiert sind (Bewegung von Gelenken), ist es für den Zeitraum der Lehrveranstaltung zu aufwändig, einen virtuellen Roboter komplett selbstständig zu entwickeln. Es gibt allerdings einige Frameworks, auf denen die eigene Arbeit aufgebaut werden kann.
 
 \section{Anforderungen}
-\textit{Verfasser: Weber}
+\textit{Verfasser: Weber}\\
 \\
 
 Es gab nur einige wenige Anforderungen, welche folgend dokumentiert werden.
@@ -453,12 +453,12 @@ Das Worldmodel enthält die meisten für das Spiel relevanten Informationen:
 
 \section{KI-Konzept}
 \textit{Verfasser: Wurth}\\
-
+\\
 Für die KI wurde ein Konzept entwickelt, dass sich einfach in die bereits existierende Architektur des verwendeten Frameworks integrieren ließ. Ziel war es, eine möglichst flexible und gleichzeitig einfache Architektur zu entwerfen. Das Ergebnis ist eine Schichten-Architektur, deren Teilkomponenten einfach verändert oder ausgetauscht werden können. Nebeneffekte auf andere Module sind durch die Architektur weitgehend ausgeschlossen. So war es beispielsweise problemlos möglich, verschiedene Herangehensweisen für die Implementierung von Rollen in das Gesamtsystem zu integrieren. Verschiedene Teammitglieder konnten also ihre selbst entwickelten Rollen schnell und einfach in das Gesamtsystem integrieren, ohne andere Komponenten anpassen zu müssen.
 
 \subsection{Anforderungen}
 \textit{Verfasser: Wurth}\\
-
+\\
 Das gewählte Framework und die Notwenigkeit einer Steuerung für eigenständige Roboter, stellt einige Anforderungen an die zu entwickelnde künstliche Intelligenz.\\
 \\
 Jeder Roboter ist als unabhängiges Individuum zu verstehen. Das hat die direkte Folge, dass Entscheidungen nicht von einer übergeordneten Instanz getroffen werden können; Jeder Roboter muss aufgrund der ihm zur Verfügung stehenden Informationen selbstständig Entscheidungen treffen. Das Fehlen einer zentralen Komponente erschwert es erheblich, ein aufeinander abgestimmtes Team-Spiel zu entwickeln. Dennoch gibt es für dieses Problem gute Ansätze. Die Anforderung, die sich zusammenfassend daraus ableiten lässt, ist eine Lösung mittels einer dezentralen Architektur für die KI.\\
@@ -469,17 +469,17 @@ Neben den mehr oder weniger durch die äußeren Umstände vorgegebenen Anforderu
 
 \subsection{Komponenten}
 \textit{Verfasser: Wurth}\\
-
+\\
 Das KI-Grundkonzept besteht aus insgesamt 4 Schichten. Jede Schicht kennt ausschließlich die darunterliegende Schicht. Die unterste Ebene definiert die grundlegende Bewegungen eines Roboters. Direkt darüber befinden sich Rollen. Rollen sind zum Beispiel \glqq Stürmer\grqq{} oder \glqq Torwart\grqq, aber auch Spezialrollen wie \glqq Anstoß\grqq{} oder \glqq Freistoß\grqq. Über den Rollen befindet sich die Strategie-Ebene. Auf höchster Ebene befindet sich der Strategie-Entscheider. Die einzelnen Ebenen werden nachfolgend detaillierter beleuchtet.
 
 \subsubsection{Elementare Bewegungen}
 \textit{Verfasser: Wurth}\\
-
+\\
 Elementare Bewegungen sind die Grundlage für alle höheren Schichten. Sie sind die unmittelbare Voraussetzung die darüber liegenden Rollen, weil sie von diesen direkt benutzt werden. Elementare Bewegungen sind zum Beispiel: \glqq Laufen\grqq, \glqq Aufstehen\grqq, \glqq Schießen\grqq, oder \glqq Dribbeln\grqq. Abgesehen vom \glqq Dribbeln\grqq{} waren alle Bewegungen bereits mehr oder weniger funktionsfähig im Framework vorhanden. Dennoch musste an einigen Stellen optimiert und angepasst werden. Kapitel \ref{se:Elementare Bewegungen} widmet sich diesem Problem.
 
 \subsubsection{Rollen}\label{Rollen Konzept}
 \textit{Verfasser: Wurth}\\
-
+\\
 Ein Verteidiger verfolgt andere Ziele als ein Torwart. Rollen definieren das grundlegende Verhalten, also die grundlegenden Ziele eines Roboters. Alle unsere Rollen sind Statemachines, die allerdings unterschiedlich umgesetzt wurden. Eine wichtige Frage ist, wo und wie die KI für Standard-Situationen, wie zum Beispiel den \glqq Anstoß\grqq, in der Architektur verankert werden soll. Eine naheliegende Lösung ist die Definition von Spezialrollen, die genau diese Standard-Situationen behandeln. Die Alternative wäre eine Erweiterung aller Standard-Rollen um die Algorithmik der Standard-Situationen. Einen wirklicher Mehrwert ergibt sich daraus aber nicht, denn der Algorithmus um einen Anstoß durchzuführen benötigt keine Routinen eines Stürmers. Umgekehrt gilt das Selbe. Die Entscheidung fiel also auf die Definition von Spezialrollen, die genau diese Standard-Situationen umsetzen. Ein Roboter, dessen Rolle normalerweise Stürmer ist, wechselt bei Bedarf einfach seine Rolle in \glqq Anstoß\grqq{} und im Anschluss wieder zurück.
 
 \begin{figure}[H]
@@ -494,13 +494,13 @@ Abbildung \ref{Simple keeper} zeigt Beispielhaft den Entscheidungsbaum eines ein
 \subsubsection{Strategien}
 \label{StrategienLabel}
 \textit{Verfasser: Wurth}\\
-
+\\
 Rollen sollen nicht selbst entscheiden, ob und in welche andere Rolle gewechselt wird. Das widerspräche der Schichtenarchitektur. Deshalb wurde die darüber liegende Strategieschicht eingeführt. Die Aufgabe dieser Schicht ist es, Rollen dynamisch zuzuordnen. Daher ist die Bezeichnung \glqq Strategie\grqq{} auch treffend; Eine Strategie steuert unter Anderem die Gesamtaufstellung des Teams. Damit lässt sich die allgemeine Spielweise des gesamten Teams steuern, mehr Verteidiger bedeutet eine defensive, mehr Angreifer eine aggressive Strategie. Eine Strategie benötigt einen Pool an Rollen, die sie \glqq verteilen\grqq{} darf. Dieser Pool legt indirekt die Spielweise eines Teams fest. Aufgabe jeder Strategie ist es dann, Rollen dynamisch nach Bedarf zu verteilen. Darunter fällt insbesondere auch die Vergabe der Spezialrollen.
 
 \subsubsection{Strategie-Entscheider}
 \label{StrategieEntscheiderLabel}
 \textit{Verfasser: Wurth}\\
-
+\\
 In der Strategieebene können verschiedene Strategien für verschiedene Gesamtaufstellungen des Teams definiert werden. Im Laufe eines Spiels kann es sinnvoll sein, die Aufstellung an die Gegebenheiten und Anforderungen an das Spiel anzupassen. Dafür Wurde auf höchster Ebene ein Entscheidungsmechanismus etabliert. Die Aufgabe dieser Schicht ist es, je nach Bedarf eine passende Strategie auszuwählen. Dafür gibt es verschiedene Ansätze, zum Beispiel könnte eine passende Strategie je nach aktuellem Spielstand ausgesucht werden. Beispiel: 
 \begin{itemize}
 \item Mannschaft liegt vorne: Defensive Strategie
@@ -522,7 +522,7 @@ Abbildung \ref{Einfacher Strategie Entscheider} zeigt den Enscheidungsbaum eines
 
 \subsection{Gesamtübersicht}\label{sse:KI-Gesamtübersicht}
 \textit{Verfasser: Wurth}\\
-
+\\
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{Grafiken/KI/Ki-Concept}
@@ -533,7 +533,7 @@ Abbildung \ref{Einfacher Strategie Entscheider} zeigt den Enscheidungsbaum eines
 Abbildung \ref{Gesamtkonzept KI} zeigt das Gesamtkonzept mit allen 4 Ebenen. Ganz unten befinden sich die elementaren Bewegungen. Rollen werden auf der Schicht darüber definiert. Sie greifen als einzige Schicht auf elementare Bewegungen direkt zu. Über den Rollen befindet sich die Strategie-Ebene. Jede Strategie hält einen Pool an Rollen vor und steuert damit die konkrete Aufstellung auf dem Spielfeld. Auf höchster Ebene befindet sich der Entscheidungsmechanismus, der Situationsabhängig eine passende Strategie aktiviert. 
 \subsection{Alternative Ansätze}
 \textit{Verfasser: Lohr}\\
-
+\\
 Es wurde recherchiert, wie eine KI am besten implementiert wird (Unter anderem in \cite{buckland2005programming}). Hierzu gibt es zwei Ansätze:
 \begin{itemize}
  \item State-Driven Agent Design
@@ -542,6 +542,7 @@ Es wurde recherchiert, wie eine KI am besten implementiert wird (Unter anderem i
 
 \subsubsection{State-Driven Agent Design}
 \textit{Verfasser: Lohr}\\
+\\
 Das State-Driven Agent Design basiert auf Zustandsautomaten, wie sie auch in UML definiert wurden. Ein Zustandsautomat setzt sich zusammen auf verschiedenen Zuständen (States), davon genau ein Startzustand und min. ein Endzustand. Die Übergänge (Transitions) von einem Zustand in einen anderen werden durch Ereignisse (Events) ausgelöst.
 
 \begin{figure}[ht]
@@ -555,7 +556,7 @@ Es gibt mehrere Möglichkeiten einen Zustandsautomaten zu implementieren. Es gib
 
 \subsubsection{Goal-Driven Agent Design}
 \textit{Verfasser: Lohr}\\
-
+\\
 Das Goal-Driven Agent Design wird in \cite[S. 379 ff.]{buckland2005programming} beschrieben. Es besteht aus Zielen, die entweder weitere Unterziele beinhalten können, oder sie sind selber ein atomarer Bestandteil, und haben keine weiteren Unterziele mehr. (vgl. Kompositionsmuster \ref{fig2} aus \cite{gamma1994design}) Ob ein Ziel erreicht wurde, wird dadurch bestimmt, ob gewisse Unterziele erreicht wurden oder nicht. Schlägt ein Ziel fehl kann es neu ausgeführt werden.
 
 \begin{figure}[ht]
@@ -575,16 +576,16 @@ Das Goal-Driven Agent Design wird in \cite[S. 379 ff.]{buckland2005programming} 
 	\label{ki-architecture}
 \end{figure}
 
-Damit das entwickeln unterschiedlicher Komponenten sowie die Kommunikation mit dem Roboter reibungslos stattfinden kann, ist eine einheitliche Architektur sowie Schnittstelle zu dem benutzten Framework notwendig. Als Schnittstelle wurden die von Magma-Offenburg bereitgestellten \lstinline$Interface$s benutzt. Die erstellte Architektur ist der Abbildung \ref{ki-architecture} zu entnehmen, sie besteht aus 2 Hauptkomponenten, welche folgend erkl"art werden.
+Damit das entwickeln unterschiedlicher Komponenten sowie die Kommunikation mit dem Roboter reibungslos stattfinden kann, ist eine einheitliche Architektur sowie Schnittstelle zu dem benutzten Framework notwendig. Als Schnittstelle wurden die von Magma-Offenburg bereitgestellten \lstinline$Interface$s benutzt. Die erstellte Architektur ist der Abbildung \ref{ki-architecture} zu entnehmen, sie besteht aus zwei Hauptkomponenten, welche folgend erkl"art werden.
 
 \paragraph{Player}
-Diese Klasse implementiert die Magma Offenburg Schnittstelle und ist fuer die Ausf"uhrung des aktuellen \lstinline$BotStates$ zust"andig.
+Diese Klasse implementiert die Magma Offenburg Schnittstelle und ist f"ur die Ausf"uhrung des aktuellen \lstinline$BotStates$ zust"andig.
 
 \paragraph{BotState}
-In diesem Interface wird die eigentliche Logik implementiert. Mit ihr wurde das State Design Pattern umgesetzt.
+In diesem Interface wird die eigentliche Logik implementiert. Mit ihr wurde das State Design-Pattern umgesetzt.
 
 \paragraph{Zusammenspiel der beiden Komponenten}
-Die Rahmenklasse \lstinline$Player$, kennt wie bereits gesagt nur die aktuelle \lstinline$BotState$-Klasse. Der Aufruf zum aktualisieren der Logik wird "uber die \lstinline$update$ Methode an den \lstinline$BotState$ weitergereicht. Sollte dieser entscheiden dass ein "Ubergang zu einem anderen \lstinline$BotState$ notwendig wird, wird die Referenz auf diesen als R"uckgabeparameter geliefert. Damit ist die Rahmenklasse unabh"angig von der eigentlichen KI, sie ben"otigt lediglich die Referenz auf den Start \lstinline$BotState$. Diese sind f"ur ihre korrekte Ausf"uhrung selbst verantwortlich. Als Konsequenz bilden sich f"ur jede Rolle, kleinere Cluster von \lstinline$BotState$s die untereinander abh"angig sind. Durch dieses Vorgehen ist ebenfalls die Implementierung des Decorator Pattern m"oglich, was wiederum f"ur die Strategien, sowie den Stragie-Entscheider ben"otigt wird.
+Die Rahmenklasse \lstinline$Player$, kennt wie bereits gesagt nur die aktuelle \lstinline$BotState$-Klasse. Der Aufruf zum aktualisieren der Logik wird "uber die \lstinline$update$ Methode an den \lstinline$BotState$ weitergereicht. Sollte dieser entscheiden dass ein "Ubergang zu einem anderen \lstinline$BotState$ notwendig ist, wird die Referenz auf diesen als R"uckgabeparameter geliefert. Damit ist die Rahmenklasse unabh"angig von der eigentlichen KI, sie ben"otigt lediglich die Referenz auf den Start \lstinline$BotState$. Die Rollen die als \lstinline$BotState$s definiert werden, sind f"ur ihre korrekte Ausf"uhrung selbst verantwortlich. Als Konsequenz bilden sich f"ur jede Rolle, kleinere Cluster von \lstinline$BotState$s die untereinander abh"angig sind. Durch dieses Vorgehen ist ebenfalls die Implementierung des Decorator Design-Pattern m"oglich, was wiederum f"ur die Strategien, sowie den Strategie-Entscheider ben"otigt wird.
 
 \section{Elementare Bewegungen}\label{se:Elementare Bewegungen}
 \textit{Verfasser: Stumpf}\\
@@ -762,7 +763,7 @@ Das Ergebnis der Optimierung kann man in folgender Tabelle sehen.
 
 \section{Rollen}
 \textit{Verfasser: Wurth}\\
-
+\\
 Rollen legen fest, welches übergeordnete Ziel ein Roboter zu einem bestimmten Zeitpunkt verfolgt, aber vor Allem, wie dieses Ziel erreicht werden soll. Ziele wie Aufstehen nach einem Sturz, oder die eigene Position vor dem Ball korrigieren, sind untergeordnete Ziele, die vor allem in den elementaren Bewegungen verfolgt werden. Ein Stürmer, dessen finales Ziel es ist, ein Tor zu schießen, muss natürlich einige Schritte Vorarbeit zum Erreichen dieses Ziels leisten. Zum Beispiel muss er zuerst den Ball erobern. Die Algorithmik, die zum Erreichen eines solchen Ziels erforderlich ist, findet ihren Platz in den Rollen. Wie in Kapitel \ref{Rollen Konzept} bereits erwähnt, werden Rollen in zwei Kategorien unterteilt, nämlich Standard-Rollen und Spezial-Rollen.
 \\
 
@@ -774,12 +775,12 @@ Spezialrollen wiederum kümmern sich um spezielle Situationen wie zum Beispiel d
 
 \subsection{Standardrollen: Torwart und Stürmer}
 \textit{Verfasser: Wurth}\\
-
+\\
 Die Rolle Torwart und die Rolle Stürmer wurden von einer Person entwickelt. Sie teilen sich deshalb ein gemeinsames Grundkonzept.
 
 \subsubsection{Konzept}
 \textit{Verfasser: Wurth}\\
-
+\\
 Wie alle anderen Rollen auch, sind die Rollen für Torwart und Stürmer State-Machines. Jede State-Machine beinhaltet mehrere States. Jeder State hat eine ganz bestimmte Aufgabe, zum Beispiel: Zu einer bestimmten Position laufen. Im Kern befindet sich innerhalb eines States nur die Parametrisierung einer konkreten elementaren Bewegung. Diese Bewegung kann dann mittels Poll von außen abgefragt werden.
 \\
 
@@ -857,7 +858,7 @@ Listing \ref{Beispiel eines konkreten States: GoToBallState} zeigt beispielhaft 
 
 \subsubsection{Standardrolle: Torwart}
 \textit{Verfasser: Wurth}\\
-
+\\
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\ScaleIfNeeded]{Grafiken/KI/Keeper}
@@ -926,7 +927,7 @@ Listing \ref{ESM Torwart} zeigt die Bedingungen für eine erneute Bewegnung. Nur
 
 \subsubsection{Standardrolle: Stürmer}
 \textit{Verfasser: Wurth}\\
-
+\\
 \textbf{Der Entscheidungsbaum}
 \\
 
@@ -1020,14 +1021,17 @@ Abbildung \ref{Deadzone neben dem gegnerischen Tor 1} zeigt ein weiteres Problem
 Es kann (und soll) aber dennoch vorkommen, dass sich ein Stürmer im Ballbesitz innerhalb einer Deadzone befindet. Nämlich dann, wenn er dort den Ball erobert. Bei den beiden Zonen in der Nähe der Aus-Linie korrigiert sich das Problem von alleine, die neue Laufposition befindet sich garantiert außerhalb. Bei den Zonen neben dem gegnerischen Tor, muss allerdings nachgeholfen werden. Die neue Laufposition befindet sich direkt vor dem Tor etwa in Höhe des Elfmeterpunktes (siehe Abbildung \ref{Deadzone neben dem gegnerischen Tor 3}). Das bedeutet natürlich nicht, dass er dieses neue Ziel tatsächlich erreicht. Sobald er die Deadzone verlässt ist sein Ziel erneut das gegnerische Tor.
 
 \subsection{Standardrolle: Verteidiger}
+\textit{Verfasser: Weber}\\
+\\
 \include{CapterDefender}
 
 \subsection{Standardrolle: Mittelfeld}
-\textit{Verfasser: Lohr}
+\textit{Verfasser: Lohr}\\
+\\
 \subsubsection{Tungsten FSM}
 \label{tungsten_fsm}
 \textit{Verfasser: Lohr}\\
-
+\\
 Es wurde das Tungsten FSM von Continuent für eine Beispielimplementierung herangezogen. Die Tungsten FSM besteht unter anderem aus
 \begin{itemize}
  \item States
@@ -1096,6 +1100,7 @@ Es gibt bereits einige vordefinierten Guards, wie z.B. EventTypeGuard, der nur p
 
 \subsubsection{Mittelfeldspieler}
 \textit{Verfasser: Lohr}\\
+\\
 Mit der Tungsten FSM wurde neben einem minimalen Bot auch ein Bot programmiert, der die Rolle ``Mittelfeldspieler'' einnehmen soll. Es wurden unter anderem folgende Use-Cases aufgestellt:
 
 \begin{itemize}
@@ -1221,12 +1226,12 @@ Die Entscheidung wird getroffen anhand von gemeinsamer Logik, zum Beispiel \text
 
 \section{Strategien}
 \textit{Verfasser: Weber}\\
-
+\\
 Das Konzept einer Strategie wurde bereits im Kapitel \ref{StrategienLabel} besprochen. Der folgende Abschnitt widmet sich der Implementierung sowie Konfiguration.
 
 \subsection{Implementierung}
 \textit{Verfasser: Weber}\\
-
+\\
 Im Konzept werden unterschiedliche Strategien erw"ahnt. Aus Zeitgr"unden konnte jedoch nur eine echte Strategie entwickelt werden. Es ist zwar eine aggressive sowie defensive Strategie vorhanden, diese unterscheiden sich jedoch nicht in ihrer Logik. Deswegen wird im folgenden Text nur von der Strategie gesprochen. Die Strategie unterscheidet nach Haupt- und Spezial-Rollen, die nach Bedarf gew"ahlt werden.
 
 \begin{itemize}
@@ -1322,7 +1327,7 @@ private BotState resolveSecondary(Roles role) {
 
 \subsection{Konfigurierung}
 \textit{Verfasser: Weber}\\
-
+\\
 Zur Konfiguration wurden Java Virtual Machine (JVM) Properties verwendet. Diese werden beim Start der JVM als Konsolenparameter mit dem Prefix '-D' angegeben und k"onnen anschlie"send innerhalb der JVM mit \lstinline$System.getProperty("key", "fallback");$ abgerufen werden. Die gew"unschten Rollen f"ur den aktuellen Spieler m"ussen mit dem Schl"ussel ``playableRoles'' angegeben werden. Die einzelnen Rollen lauten:
 
 \begin{itemize}
@@ -1340,7 +1345,7 @@ Es wurde zu dieser Art der Konfiguration gegriffen, um eine feste Verdrahtung vo
 
 \section{Strategie-Entscheider}
 \textit{Verfasser: Weber}\\
-
+\\
 Das Konzept des Strategie-Entscheider wurde bereits in Kapitel \ref{StrategieEntscheiderLabel} besprochen. Der folgende Abschnitt zeigt seine Implementierung.\\
 
 Der aktuelle Entscheider arbeitet mit insgesamt 3 unterschiedlichen Strategien, wobei es sich um eine einfache Proof of Concept-Strategie handelt, sowie die aus den Vorg"anger bekannten defensiver und aggressiver Strategie. Die simple Strategie kann nur "uber einen JVM Parameter aktiviert werden, sollte dieser nicht gesetzt sein, wird die Logik f"ur die aggressive, bzw. defensive Strategie ausgef"uhrt. Wie im folgenden Code Ausschnitt gezeigt, findet eine Transistion von defensive zu aggressive Strategie statt, sobald sich das eigene Team in einem 2 Punkte R"uckstand befindet.
@@ -1375,12 +1380,12 @@ currentStrategy.update();
 
 \section{Zusammenfassung und Ausblick}
 \textit{Verfasser: Weber}\\
-
-Zusammenfassend kann man sagen, dass ein zufriedenstellendes Ergebnis erzielt werden konnte, obwohl die Aufgabenstellung einen komplizierten Sachverhalt darstellt und das Team zum Start gro"se Probleme hatte. Die grundlegenden Aktionen, die ein Roboter ausf"uhren kann, funktionieren mit den selbst entwickelten Verbesserungen fast ohne Zwischenf"alle, was sich auch positiv auf die Kicking/Time Challenge ausgewirkt hat. Es existiert eine breite Vielfalt von unterschiedlichen Rollen, die sich Dank der Flexibilit"at der zugrundeliegenden Architektur einfach realisieren ließen.\\
+\\
+Zusammenfassend kann man sagen, dass ein zufriedenstellendes Ergebnis erzielt werden konnte, obwohl die Aufgabenstellung einen komplizierten Sachverhalt darstellt und das Team zum Start gro"se Probleme hatte. Die grundlegenden Aktionen, die ein Roboter ausf"uhren kann, funktionieren mit den selbst entwickelten Verbesserungen fast ohne Zwischenf"alle, was sich auch positiv auf die Kicking/Time Challenge ausgewirkt hat. Es existiert eine breite Vielfalt von unterschiedlichen Rollen, die sich Dank der Flexibilit"at der zugrundeliegenden Architektur einfach realisieren ließen. Die entwickelten M"oglichkeiten zum Debugging und Testen der Roboter hatten ebenfalls einen gro"sen Einfluss auf den Erfolg des Projekts.\\
 \\
 Die Wahl des Frameworks Magma-Offenburg und damit für die Programmiersprache Java, hat sich als Vorteilhaft erwiesen. Bef"urchtungen, dass die JVM nicht performant genug sei, konnten nicht beim Abschluss Turnier und dem Testspielen beseitigt werden.\\
 \\
-F"ur zuk"unftige Semester l"asst sich zusammenfassend sagen, dass es sich hierbei um eine durchaus erf"ullbare Aufgabe handelt.
+F"ur zuk"unftige Semester l"asst sich zusammenfassend sagen, dass es sich hierbei um eine durchaus erf"ullbare Aufgabe handelt. Die unteranderem ma"sgeblich davon beeinflusst wird, welches Framework zu Beginn gew"ahlt wird.
 \section{Verzeichnisse}
 \listoffigures
 
