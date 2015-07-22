@@ -59,10 +59,18 @@ Es gibt eine 2D und eine 3D Version. Für uns war insbesondere die 3D Version in
 Da die Schnittstellen zum Server auf sehr niedriger Ebene definiert sind - Bewegung von Gelenken - ist es für den Zeitraum der Lehrveranstaltung zu aufwändig, einen virtuellen Roboter komplett selbstständig zu entwickeln. Es gibt allerdings einige Frameworks, auf denen die eigene Arbeit aufgebaut werden kann.
 
 \section{Anforderungen}
-\textbf{-> TODO: Freddy???}
+\textit{Verfasser: Weber}
+Es gab nur einige wenige Anforderungen. Welche folgend dokumentiert werden.
+
+\begin{itemize}
+\item Bis zum Ende des Semsters soll eine funktionierende RoboCup Mannschaft im Team entwickelt werden sollte
+\item Die Entwickelte Mannschaft soll in der 3D Umgebung des RoboCups agieren
+\item Am Ende des Semester soll ein Spiel zwischen den beiden Studenten-Teams durchgef"uhrt werden
+\end{itemize}
+
 \textit{Was waren die allgemeinen Anforderungen?}
 \section{Zeitplan}
-\textit{Verfasser: Stumpf, Schramm, Wurth}\\
+\textit{Verfasser: Stumpf, Schramm, Wurth, Weber}\\
 \\
 Die folgende Timeline soll ein Überblick über den Verlauf der Lehrveranstaltung geben und insbesondere die Frage \textit{\glqq Wann wurde was gemacht?\grqq} beantworten.
 
@@ -1288,12 +1296,46 @@ Es wurde zu dieser Art der Konfiguration gegriffen, da eine feste Verdrahtung vo
 
 \section{Strategie-Entscheider}
 \textit{Verfasser: Weber}\\
-Das Konzept des Strategie-Entscheider wurde bereits in Kapitel \ref{StrategieEntscheiderLabel} besprochen. Der folgende Abschnitt zeigt seine Implementierung.\\
+Das Konzept des Strategie-Entscheider wurde bereits in Kapitel \ref{StrategieEntscheiderLabel} besprochen. Der folgende Abschnitt zeigt ei.\\
+Der aktuelle Entscheider, arbeitet mit insgesamt 3 unterschiedlichen Strategien. Wobei es sich um eine einfache Proof of Concept-Strategie handelt, sowie die aus den Vorg"anger bekannten defensiver und aggressiver Strategien. Die simple Strategie kann nur "uber einen JVM Parameter aktiviert werden, sollte dieser nicht gesetzt sein, wird die Logik f"ur aggressive, bzw. defensive Strategie ausgef"uhrt. Wie in dem folgenden Code Ausschnitt gezeigt, findet eine Transistion von Defensive zu Aggressive Strategie statt, sobald sich das eigene Team in einem 2 Punkte R"uckstand befindet.
+
+\begin{lstlisting}[caption=Interne Logik des Strategie-Entscheiders, captionpos=b]
+if (USE_SIMPLE) {
+    currentStrategy = simple;
+    currentStrategy.init(getPlayer());
+} else {
+    int ownGoalCount = getPlayer().getModel().getWorldModel().getGoalsWeScored();
+    int otherGoalCount = getPlayer().getModel().getWorldModel().getGoalsTheyScored();
+    PossibleStates newState;
+
+    if (ownGoalCount + 2 <= otherGoalCount) {
+        currentStrategy = aggressive;
+        newState = PossibleStates.Agressive;
+    } else {
+        currentStrategy = defensive;
+        newState = PossibleStates.Passive;
+    }
+
+    //Call Init, only when State has changed.
+    if (newState != oldState) {
+        currentStrategy.init(getPlayer());
+    }
+
+    oldState = newState;
+}
+
+currentStrategy.update();
+\end{lstlisting}
 
 \section{Zusammenfassung und Ausblick}
-\textbf{-> TODO: Freddy}
-\textit{Ergebnisse und Vermächtnis...}
-
+\textit{Weber}
+java cool, schwere aufgabe, viele probleme zum start. doch akzeptable ergebnisse erzielt. korrekte Wahl getroffen Ausblick durch den featuredruck ist dokumentation und sauberkeit etwas runtergefallen. Das ganze ist aber WIP fuer zukuenftige studenten durchaus machbar.\\
+\\
+Zusammenfassend kann man sagen, dass obwohl die Aufgabenstellung einen komplizierten Sachverhalt darstellt und das Team zum Start gro"se Probleme hatte, wurde trotzdem ein zufriedenstellendes Ergebnis entwickelt. Die grundlegenden Aktionen, die ein Roboter ausf"uhren kann, funktionieren mit den selbstentwickelten Verbesserungen fast ohne Zwischenf"alle, was sich auch positiv auf die Kicking/Time Challenge ausgewirkt hat. Es existiert eine breite Vielfalt von unterschiedlichen Rollen, welche alle unterschiedliche Logiken implementieren, was ein Zeugnis der Flexibilit"at der zugrundeliegenden Architektur ist.\\
+\\
+Ebenfalls die Wahl f"ur Magma-Offenburg, sowie Java hat sich als Vorteilhaft erwiesen. Die Bef"urchtungen dass die JVM nicht performant genug ist, konnten ebenfalls w"ahrend dem Turnier und dem Testspielen wiederlegt werden.\\
+\\
+F"ur zuk"unftige Semester l"asst sich zusammenfassend sagen, dass es sich hierbei um eine durchaus erf"ullbare Aufgabe handelt.\\
 \section{Verzeichnisse}
 \listoffigures
 
