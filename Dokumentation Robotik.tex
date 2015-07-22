@@ -62,29 +62,30 @@
 \section{Einleitung}\label{se:Einleitung}
 \textit{Verfasser: Stumpf}\\
 \\
-Die Lehrveranstaltung Robotik im SS-2015 hatte die Programmierung des NAO -- eines humanoiden Roboters von Aldebaran -- als übergreifendes Thema. Diesem sollten für Fussball notwendige Bewegungsabläufe und Taktiken beigebracht werden. Aufgrund des großen Andrangs könnten sich nicht alle Teilnehmer mit dem einzigen zur Verfügung stehenden NAO Modell beschäftigen. Die Gruppe wurde also in ein Hardware und 2 Simulationsteams aufgeteilt.\\
+Die Lehrveranstaltung Robotik im SS-2015 hatte die Programmierung des NAO -- eines humanoiden Roboters von Aldebaran -- als übergreifendes Thema. Diesem sollten für Fussball notwendige Bewegungsabläufe und Taktiken beigebracht werden. Aufgrund des großen Andrangs konnten sich nicht alle Teilnehmer mit dem einzigen zur Verfügung stehenden NAO Modell beschäftigen. Die Gruppe wurde also in ein Hardware und 2 Simulationsteams aufgeteilt.\\
 \\
 Die vorgegebene Simulationumgebung war die auf Simspark basierende RoboCup 3D-Soccer Simulation League.\\
 Das Ziel unserer beiden Simulationsteams war es, je eine eigene Mannschaft aufs Feld zu bringen und diese am Ende gegeneinander antreten zu lassen.\\
 \\
-RoboCup ist eine Fussball-Liga humanoider Roboter. Die Teams mehrerer Länder treten gegeneinander an um ein bestes Team zu ermitteln. In der RoboCup Soccer Simulation League werden die Spiele simuliert. Die Roboter werden durch virtuelle Instanzen ersetzt, die über definierte Schnittstellen auf den Server verbunden und gesteuert werden können.\\
+RoboCup ist eine Fussball-Liga humanoider Roboter. Die Teams mehrerer Länder treten gegeneinander an, um ein bestes Team zu ermitteln. In der RoboCup Soccer Simulation League werden die Spiele simuliert. Die Roboter werden durch virtuelle Instanzen ersetzt, die über definierte Schnittstellen auf den Server verbunden und gesteuert werden können.\\
 \\
-Es gibt eine 2D und eine 3D Version. Für uns war insbesondere die 3D Version interessant, weil NAO hier das aktuelle Robotermodell ist. Anforderungen und Regeln der 3D Version sind vergleichbar mit dem echten RoboCup. Das Regelwerk möchte ich hier nicht noch einmal näher erläutern, es ist auf \\
+Es gibt eine 2D und eine 3D Version. Für uns war insbesondere die 3D Version interessant, weil NAO hier das aktuelle Robotermodell ist. Anforderungen und Regeln der 3D Version sind vergleichbar mit dem echten RoboCup. Das Regelwerk möchte soll hier nicht noch einmal näher erläutern werden, es ist auf \\
 \href{www.robocupgermanopen.de/sites/default/files/rules_GO_2015_3DSim.pdf}{www.robocupgermanopen.de/sites/default/files/rules\_GO\_2015\_3DSim.pdf} sehr gut beschrieben.\\
 \\
-Da die Schnittstellen zum Server auf sehr niedriger Ebene definiert sind - Bewegung von Gelenken - ist es für den Zeitraum der Lehrveranstaltung zu aufwändig, einen virtuellen Roboter komplett selbstständig zu entwickeln. Es gibt allerdings einige Frameworks, auf denen die eigene Arbeit aufgebaut werden kann.
+Da die Schnittstellen zum Server auf sehr niedriger Ebene definiert sind (Bewegung von Gelenken), ist es für den Zeitraum der Lehrveranstaltung zu aufwändig, einen virtuellen Roboter komplett selbstständig zu entwickeln. Es gibt allerdings einige Frameworks, auf denen die eigene Arbeit aufgebaut werden kann.
 
 \section{Anforderungen}
 \textit{Verfasser: Weber}
-Es gab nur einige wenige Anforderungen. Welche folgend dokumentiert werden.
+\\
+
+Es gab nur einige wenige Anforderungen, welche folgend dokumentiert werden.
 
 \begin{itemize}
-\item Bis zum Ende des Semsters soll eine funktionierende RoboCup Mannschaft im Team entwickelt werden sollte
-\item Die Entwickelte Mannschaft soll in der 3D Umgebung des RoboCups agieren
-\item Am Ende des Semester soll ein Spiel zwischen den beiden Studenten-Teams durchgef"uhrt werden
+\item Bis zum Ende des Semsters soll eine funktionierende RoboCup Mannschaft im Team entwickelt werden
+\item Die entwickelte Mannschaft soll in der 3D Umgebung des RoboCups agieren
+\item Am Ende des Semester soll ein Spiel zwischen den beiden Studenten-Teams durchgeführt werden
 \end{itemize}
 
-\textit{Was waren die allgemeinen Anforderungen?}
 \section{Zeitplan}
 \textit{Verfasser: Stumpf, Schramm, Wurth, Weber}\\
 \\
@@ -100,13 +101,13 @@ Die folgende Timeline soll ein Überblick über den Verlauf der Lehrveranstaltun
 \section{RoboCup Soccer Simulation League}
 \textit{Verfasser: Stumpf}\\
 \\
-Simspark ist die Engine, auf der der die RoboCup Soccer Simulation League aufgebaut ist. Es wird beschrieben als generisches Simulationssystem für mehrere Agents und ist bei Sourceforge als OpenSource Projekt registriert.\\
+Simspark ist die Engine, auf der der die RoboCup Soccer Simulation League aufgebaut ist. Es wird als generisches Simulationssystem für mehrere Agents beschrieben und ist bei Sourceforge als OpenSource Projekt registriert.\\
 \\
 In der RoboCup Simulation können sich die Agents -- NAO-Agents in 3D -- mit dem Server verbinden und über ein Textprotokoll mit diesem kommunizieren. In jedem Zyklus werden vom NAO-Agent Daten über die gewünschten Bewegungen der Effektoren (Gelenke) an den Server gesendet, der den virtuellen NAO entsprechend reagieren lässt. Als Antwort erhält der Agent Informationen über die Position seiner Effektoren und Daten seiner Sensoren (z.B. visuelle Sensoren, Lagesensoren).\\
 \\
 Die erste Herausforderung war es, die Simulationsumgebung lokal auf jedem der Rechner zu installieren, um Entwicklung und Tests zu ermöglichen. Unsere Erfahrungen werden in diesem Abschnitt kurz zusammengefasst. Für das Endspiel wurde uns ein Rechner für die Installation des Servers zur Verfügung gestellt. Diese Aufgabe hat das andere Simulations-Team übernommen.\\
 \\
-Installationsanleitungen für verschiedene Systeme findet man im Wiki von Simspark auf \href{http://simspark.sourceforge.net/wiki/index.php/Main_Page}{http://simspark.sourceforge.net/wiki/index.php/Main\_Page}\\
+Installationsanleitungen für verschiedene Systeme findet man im Wiki von Simspark auf \href{http://simspark.sourceforge.net/wiki/index.php/Main_Page}{http://simspark.sourceforge.net/wiki/index.php/Main\_Page}.\\
 \\
 Die benötigten Komponenten sind der Simulationsserver - rcssserver3d sowie der Monitor - rcssmonitor3d, der das Spielgeschehen grafisch darstellt. Die von uns verwendete Server Version ist v6.8.1.
 
@@ -151,7 +152,7 @@ Folgende Punkte haben wir in einer Diskussionsrunde als Grundlage für die Entsc
 	\item Aufstehen
 	\item Schie{\ss}en
 	\end{itemize}
-\item Gute Dokumentation, vorzugsweise in Englisch.
+\item Gute Dokumentation, vorzugsweise in englisch.
 \item Programmiersprache sollte allen Gruppenmitgliedern bekannt sein. 
 \item Das Framework sollte aktuell sein und noch gepflegt werden.
 \item Ein Worldmodel, welches Informationen über Spielzustand, Spieler auf dem Feld u.a. enthält, ist erwünscht.
@@ -168,6 +169,8 @@ Im Vergleich zu den anderen Kandidaten ausschlaggebend war unter anderem:
 \end{itemize}
 
 Hier noch einmal ein Überblick über Vorteile und Nachteile von Magma Offenburg:
+\\
+
 \begin{tabularx}{\textwidth}{|X|X|}
 \hline
  \textbf{Vorteile}&\textbf{Nachteile}\\
@@ -177,11 +180,11 @@ Hier noch einmal ein Überblick über Vorteile und Nachteile von Magma Offenburg
 \hline 
  Java&Gewachsene Struktur, unübersichtlich, viele nicht verwendete Klassen und Methoden\\
 \hline
- Abstraktionsebenen&viele Abhängigkeiten, Änderung an A -> Änderung an B notwendig\\
+ Abstraktionsebenen&Viele Abhängigkeiten, Änderung an A -> Änderung an B notwendig\\
 \hline
- Worldmodel vorhanden&zum Teil fehlerhafter oder nicht implementierter Code\\
+ Worldmodel vorhanden&Zum Teil fehlerhafter oder nicht implementierter Code\\
 \hline
- Agents implementiert&viele undokumentierte Erfahrungswerte,  Optimierung erfordert zum Teil stupides Herumprobieren\\
+ Agents implementiert&Viele undokumentierte Erfahrungswerte,  Optimierung erfordert zum Teil stupides Herumprobieren\\
 \hline
  Grundbewegungsabläufe implementiert&\\
 \hline
@@ -220,7 +223,7 @@ Hinter dem DecisionMaker verbirgt sich die komplette Logik des Agents. Der Decis
 
 Der Agent Runtime Loop beschreibt, was für jeden Zyklus im Agent passiert.\\
 \\
-Beim Eintreffen eines Pakets vom Server wird dessen information geparsed und die erhaltenen Werte vom ChannelManager in die Liste der Perceptors (Daten über Gelenkwinkel und Sensoren) geschrieben.
+Beim Eintreffen eines Pakets vom Server wird dessen Information geparsed und die erhaltenen Werte vom ChannelManager in die Liste der Perceptors (Daten über Gelenkwinkel und Sensoren) geschrieben.
 Diese werden dann in jedem Zyklus in das Thoughtmodel übernommen.\\
 \\
 Im Anschluss fragt der Agent seinen DecisionMaker, welche Aktion er denn ausführen soll. Dieser überprüft anhand einer Reihe von Believes, welche Behavior denn ausgehend vom aktuellen Zustand des Thoughtmodels am sinnvollsten wäre und gibt diese zurück.\\
@@ -244,8 +247,7 @@ Da der ChannelManager auf dem Observer Pattern basiert, möchte ich dieses noch 
 \\
 Welcher Agent mit welchen Eigenschaften gestartet werden soll ist über Kommandozeilenparameter konfigurierbar. Auf diese möchte ich im folgenden kurz eingehen:\\
 \\
-\texttt{--teamname="Robo1" --playerid=2 --server=192.168.56.101 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=31 --homePosition=-15.0:0.0}\\
-\\
+\texttt{--teamname="Robo1" --playerid=2 --server=192.168.56.101 --port=3100 --loglevel=severe --serverversion=68 --factory=NaoRF --decisionmaker=31 --homePosition=-15.0:0.0}
 \begin{itemize}
 \item \textbf{--teamname:} Der Name des Teams. Der rcssserver3d weist Agents vom gleichen Team der gleichen Seite zu.
 \item \textbf{--playerid:} Die Spielernummer. Sollte unique sein.
@@ -553,6 +555,7 @@ Es gibt mehrere Möglichkeiten einen Zustandsautomaten zu implementieren. Es gib
 
 \subsubsection{Goal-Driven Agent Design}
 \textit{Verfasser: Lohr}\\
+
 Das Goal-Driven Agent Design wird in \cite[S. 379 ff.]{buckland2005programming} beschrieben. Es besteht aus Zielen, die entweder weitere Unterziele beinhalten können, oder sie sind selber ein atomarer Bestandteil, und haben keine weiteren Unterziele mehr. (vgl. Kompositionsmuster \ref{fig2} aus \cite{gamma1994design}) Ob ein Ziel erreicht wurde, wird dadurch bestimmt, ob gewisse Unterziele erreicht wurden oder nicht. Schlägt ein Ziel fehl kann es neu ausgeführt werden.
 
 \begin{figure}[ht]
@@ -999,11 +1002,11 @@ Es kann (und soll) aber dennoch vorkommen, dass sich ein Stürmer im Ballbesitz 
 \include{CapterDefender}
 
 \subsection{Standardrolle: Mittelfeld}
-\textit{Verfasser: Lohr}\\
-
+\textit{Verfasser: Lohr}
 \subsubsection{Tungsten FSM}
 \label{tungsten_fsm}
 \textit{Verfasser: Lohr}\\
+
 Es wurde das Tungsten FSM von Continuent für eine Beispielimplementierung herangezogen. Die Tungsten FSM besteht unter anderem aus
 \begin{itemize}
  \item States
@@ -1197,11 +1200,13 @@ Die Entscheidung wird getroffen anhand von gemeinsamer Logik, zum Beispiel \text
 
 \section{Strategien}
 \textit{Verfasser: Weber}\\
-Das Konzept einer Strategie wurde bereits in Kapitel \ref{StrategienLabel} besprochen. Der folgende Abschnitt zeigt ihre Implementierung sowie Konfigurierung.\\
-\\
+
+Das Konzept einer Strategie wurde bereits im Kapitel \ref{StrategienLabel} besprochen. Der folgende Abschnitt widmet sich der Implementierung sowie Konfiguration.
+
 \subsection{Implementierung}
 \textit{Verfasser: Weber}\\
-In dem Konzept werden unterschiedliche Strategien erw"ahnt. Aus Zeitgr"unden konnte jedoch nur eine echte Strategie entwickelt werden, es ist zwar eine Aggressive sowie Defensive-Strategie vorhanden diese unterscheiden sich jedoch nicht in ihrer Logik. Deswegen wird im folgenden Text nur von der Strategie gesprochen. Die Strategie unterscheidet in Hauptrollen und Sekund"arrollen, die jenach Spiel-Status gew"ahlt werden.
+
+Im Konzept werden unterschiedliche Strategien erw"ahnt. Aus Zeitgr"unden konnte jedoch nur eine echte Strategie entwickelt werden. Es ist zwar eine aggressive sowie defensive Strategie vorhanden, diese unterscheiden sich jedoch nicht in ihrer Logik. Deswegen wird im folgenden Text nur von der Strategie gesprochen. Die Strategie unterscheidet nach Haupt- und Spezial-Rollen, die nach Bedarf gew"ahlt werden.
 
 \begin{itemize}
 
@@ -1213,7 +1218,7 @@ In dem Konzept werden unterschiedliche Strategien erw"ahnt. Aus Zeitgr"unden kon
 \item St"urmer
 \end{itemize}
 
-\item Sekund"arrollen
+\item Spezialrollen
 \begin{itemize}
 \item Beam
 \item Ecke
@@ -1225,7 +1230,7 @@ In dem Konzept werden unterschiedliche Strategien erw"ahnt. Aus Zeitgr"unden kon
 \end{itemize}
 \end{itemize}
 
-Ein Roboter darf in dieser Strategie blo"s eine Hauptrolle annehmen, jedoch beliebig viele Sekund"arrollen besitzen. Dabei folgt die Strategie bei der Auswahl der Rolle dem folgendem Quelltext.\\
+Ein Roboter darf in dieser Strategie blo"s eine Hauptrolle annehmen, jedoch beliebig viele Spezialrollen besitzen.\\
 
 \begin{lstlisting}[caption=Entscheidung zu einer Rolle, captionpos=b, label=EntscheidungRolleStrategie]
 if(gameState != lastState) {
@@ -1265,7 +1270,7 @@ if(gameState != lastState) {
 }
 \end{lstlisting}
 
-Aus dem abgebildeten Quelltext lassen sich folgende Funktionalit"aten ableiten. Der "Ubergang zu einer neuen Rolle findet nur statt wenn ein Wechsel des GameState stattgefunden hat. Es kann ebenfalls zu dem Fall kommen, dass die aktuelle Rolle nicht gesetzt wurde, daf"ur wurde der Null-Check nach dem Switch implementiert. Denn sollte der Einsatz von einer Sekund"arrolle notwendig werden, wird nur der n"aheste Roboter aktiv. Dies wird auch durch ein Blick in die \lstinline$resolveSecondary$ Methode best"atigt.\\
+Aus dem abgebildeten Quelltext lassen sich folgende Funktionalit"aten ableiten. Der "Ubergang zu einer neuen Rolle findet nur statt, wenn ein Wechsel des GameState stattgefunden hat. Es kann ebenfalls zu dem Fall kommen, dass die aktuelle Rolle nicht gesetzt wurde, daf"ur wurde der Null-Check nach der Switch implementiert. Sollte der Einsatz von einer Spezialrolle notwendig werden, wird nur der n"aheste Roboter aktiv. Dies wird auch durch ein Blick in die \lstinline$resolveSecondary$ Methode best"atigt.\\
 \\
 \begin{lstlisting}[caption=resolveSecondary Methode der Strategie, captionpos=b, label=EntscheidungRolleStrategie]
 private BotState resolveSecondary(Roles role) {
@@ -1296,7 +1301,8 @@ private BotState resolveSecondary(Roles role) {
 
 \subsection{Konfigurierung}
 \textit{Verfasser: Weber}\\
-Zur Konfiguration wurde zu den Java Virtual Machine (JVM) Properties zur"uck gegriffen. Diese werden beim Start der JVM als Konsolenparameter mit dem Prefix '-D' angegeben und k"onnen anschlie"send innerhalb der JVM mit \lstinline$System.getProperty("key", "fallback");$ abgerufen werden. Die gew"unschten Rollen f"ur den aktuellen Spieler, m"ussen mit dem Schl"ussel ``playableRoles'' angegeben werden. Die einzelnen Rollen lauten:
+
+Zur Konfiguration wurden Java Virtual Machine (JVM) Properties verwendet. Diese werden beim Start der JVM als Konsolenparameter mit dem Prefix '-D' angegeben und k"onnen anschlie"send innerhalb der JVM mit \lstinline$System.getProperty("key", "fallback");$ abgerufen werden. Die gew"unschten Rollen f"ur den aktuellen Spieler m"ussen mit dem Schl"ussel ``playableRoles'' angegeben werden. Die einzelnen Rollen lauten:
 
 \begin{itemize}
 \item Keeper
@@ -1309,12 +1315,14 @@ Zur Konfiguration wurde zu den Java Virtual Machine (JVM) Properties zur"uck geg
 \item ThrowIn
 \end{itemize}
 
-Es wurde zu dieser Art der Konfiguration gegriffen, da eine feste Verdrahtung von Rollen im Quelltext vermieden werden sollte. Desweiteren ist damit eine feingranulare Einstellung sowie flexibles "andern von Rollen m"oglich.
+Es wurde zu dieser Art der Konfiguration gegriffen, um eine feste Verdrahtung von Rollen im Quelltext zu vermeiden. Außerdem ist damit eine feingranulare Einstellung sowie flexibles "Andern von Rollen m"oglich.
 
 \section{Strategie-Entscheider}
 \textit{Verfasser: Weber}\\
-Das Konzept des Strategie-Entscheider wurde bereits in Kapitel \ref{StrategieEntscheiderLabel} besprochen. Der folgende Abschnitt zeigt ei.\\
-Der aktuelle Entscheider, arbeitet mit insgesamt 3 unterschiedlichen Strategien. Wobei es sich um eine einfache Proof of Concept-Strategie handelt, sowie die aus den Vorg"anger bekannten defensiver und aggressiver Strategien. Die simple Strategie kann nur "uber einen JVM Parameter aktiviert werden, sollte dieser nicht gesetzt sein, wird die Logik f"ur aggressive, bzw. defensive Strategie ausgef"uhrt. Wie in dem folgenden Code Ausschnitt gezeigt, findet eine Transistion von Defensive zu Aggressive Strategie statt, sobald sich das eigene Team in einem 2 Punkte R"uckstand befindet.
+
+Das Konzept des Strategie-Entscheider wurde bereits in Kapitel \ref{StrategieEntscheiderLabel} besprochen. Der folgende Abschnitt zeigt seine Implementierung.\\
+
+Der aktuelle Entscheider arbeitet mit insgesamt 3 unterschiedlichen Strategien, wobei es sich um eine einfache Proof of Concept-Strategie handelt, sowie die aus den Vorg"anger bekannten defensiver und aggressiver Strategie. Die simple Strategie kann nur "uber einen JVM Parameter aktiviert werden, sollte dieser nicht gesetzt sein, wird die Logik f"ur die aggressive, bzw. defensive Strategie ausgef"uhrt. Wie im folgenden Code Ausschnitt gezeigt, findet eine Transistion von defensive zu aggressive Strategie statt, sobald sich das eigene Team in einem 2 Punkte R"uckstand befindet.
 
 \begin{lstlisting}[caption=Interne Logik des Strategie-Entscheiders, captionpos=b]
 if (USE_SIMPLE) {
@@ -1345,14 +1353,13 @@ currentStrategy.update();
 \end{lstlisting}
 
 \section{Zusammenfassung und Ausblick}
-\textit{Weber}
-java cool, schwere aufgabe, viele probleme zum start. doch akzeptable ergebnisse erzielt. korrekte Wahl getroffen Ausblick durch den featuredruck ist dokumentation und sauberkeit etwas runtergefallen. Das ganze ist aber WIP fuer zukuenftige studenten durchaus machbar.\\
+\textit{Verfasser: Weber}\\
+
+Zusammenfassend kann man sagen, dass ein zufriedenstellendes Ergebnis erzielt werden konnte, obwohl die Aufgabenstellung einen komplizierten Sachverhalt darstellt und das Team zum Start gro"se Probleme hatte. Die grundlegenden Aktionen, die ein Roboter ausf"uhren kann, funktionieren mit den selbst entwickelten Verbesserungen fast ohne Zwischenf"alle, was sich auch positiv auf die Kicking/Time Challenge ausgewirkt hat. Es existiert eine breite Vielfalt von unterschiedlichen Rollen, die sich Dank der Flexibilit"at der zugrundeliegenden Architektur einfach realisieren ließen.\\
 \\
-Zusammenfassend kann man sagen, dass obwohl die Aufgabenstellung einen komplizierten Sachverhalt darstellt und das Team zum Start gro"se Probleme hatte, wurde trotzdem ein zufriedenstellendes Ergebnis entwickelt. Die grundlegenden Aktionen, die ein Roboter ausf"uhren kann, funktionieren mit den selbstentwickelten Verbesserungen fast ohne Zwischenf"alle, was sich auch positiv auf die Kicking/Time Challenge ausgewirkt hat. Es existiert eine breite Vielfalt von unterschiedlichen Rollen, welche alle unterschiedliche Logiken implementieren, was ein Zeugnis der Flexibilit"at der zugrundeliegenden Architektur ist.\\
+Die Wahl des Frameworks Magma-Offenburg und damit für die Programmiersprache Java, hat sich als Vorteilhaft erwiesen. Bef"urchtungen, dass die JVM nicht performant genug sei, konnten nicht beim Abschluss Turnier und dem Testspielen beseitigt werden.\\
 \\
-Ebenfalls die Wahl f"ur Magma-Offenburg, sowie Java hat sich als Vorteilhaft erwiesen. Die Bef"urchtungen dass die JVM nicht performant genug ist, konnten ebenfalls w"ahrend dem Turnier und dem Testspielen wiederlegt werden.\\
-\\
-F"ur zuk"unftige Semester l"asst sich zusammenfassend sagen, dass es sich hierbei um eine durchaus erf"ullbare Aufgabe handelt.\\
+F"ur zuk"unftige Semester l"asst sich zusammenfassend sagen, dass es sich hierbei um eine durchaus erf"ullbare Aufgabe handelt.
 \section{Verzeichnisse}
 \listoffigures
 
