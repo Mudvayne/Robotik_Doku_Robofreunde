@@ -11,14 +11,30 @@
 \usepackage[style=numeric,backend=bibtex]{biblatex}
 \bibliography{Literaturverzeichnis}
 \setlength{\parindent}{0pt}
-                           
-\lstset{ 
-   language=Java, 
-   breaklines=true,             
-   tabsize=4,
-   numbers=left,
-   frame=single
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\lstset{language=Java,
+  basicstyle=\tt,
+  breakatwhitespace=false,
+  breaklines=true,    
+  captionpos=b,
+  extendedchars=true, 
+  frame=single,  
+  numbers=left,
+  keywordstyle=\bf,
+  showspaces=false,
+  showstringspaces=false,  
+  showtabs=false,  
+  tabsize=2,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred}
 }
+
 \newcommand\todo[1]{\textcolor{red}{#1}}
 
 \title{Robotik Dokumentation - Team Robofreunde n.V.}
@@ -340,6 +356,7 @@ DecisionMaker, Believes un Behaviors sind in Magma Offenburg ein eng verwobenes 
 \end{itemize}
 
 Die konkrete Implementierung des DecisionMakers kennt die Instanz des Thoughtmodels und hat somit immer Zugriff auf alle aktuellen Informationen. Die konkrete Entscheidung der nächsten Aktion ist ausgelagert in die Believes, wie man an folgendem Codeausschnitt der Implementierung von \texttt{decide()} sehen kann.
+
 \begin{lstlisting}[caption=Ausschnitt aus decide(), captionpos=b, label=lst:DecidionMaker - decide()]
 .
 .
@@ -609,23 +626,23 @@ Da StraightKick nur den Bewegungsablauf eines geraden Kicks nach vorne definiert
 \textbf{KickToPosition} bietet genau die gewünschte Funktionalität. Folgender Auszug zeit die Idee der Umsetzung.
 
 \begin{lstlisting}[caption=KickToPosition, captionpos=b, label=lst:KickToPosition]
- @Override
-    public IBehavior decideNextBasicBehavior() {
-        updateInternalValues();
-        myShootBehavior.setIntendedKickDirection(properKickPose.getAngle());
-        // set relative pose to ball and angle to kick to
-        myShootBehavior.setRelativeRunToPose(properKickPose.getX(), properKickPose.getY(), properKickPose.getAngle());
-        myShootBehavior.setKickPower(kickPower);
-        // is ball kickable calculates if the player is in a certain polygon, depending of the ball position
-        if (myShootBehavior.isBallKickable() > 0) {
-            return myShootBehavior;
-        } else {
-            // if the ball is not kickable reposition and run to proper kick pose
-            RunToPosition runToPos = (RunToPosition) behaviors.get(IBehaviorConstants.RUN_TO_POSITION);
-            runToPos.setPosition(properKickPose, 0, 0, 55, false);
-            return runToPos;
-        }
-    }
+@Override
+public IBehavior decideNextBasicBehavior() {
+   updateInternalValues();
+   myShootBehavior.setIntendedKickDirection(properKickPose.getAngle());
+   // set relative pose to ball and angle to kick to
+   myShootBehavior.setRelativeRunToPose(properKickPose.getX(), properKickPose.getY(), properKickPose.getAngle());
+   myShootBehavior.setKickPower(kickPower);
+   // is ball kickable calculates if the player is in a certain polygon, depending of the ball position
+   if (myShootBehavior.isBallKickable() > 0) {
+      return myShootBehavior;
+   } else {
+   // if the ball is not kickable reposition and run to proper kick pose
+      RunToPosition runToPos = (RunToPosition) behaviors.get(IBehaviorConstants.RUN_TO_POSITION);
+      runToPos.setPosition(properKickPose, 0, 0, 55, false);
+      return runToPos;
+   }
+}
 \end{lstlisting}
 
 KickToPosition erbt von der Klasse ComplexBehavior, welche aus verschiedenen anderen Behaviors zusammengesetzt sein kann. Über die Methode \textit{decideNextBasicBehavior()} wird für den aktuellen Zyklus ausgewählt welche Behavior ausgeführt werden soll. Im Fall von KickToPosition sind die zwei zur Wahl stehenden Behaviors  RunToPosition (runToPos) um zu Laufen und ein über die Methode \texttt{void setUsedKick(String usedKick)} konfigurierbar Kick (myShootBehavior).\\
