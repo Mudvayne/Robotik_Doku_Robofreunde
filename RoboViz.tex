@@ -1,4 +1,4 @@
-Nach einer kurzen Einarbeitung in Simspark und die Verwendung der ersten Frameworks, wurde klar, dass weder ein klassisches Logging, noch Debugging ausreichende Möglichkeiten bieten um eine schnelle Entwicklung zu ermöglichen. Durch Logging kann zwar der interne Ablauf nachvollzogen werden, jedoch sind serialisierte, dreidimensionale Vektoren wenig anschaulich.
+Nach einer kurzen Einarbeitung in Simspark und der Verwendung der ersten Frameworks, wurde klar, dass weder ein klassisches Logging, noch Debugging ausreichende Möglichkeiten bieten um eine schnelle Entwicklung zu ermöglichen. Durch Logging kann zwar der interne Ablauf nachvollzogen werden, jedoch sind serialisierte, dreidimensionale Vektoren wenig anschaulich.
 Ein Debugging mit Breakpoints stört die Synchronisierung mit den Serverzyklen und ist somit noch eingeschränkter nutzbar. Deshalb wurde nach anderen Möglichkeiten der Analyse gesucht.
 
 \subsection{RoboViz}
@@ -30,7 +30,7 @@ Zudem bietet der Debugger die Möglichkeit einen weiter abzuleiten, der dessen S
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\ScaleIfNeeded]{Grafiken/RoboViz/Debugger}
+	\includegraphics[width=240pt]{Grafiken/RoboViz/Debugger}
 	\caption{Debugger - Beispiel-Hierarchie}
 	\label{fig:debugger-hierarchy}
 \end{figure}
@@ -41,11 +41,11 @@ Die entsprechen Klassen befinden sich in 'srcCommon/visualization'.
 \label{subsec:Debugger Verteilung}
 Um die Hierarchie der Debugger richtig aufzubauen, werden diese über ein 'Debuggable' Interface verteilt. Der Basis-Debugger wird in der Factory-Klasse der RoboFreunde erzeugt und dann an alle 'Behaviors' und 'DecisionMakers' verteilt, die das Interface implementieren. Daher ist es zum Debuggen notwendig das 'NaoRF'-Modell zu verwenden oder sich selbst um die Verteilung zu kümmern.\\
 Wird kein Basis-Debugger erstellt, greifen die 'Debuggables' auf einen NullDebugger zurück, der standardmäßig versteckt ist und somit die anfallende Rechenlast minimiert.\\
-Ein derartige, nachträgliches verknüpfen der Komponenten außerhalb der Konstruktoren ermöglicht auch eine abwärts Kompatibilität zu anderen MetaModellen, die von RoboViz keine Ahnung haben.
+Ein derartige, nachträgliches Verknüpfen der Komponenten außerhalb der Konstruktoren ermöglicht auch eine abwärts Kompatibilität zu anderen MetaModellen, die von RoboViz keine Ahnung haben.
 
 \subsection{Debugger Graph}
 \label{subsec:Debugger Graph}
-Für eine einfachere Auswertung von Messwerten wurde eine Graph-Klasse erzeugt, die eine Reihe von Messwerten als Liniendiagramm darstellt. Beim erstellen wird ein Ort für den Ursprung und ein Vektor, der sowohl Orientierung als auch Größe des Graphen festlegt übergeben. Ein übergebener Debugger dient als Ziel für alle Zeichenoperationen. Zum Darstellen der Daten können diese als Liste von Vector2D-Elementen übergeben werden. Die Skalierung der Achsen erfolgt automatisch und passt sich gegebenenfalls neuen Werten an. (Negative Werte sind ungetestet.)\\
+Für eine einfachere Auswertung von Messwerten wurde eine Graph-Klasse erzeugt, die eine Reihe von Messwerten als Liniendiagramm darstellt. Beim Erstellen wird ein Ort für den Ursprung und ein Vektor, der sowohl Orientierung als auch Größe des Graphen festlegt übergeben. Ein übergebener Debugger dient als Ziel für alle Zeichenoperationen. Zum Darstellen der Daten können diese als Liste von Vector2D-Elementen übergeben werden. Die Skalierung der Achsen erfolgt automatisch und passt sich gegebenenfalls neuen Werten an. (Negative Werte sind ungetestet)\\
 Der Graph sieht nicht nur toll aus und vereinfacht die Aufnahme von vielen Meßwerten für den Menschlichen Geist, er demonstriert auch eindrucksvoll wie Leistungsstark der RoboViz-Monitor bei der Darstellung auch sehr vieler Elemente ist.
 
 \begin{figure}[H]

@@ -12,8 +12,9 @@ Diese wurden iterativ abwechselnd ausgeführt, bis die Gesamtoptimierung in eine
 Im ersten Schritt führte eine Reduktion der maximalen Laufgeschwindigkeit zu einer starken Abnahme von Stolperern. Die damit verbundene Einsparung an Aufstehungen führte somit trotz der langsameren Bewegung zu einer schneller Ankunft am Ziel.
 
 \subsubsection{Gelenkwinkelgeschwindigkeit}
-Im nächsten Schritt wurde mit der Konstante für die Gelenkwinkelgeschwindigkeit experimentiert (\textit{MAX\_JOINT\_SPEED} in  \texttt{magma.robots.nao.INaoConstants}). Eine Erhöhung dieses Werts führte zu einer stabileren und schnelleren Fortbewegung. Die Hoffnung optimale Ergebnisse mit der serverseitigen Konstante zu erzielen wurde leider enttäuscht.\\
-Die ausgelesene Geschwindigkeit in den Config-Files von 6.14 ist in Grad pro Timeframe. Eine Umrechnung in rad/s die der Server im Netzwerkprotokoll entgegen nimmt ergibt 7.03. Dies entspricht dem Wert, der im Framework als Konstante definiert war und zu schlechten Ergebnissen führte.\\
+\label{subsubsec:joint-speed}
+Im nächsten Schritt wurde mit der Konstante für die Gelenkwinkelgeschwindigkeit experimentiert (\textit{MAX\_JOINT\_SPEED} in  \texttt{magma.robots.nao.INaoConstants}). Eine Erhöhung dieses Werts führte zu einer stabileren und schnelleren Fortbewegung. Die Hoffnung, optimale Ergebnisse mit der serverseitigen Konstante zu erzielen, wurde leider enttäuscht.\\
+Die ausgelesene Geschwindigkeit in den Config-Files von 6.14 ist in Grad pro Timeframe. Eine Umrechnung in rad/s, die der Server im Netzwerkprotokoll entgegen nimmt, ergibt 7.03. Dies entspricht dem Wert, der im Framework als Konstante definiert war und zu schlechten Ergebnissen führte.\\
 
 Um mögliche Gründe hierfür zu finden wurde die Auswirkung der Konstante auf die tatsächlich erreichte Geschwindigkeit analysiert.
 Als zu untersuchendes Gelenk wurde der Nacken gewählt, da sich dieser beliebig bewegen lässt ohne den Schwerpunkt des Naos zu verlagern und ihn somit umzuwerfen. So werden Seiteneffekte durch die Gesamtdynamik des Roboters vermieden. Andere Gelenke sind auf die selbe Weise implementiert und die Ergebnisse lassen sich übertragen.
@@ -43,7 +44,7 @@ Zu beachten gilt, dass der zurückgegebene Wert in Grad/Tick ist und somit dem W
 
 Dies ist auf die Implementierung der Motorrepräsentanten im Framework zurückzuführen.
 Dort (\texttt{magma.agent.agentmodel.impl.Motor}) weist die 'getNextSpeed(float angle)' Methode folgenden code auf: \textit{return (angle - perceivedAngle) / 2.0f;}.\\
-Der Motor erreicht durch die Halbierung des Winkels ein langsames Ausklingen an den Rändern der Bewegung. Nimmt man statt dessen den vollen Winkel erreicht der Nao auch die volle Geschwindigkeit von 7.03 rad/s, was leider durch ein Nachfedern an den Endpunkten begleitet wird. Werte von 80\% der Winkeldifferenz führen zu eine sauberen Bewegung, bei 80\% der Geschwindigkeit, leider kann der Nao mit diesen Einstellungen weder laufen, noch aufstehen. Die csv-Dateien der Bewegungen scheinen auf dieses Ausklingverhalten angewiesen, weshalb die ganze Analyse leider wenig Früchte trug und die Konfiguration zurückgesetzt wurde.
+Der Motor erreicht durch die Halbierung des Winkels ein langsames Ausklingen an den Rändern der Bewegung. Nimmt man statt dessen den vollen Winkel erreicht der Nao auch die volle Geschwindigkeit von 7.03 rad/s, was leider durch ein Nachfedern an den Endpunkten begleitet wird. Werte von 80\% der Winkeldifferenz führen zu eine sauberen Bewegung.Leider kann der Nao mit diesen Einstellungen weder laufen, noch aufstehen. Die csv-Dateien der Bewegungen scheinen auf dieses Ausklingverhalten angewiesen, weshalb die ganze Analyse leider wenig Früchte trug und die Konfiguration zurückgesetzt wurde.
 
 \subsubsection{AgentMetaModel}
 Im letzten Schritt wurde das MetaModel des Agents im Framework mit dem des Servers verglichen und Unterschiede beseitigt. Auch dies hatte eine Erhöhung der Stabilität sowohl beim laufen, als auch beim Aufstehen zur Folge. Näheres dazu im Kapitel \ref{sec:nao-models}.

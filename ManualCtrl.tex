@@ -9,7 +9,7 @@ Dazu wurde ein DecisionMaker für manuelle Steuerung implementiert. Dieser erset
 Um eine direkte Steuerbarkeit zu gewährleisten werden einige Befehle in einer Queue gesammelt und abgearbeitet.
 
 Neben den primären Befehlen, die in jedem Server-Zyklus abgearbeitet werden, wie zum Beispiel: Laufen, Kicken, Aufstehen … existieren auch Befehle, die parallel zu diesen ausgeführt werden können. Diese umfassen Sprechsignale und Kopfdrehungen. Sie sind in ihrer Funktion disjunkt zu den Körperbefehlen was die verwendeten Gelenke angeht. Würden diese in der Befehlsqueue ausgeführt werden, käme es zu einer Verzögerung der primären Befehle um die entsprechenden Zyklen. Deshalb werden sie in einer extra Queue für außerordentliche Befehle gesammelt und direkt vor der ordentlichen Queue ausgeführt.\\
-Die zugehörigen Klassen befinden sich im Package \texttt{magma.agent.decision.simple.manual}.
+Die zugehörigen Klassen befinden sich im Package:\\ \texttt{magma.agent.decision.simple.manual}.
 
 \subsection{Autopiloten}
 Um die Übernahme der Kontrolle durch eine KI zu ermöglichen, werden bestehende KIs als Autopiloten eingebunden. Jeder Autopilot beinhaltet einen DecisionMaker der in regulären Bots verwendet wird. Über den manuellen Controller kann nun zwischen den Autopiloten gewechselt werden. Wird ein solcher dann aktiviert, gibt der Controller einen delegierenden Befehl an den Manuellen DecisionMaker weiter. Dieser Befehl übergibt alle Entscheidungen intern an den ihm zugeordneten KI-DecisionMaker. Somit wird der Bot von der KI übernommen. Soll zur manuellen Steuerung zurückgekehrt werden, wird der Befehl auf erledigt gesetzt und somit vom manuellen DecisionMaker aus der Queue entfernt.\\
@@ -28,7 +28,7 @@ Um diesen Controller auszuwählen wird in den Startparametern die DecisionMakerI
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\ScaleIfNeeded]{Grafiken/ManualCtrl/KeyboardController}
+	\includegraphics[width=160pt]{Grafiken/ManualCtrl/KeyboardController}
 	\caption{KeyboardController - Fenster}
 	\label{fig:keyboardcrtl}
 \end{figure}

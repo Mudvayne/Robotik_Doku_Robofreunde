@@ -1,0 +1,23 @@
+Die Kommunikation mit dem Server erfolgt über das Simspark-Protokoll. Im Framework wird diese Schnittstelle durch die Klasse:\\ \texttt{'magma.util.connection.impl.ServerConnection'} abgebildet. In einer Schleife werden dort die Pakete vom Server entgegen genommen und über das Observer Pattern an die \texttt{AgentRuntime} weiter geleitet. Diese verteilt die Daten über die \texttt{Perception} an die entsprechenden \texttt{Perceptoren}. So werden die Daten an die \texttt{Sensoren} (z.B. einen Joint) weitergeleitet.\\
+Um in die Gegenrichtung Informationen zu senden wird durch die \texttt{Effektoren} eine \texttt{Action} generiert. Eine solche enthält den spezifischen Bezeichner des Effektors und den umzusetzenden Wert (vgl. Abb. \ref{fig:networkjointanalysis}).\\
+Somit ist die gesamte Logik der Datenkonvertierung in den \texttt{Sensoren} und \texttt{Effektoren} gekapselt. In höheren Ebenen können so die Gelenke direkt manipuliert werden und die entsprechenden Befehle werden im nächsten Zyklus automatisch im richtigen Format an den Server gesendet.\\
+
+Um die Kommunikation mit dem Server analysieren zu können bietet das Framework die Möglichkeit, den gesamten Verkehr zu loggen. So kann auf zusätzliche externe Werzeuge, wie Wireshark verzichtet werden und alle kommunizierten Daten werden direkt in Dateien geschrieben. Dazu muss in der \texttt{magma.robots.nao.general.ComponentFactory} in der Methode \textit{createChannelManager} ein \textit{SimsparkLogfileWriterChannel} mit dem \textit{ChannelManager} verknüpft werden. Ein Beispiel:\\
+
+\begin{lstlisting}[caption=Loggen der Kommunikation, captionpos=b, label=lst:com-log]
+@Override
+public IChannelManager createChannelManager(ChannelParameters info)
+{
+	IChannelManager channelManager = new ChannelManager();
+
+	File filePercept = new File("log/perceptions.log");
+	File fileAct = new File("log/actions.log");
+	InputOutputChannel channel = new SimsparkLogfileWriterChannel(channelManager
+		,info, filePercept, fileAct);
+
+	channel.init(createAgentMetaModel());
+	channelManager.addInputChannel(channel, true);
+	channelManager.addOutputChannel(channel);
+	return channelManager;
+}
+\end{lstlisting}
