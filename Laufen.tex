@@ -9,9 +9,13 @@ Danach erfolgte eine Verbesserung in drei Schritten:
 Diese wurden iterativ abwechselnd ausgeführt, bis die Gesamtoptimierung in einem globalen Maximum angelangt war.
 
 \subsubsection{Laufgeschwindigkeit}
+\textit{Verfasser: Schramm}\\
+\\
 Im ersten Schritt führte eine Reduktion der maximalen Laufgeschwindigkeit zu einer starken Abnahme von Stolperern. Die damit verbundene Einsparung an Aufstehungen führte somit trotz der langsameren Bewegung zu einer schneller Ankunft am Ziel.
 
 \subsubsection{Gelenkwinkelgeschwindigkeit}
+\textit{Verfasser: Schramm}\\
+\\
 \label{subsubsec:joint-speed}
 Im nächsten Schritt wurde mit der Konstante für die Gelenkwinkelgeschwindigkeit experimentiert (\textit{MAX\_JOINT\_SPEED} in  \texttt{magma.robots.nao.INaoConstants}). Eine Erhöhung dieses Werts führte zu einer stabileren und schnelleren Fortbewegung. Die Hoffnung, optimale Ergebnisse mit der serverseitigen Konstante zu erzielen, wurde leider enttäuscht.\\
 Die ausgelesene Geschwindigkeit in den Config-Files von 6.14 ist in Grad pro Timeframe. Eine Umrechnung in rad/s, die der Server im Netzwerkprotokoll entgegen nimmt, ergibt 7.03. Dies entspricht dem Wert, der im Framework als Konstante definiert war und zu schlechten Ergebnissen führte.\\
@@ -47,4 +51,6 @@ Dort (\texttt{magma.agent.agentmodel.impl.Motor}) weist die 'getNextSpeed(float 
 Der Motor erreicht durch die Halbierung des Winkels ein langsames Ausklingen an den Rändern der Bewegung. Nimmt man statt dessen den vollen Winkel erreicht der Nao auch die volle Geschwindigkeit von 7.03 rad/s, was leider durch ein Nachfedern an den Endpunkten begleitet wird. Werte von 80\% der Winkeldifferenz führen zu eine sauberen Bewegung.Leider kann der Nao mit diesen Einstellungen weder laufen, noch aufstehen. Die csv-Dateien der Bewegungen scheinen auf dieses Ausklingverhalten angewiesen, weshalb die ganze Analyse leider wenig Früchte trug und die Konfiguration zurückgesetzt wurde.
 
 \subsubsection{AgentMetaModel}
+\textit{Verfasser: Schramm}\\
+\\
 Im letzten Schritt wurde das MetaModel des Agents im Framework mit dem des Servers verglichen und Unterschiede beseitigt. Auch dies hatte eine Erhöhung der Stabilität sowohl beim laufen, als auch beim Aufstehen zur Folge. Näheres dazu im Kapitel \ref{sec:nao-models}.

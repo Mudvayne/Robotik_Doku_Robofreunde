@@ -3,15 +3,23 @@ Deshalb wurde ein eigenes Behavior zu diesem Zweck entwickelt\\
 (\texttt{magma.robots.robofreunde.behavior.complex.DribbleWithBall}).
 
 \subsubsection{Grundidee}
+\textit{Verfasser: Schramm}\\
+\\
 Da der Kick zum Entwicklungszeitpunkt der Dribbelfunktion nur sporadisch erfolgreich war, wurde als Grundlage das Laufen verwendet. Läuft der NAO gegen den Ball, so rollt dieser von ihm weg. Geschieht dies nun aus der richtigen Richtung, bewegen sich sowohl der Roboter als auch der Ball in die gewünschte Richtung. Aufgrund der geringeren Berührungsintensität am Ball, im Vergleich zum Kick, bleibt so auch die maximale Distanz zwischen diesem und dem NAO beim dribbeln kleiner.
 
 \subsubsection{Positionierung}
+\textit{Verfasser: Schramm}\\
+\\
 Für die Positionierung zum Ball wird der relative Vektor von diesem zum Ziel berechnet und von dessen Position abgezogen. Die so berechnete Stelle liegt auf einer Linie mit dem Ball und dem Ziel. Erreicht der NAO diesen Ort, liegt der Ball genau zwischen ihm und dem gewünschten Ziel. In der Theorie schiebt der Roboter nun den Ball, während er sich auf das Ziel zu bewegt.
 
 \subsubsection{Ball dribbeln}
+\textit{Verfasser: Schramm}\\
+\\
 Um zu verhindern, dass der NAO beim Versuch zu dribbeln den vor sich liegenden Ball als Hindernis erkennt, welchem er ausweichen soll, wurde ein neues Lauf-Behavoir (\texttt{magma.robots.robofreunde.behavior.complex.HulkToPosition}) vom bestehenden abgeleitet. Dieses ignoriert alle Hindernisse auf seinem Weg und bringt den NAO unsicher ans Ziel.
 
 \subsubsection{Ausrichtung zum Ball}
+\textit{Verfasser: Schramm}\\
+\\
 Beim Bewegen zum gewünschten Ziel überprüft der NAO dabei ständig ob der Ball noch richtig liegt. Zu diesem Zweck wird ein Rechteck zwischen dem Ziel und der eigenen Position aufgespannt, dessen Breite kleiner ist als die des NAOs. Rollt der Ball nun über eine der Seitenlinien wird dies erkannt und eine Neupositionierung eingeleitet. Eine ungültige Seitenlinie wird im Debugger durch eine rote Färbung kenntlich gemacht, gültige sind grün.
 
 
@@ -46,6 +54,8 @@ private boolean isAlignedWithBallReckt(double epsilon) {
 \end{lstlisting}
 
 \subsubsection{Ausrichtung zum Ziel}
+\textit{Verfasser: Schramm}\\
+\\
 Da zwar der Ball im Rechteck liegen, der NAO aber verdreht zum Ziel stehen kann, wird auch diese Ausrichtung überprüft. Dabei der Winkel gemessen, der zwischen der aktuellen Ausrichtung des Bots und der Zielposition liegt. Ist dieser größer als ein zulässiger Maximalwert, wird eine Neupositionierung eingeleitet.\\
 Befindet sich der NAO nahe am Ziel, ist eine größere Abweichung weniger schlimm, da schon kleine Änderungen im Ort große Auswirkungen auf den Winkel haben. Um diesem Umstand gerecht zu werden, wird der zulässige Maximalwert in Abhängigkeit zur Entfernung zum Ziel erhöht. Im Debugger werden die äußersten zulässigen Winkel durch Schenkelstücke dargestellt. Liegt das Ziel nicht innerhalb der Grenzen wechselt deren Farbe von Grün auf Rot.
 
@@ -70,6 +80,8 @@ private boolean isFacingTarget() {
 \end{lstlisting}
 
 \subsubsection{MetricBot}
+\textit{Verfasser: Schramm}\\
+\\
 Zur Bewertung des Optimierungsfortschritts wurde ein Decisionmaker implementiert, der einen gegebenen Parkour abdribbelt. Die benötigte Zeit gilt als zu minimierendes Kriterium. Im Laufe der Tests wurden so auch Schwächen einer Überprüfung der Ausrichtung zum Ball via Winkel aufgedeckt. Sie hatten die Implementierung der Funktion in ihrem aktuellen Zustand zur Folge.\\
 In guten Versuchen liegt die benötigte Zeit für den Parkour mit einem Dribbeln des Balls nur circa ein Drittel höher als beim reinen Ablaufen ohne Ball.
 

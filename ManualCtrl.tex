@@ -5,6 +5,8 @@ Um die KI interaktiv zu testen, wurde eine Möglichkeit integriert, den Nao zu b
 \end{itemize}
 
 \subsection{Aufbau}
+\textit{Verfasser: Schramm}\\
+\\
 Dazu wurde ein DecisionMaker für manuelle Steuerung implementiert. Dieser ersetzt die KI und nimmt Befehle von einem manuellen Controller entgegen.
 Um eine direkte Steuerbarkeit zu gewährleisten werden einige Befehle in einer Queue gesammelt und abgearbeitet.
 
@@ -12,6 +14,8 @@ Neben den primären Befehlen, die in jedem Server-Zyklus abgearbeitet werden, wi
 Die zugehörigen Klassen befinden sich im Package:\\ \texttt{magma.agent.decision.simple.manual}.
 
 \subsection{Autopiloten}
+\textit{Verfasser: Schramm}\\
+\\
 Um die Übernahme der Kontrolle durch eine KI zu ermöglichen, werden bestehende KIs als Autopiloten eingebunden. Jeder Autopilot beinhaltet einen DecisionMaker der in regulären Bots verwendet wird. Über den manuellen Controller kann nun zwischen den Autopiloten gewechselt werden. Wird ein solcher dann aktiviert, gibt der Controller einen delegierenden Befehl an den Manuellen DecisionMaker weiter. Dieser Befehl übergibt alle Entscheidungen intern an den ihm zugeordneten KI-DecisionMaker. Somit wird der Bot von der KI übernommen. Soll zur manuellen Steuerung zurückgekehrt werden, wird der Befehl auf erledigt gesetzt und somit vom manuellen DecisionMaker aus der Queue entfernt.\\
 Die verwendeten Autopiloten werden im Konstruktor übergeben. Die Auswahl erfolgt in der ComponentFactory unter \texttt{magma.agent.general}. Zur einfacheren Übersicht wurde eine Vorauswahl in einer Methode 'getAutoPilots(...)' ausgelagert.
 
@@ -35,6 +39,8 @@ Um diesen Controller auszuwählen wird in den Startparametern die DecisionMakerI
 
 
 \subsection{Gamepad Controller}
+\textit{Verfasser: Schramm}\\
+\\
 Für eine feinere Steuerung wurde eine Schnittstelle für Gamepads integriert. Diese bietet die selben Möglichkeiten wie über Tastatur. Dabei wurden für einige gängige Controller bereits Profile angelegt. Um diese zu erweitern und eigene hinzuzufügen, muss in der Klasse GamepadController ein neue Initialisierung angelegt werden, die das entsprechende Tastenmapping umsetzt (siehe Beispiel).\\
 Um diesen Controller auszuwählen wird in den Startparametern die DecisionMakerID 101 übergeben.
 
