@@ -545,6 +545,27 @@ Das Goal-Driven Agent Design wird in \cite[S. 379 ff.]{buckland2005programming} 
 	\label{fig2}
 \end{figure}
 
+\subsection{KI-Architektur}
+\textit{Verfasser: Weber}\\
+\\
+\begin{figure}[ht]
+	\centering
+  	\includegraphics[width=1.0\textwidth]{Grafiken/KI/ki-architecture.png}
+	\caption{Die KI-Architektur dargestellt in UML}
+	\label{ki-architecture}
+\end{figure}
+
+Damit das entwickeln unterschiedlicher Komponenten sowie die Kommunikation mit dem Roboter reibungslos stattfinden kann, ist eine einheitliche Architektur sowie Schnittstelle zu dem benutzten Framework notwendig. Als Schnittstelle wurden die von Magma-Offenburg bereitgestellten \lstinline$Interface$s benutzt. Die erstellte Architektur ist der Abbildung \ref{ki-architecture} zu entnehmen, sie besteht aus 2 Hauptkomponenten, welche folgend erkl"art werden.
+
+\paragraph{Player}
+Diese Klasse implementiert die Magma Offenburg Schnittstelle und ist fuer die Ausf"uhrung des aktuellen \lstinline$BotStates$ zust"andig.
+
+\paragraph{BotState}
+In diesem Interface wird die eigentliche Logik implementiert. Mit ihr wurde das State Design Pattern umgesetzt.
+
+\paragraph{Zusammenspiel der beiden Komponenten}
+Die Rahmenklasse \lstinline$Player$, kennt wie bereits gesagt nur die aktuelle \lstinline$BotState$-Klasse. Der Aufruf zum aktualisieren der Logik wird "uber die \lstinline$update$ Methode an den \lstinline$BotState$ weitergereicht. Sollte dieser entscheiden dass ein "Ubergang zu einem anderen \lstinline$BotState$ notwendig wird, wird die Referenz auf diesen als R"uckgabeparameter geliefert. Damit ist die Rahmenklasse unabh"angig von der eigentlichen KI, sie ben"otigt lediglich die Referenz auf den Start \lstinline$BotState$. Diese sind f"ur ihre korrekte Ausf"uhrung selbst verantwortlich. Als Konsequenz bilden sich f"ur jede Rolle, kleinere Cluster von \lstinline$BotState$s die untereinander abh"angig sind. Durch dieses Vorgehen ist ebenfalls die Implementierung des Decorator Pattern m"oglich, was wiederum f"ur die Strategien, sowie den Stragie-Entscheider ben"otigt wird.
+
 \section{Elementare Bewegungen}\label{se:Elementare Bewegungen}
 \textit{Verfasser: Stumpf}\\
 \\
